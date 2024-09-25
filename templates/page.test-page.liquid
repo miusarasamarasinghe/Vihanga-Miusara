@@ -25,12 +25,12 @@
   <style>
     .simple-banner-section {
       position: relative;
-      height:100%;
+      height: 100%;
       max-width: 1200px;
-      margin-left: auto;  
-      margin-right: auto; 
+      margin-left: auto;
+      margin-right: auto;
       margin-top: auto;
-      margin-bottom:5%;
+      margin-bottom: 5%;
       color: black;
     }
 
@@ -48,7 +48,7 @@
       padding-left: 3rem;
       color: black;
       width: 45%;
-      text-align: left; 
+      text-align: left;
     }
 
     .hero-title {
@@ -68,98 +68,92 @@
     }
 
     .small-device-sec {
-      display: none; 
-      position: absolute; 
-      top: 0; 
-      left: 0; 
-      width: 100%; 
-      z-index: 10; 
-      text-align: center; 
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      text-align: center;
     }
 
     /* Button styles */
     .cta-button {
       display: inline-block;
       padding: 10px 20px;
-      background-color: black; 
+      background-color: black;
       color: white;
       text-decoration: none;
-     
+      border: 2px solid black;
       border-radius: 5px;
       position: relative;
-      overflow: hidden; 
-      transition: color 0.3s ease; 
-      margin-top: 15px; 
+      overflow: hidden;
+      margin-top: 15px;
+      z-index: 1; /* Ensures text stays above */
+      transition: color 0.4s ease; /* Text color transition */
     }
 
     .cta-button .arrow {
-      margin-left: 10px; /* Space between text and arrow */
-      transition: color 0.3s ease; /* Smooth transition for arrow color */
+      margin-left: 10px;
+      transition: color 0.4s ease;
     }
 
-    /* Create the background animation */
+    /* Background animation on hover */
     .cta-button::before {
       content: "";
       position: absolute;
-      color:black;
       top: 0;
-      left: -100%; /* Start the animation off the left side */
+      left: -100%; /* Start outside the button */
       width: 100%;
       height: 100%;
-      background-color: yellow; /* End color */
+      background-color: yellow; /* Hover background color */
       z-index: 0;
-      transition: transform 1s ease; /* Control the speed and easing */
+      transition: left 0.5s ease; /* Smooth background movement */
     }
 
+    /* On hover, the background moves across the button */
     .cta-button:hover::before {
-      transform: translateX(100%); /* Move the yellow background across the button */
+      left: 0;
     }
 
+    /* On hover, text color changes */
     .cta-button:hover {
-      color: black; /* Change the text color on hover */
+      color: black; /* Text color changes on hover */
     }
 
     .cta-button:hover .arrow {
       color: black; /* Arrow color changes on hover */
     }
 
-
-    /* Ensure the text is above the animation */
-    .cta-button span, .cta-button .arrow {
-      position: relative;
-      z-index: 1;
-    }
-
     /* Responsive styles */
     @media (max-width: 768px) {
       .banner-image {
-        display: none; 
+        display: none;
       }
 
       .small-device-sec {
-        display: block; 
+        display: block;
       }
 
       .small-device-image {
-        width: 100%; 
-        height: auto; 
+        width: 100%;
+        height: auto;
       }
 
-      /* Add titles on small devices */
       .small-device-title {
         font-family: Jost;
         font-size: 30px;
         color: black;
-        margin-top: 20px; 
-        padding: 5px; 
+        margin-top: 20px;
+        padding: 5px;
       }
 
       .small-device-subtitle {
         font-family: Jost;
         font-size: 18px;
         color: black;
-        margin-top: 5px; 
-        padding: 10px; 
+        margin-top: 5px;
+        padding: 10px;
       }
     }
   </style>
