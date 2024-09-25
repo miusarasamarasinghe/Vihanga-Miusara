@@ -5,6 +5,12 @@
       <div class="text-overlay">
         <h2 class="hero-title">The Gift Guide</h2>
         <h2 class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</h2>
+        
+        <!-- Button with arrow -->
+        <a href="#" class="cta-button">
+          Shop Now 
+          <span class="arrow">→</span>
+        </a>
       </div>
     </div>
 
@@ -20,17 +26,16 @@
     .simple-banner-section {
       position: relative;
       height: 500px;
-       max-width: 1200px;
+      max-width: 1200px;
       margin-left: auto;  
       margin-right: auto; 
-      margin-top:auto;
-
+      margin-top: auto;
     }
 
     .banner-image {
       background-size: cover;
       background-position: center;
-       max-width: 1200px;
+      max-width: 1200px;
       height: 100%;
       position: relative;
     }
@@ -69,6 +74,34 @@
       width: 100%; 
       z-index: 10; 
       text-align: center; 
+    }
+
+    /* Button styles */
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: white; /* Initial background color */
+      color: black; /* Initial text color */
+      text-decoration: none;
+      border: 2px solid black; /* Border color */
+      border-radius: 5px;
+      position: relative;
+      transition: background-color 0.3s, color 0.3s; /* Transition for smooth effect */
+      margin-top: 15px; /* Space above the button */
+    }
+
+    .cta-button .arrow {
+      margin-left: 10px; /* Space between text and arrow */
+      transition: color 0.3s; /* Smooth transition for arrow color */
+    }
+
+    .cta-button:hover {
+      background-color: black; /* Background color on hover */
+      color: white; /* Text color on hover */
+    }
+
+    .cta-button:hover .arrow {
+      color: white; /* Arrow color on hover */
     }
 
     /* Responsive styles */
