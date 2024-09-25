@@ -1,16 +1,16 @@
 {% layout 'theme' %}
 
 <section class="custom-page-section">
-<div class="simple-banner-section">
-  <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
-    <div class="text-overlay">
-      <h2 class="hero-title">The Gift Guide</h2>
-      <h2 class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</h2>
+  <div class="simple-banner-section">
+    <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
+      <div class="text-overlay">
+        <h2 class="hero-title">The Gift Guide</h2>
+        <h2 class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</h2>
+      </div>
     </div>
   </div>
-</div>
 
-<style>
+  <style>
     .simple-banner-section {
       position: relative;
       height: 500px;
@@ -29,7 +29,8 @@
       margin-left: 3rem;
       color: white;
       padding: 10px;
-      width:39%;
+      width: 39%;
+      text-align: left; /* Keep text left-aligned for large devices */
     }
     .hero-title {
       font-family: Jost;
@@ -66,9 +67,18 @@
     @media (max-width: 768px) {
       .hero-title {
         font-size: 30px; 
+        position: absolute; /* Position the title at the top */
+        top: 20px; /* Adjust top position */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center the title */
+        text-align: center; /* Center align text */
       }
       .hero-para {
         font-size: 14px; 
+        position: absolute; /* Position the subtitle */
+        bottom: 20px; /* Adjust bottom position */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center the subtitle */
       }
     }
   </style>
