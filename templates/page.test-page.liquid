@@ -11,11 +11,8 @@
     <!-- Section for small devices -->
     <div class="small-device-sec">
       <h2 class="small-device-title">The Gift Guide</h2>
-      
       <h2 class="small-device-subtitle">Discover Joy: Your Ultimate Holiday Gift Destination.</h2>
-      <div>
       <img src="{{ 'MobleBanner.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
-      </div>
     </div>
   </div>
 
@@ -62,6 +59,12 @@
 
     .small-device-sec {
       display: none; /* Hide small device section by default */
+      position: absolute; /* Position it absolutely within the parent */
+      top: 0; /* Align it to the top of the parent */
+      left: 0; /* Align it to the left of the parent */
+      width: 100%; /* Make it full width */
+      z-index: 10; /* Bring it above other elements */
+      text-align: center; /* Center text */
     }
 
     /* Responsive styles */
@@ -81,26 +84,19 @@
 
       /* Add titles on small devices */
       .small-device-title {
-        color: black;
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative; /* Change to relative */
         font-family: Jost;
         font-size: 30px;
         color: white;
-        text-align: center;
+        margin-top: 20px; /* Add margin to push down */
       }
 
       .small-device-subtitle {
-        position: absolute;
-        top: 70px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative; /* Change to relative */
         font-family: Jost;
         font-size: 18px;
         color: white;
-        text-align: center;
+        margin-top: 10px; /* Add margin to push down */
       }
     }
   </style>
