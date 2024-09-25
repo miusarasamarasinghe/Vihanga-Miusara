@@ -55,7 +55,15 @@
       line-height: 28px;
       text-align: left;
     }
+.small-device-title {
+         display: none
+      
+      }
 
+      .small-device-subtitle {
+         display: none
+ 
+      }
     /* Responsive styles */
     @media (max-width: 768px) {
       .banner-image {
@@ -70,6 +78,7 @@
 
       /* Add titles on small devices */
       .small-device-title {
+          display: block;
         position: absolute; 
         top: 20px; 
         left: 50%; 
@@ -81,6 +90,7 @@
       }
 
       .small-device-subtitle {
+          display: block;
         position: absolute; 
         top: 70px; 
         left: 50%; 
