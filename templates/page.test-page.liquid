@@ -8,8 +8,10 @@
       </div>
     </div>
 
-    <!-- Image for small devices -->
-    <img src="{{ 'your-image.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
+    <div class="small-device-title">The Gift Guide</div>
+    <div class="small-device-subtitle">Discover Joy: Your Ultimate Holiday Gift Destination.</div>
+
+    <img src="{{ 'banner-imageBG.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
 
   </div>
 
@@ -68,30 +70,28 @@
 
       /* Add titles on small devices */
       .small-device-title {
-        position: absolute; /* Position the title */
-        top: 20px; /* Adjust top position */
-        left: 50%; /* Center horizontally */
-        transform: translateX(-50%); /* Center the title */
+        position: absolute; 
+        top: 20px; 
+        left: 50%; 
+        transform: translateX(-50%); 
         font-family: Jost;
-        font-size: 30px; /* Adjust font size */
-        color: white; /* Change text color to white */
-        text-align: center; /* Center align text */
+        font-size: 30px;
+        color: white; 
+        text-align: center; 
       }
 
       .small-device-subtitle {
-        position: absolute; /* Position the subtitle */
-        top: 70px; /* Adjust top position */
-        left: 50%; /* Center horizontally */
-        transform: translateX(-50%); /* Center the subtitle */
+        position: absolute; 
+        top: 70px; 
+        left: 50%; 
+        transform: translateX(-50%); 
         font-family: Jost;
-        font-size: 18px; /* Adjust font size */
-        color: white; /* Change text color to white */
-        text-align: center; /* Center align text */
+        font-size: 18px; 
+        color: white; 
+        text-align: center; 
       }
     }
   </style>
 </section>
 
-<!-- Add the titles only visible on small devices -->
-<div class="small-device-title">The Gift Guide</div>
-<div class="small-device-subtitle">Discover Joy: Your Ultimate Holiday Gift Destination.</div>
+
