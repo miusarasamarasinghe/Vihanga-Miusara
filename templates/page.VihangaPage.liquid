@@ -197,6 +197,58 @@
     font-size: 24px; 
     color: black; 
 }
+.header-button{
+
+}
+    .header-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #FFF544;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease; 
+    }
+
+    .header-button .arrow {
+      margin-left: 10px;
+      transition: color 0.4s ease;
+      color: black;
+    }
+
+    /* Background animation on hover */
+    .header-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%; 
+      width: 100%;
+      height: 100%;
+      background-color: black; 
+      z-index: 0;
+      transition: left 0.5s ease; 
+    }
+
+    .header-button:hover::before {
+      left: 0;
+    }
+
+    .header-button:hover {
+      color: black !important; 
+    }
+
+    .header-button .bttn-txt-header,
+    .cta-button .arrow-header {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-button:hover .bttn-txt-header,
+    .header-button:hover .arrow-header {
+      color: black !important; 
+    }
 
   </style>
   <header class="page-header">
@@ -209,9 +261,9 @@
         </div>
         <div class="header-right">
             <div>
-        <a href="#" class="cta-button">
-          <span class="bttn-txt">Shop Now </span>
-          <span class="arrow">→</span>
+        <a href="#" class="header-button">
+          <span class="bttn-txt-header">Shop Now </span>
+          <span class="arrow-header">→</span>
         </a>
          </div>
         </div>
