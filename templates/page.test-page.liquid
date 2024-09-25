@@ -1,38 +1,6 @@
 <section class="custom-page-section">
-  <div class="simple-banner-section">
-    <!-- Background image for large devices -->
-    <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
-      <div class="text-overlay">
-      <div>
-        <div class="hero-title">The Gift Guide</div>
-        <div class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</div>
-        </div>
-        <div>
-        <a href="#" class="cta-button">
-          <span class="bttn-txt">Shop Now </span>
-          <span class="arrow">→</span>
-        </a>
-         </div>
-      </div>
-    </div>
 
-    <!-- Section for small devices -->
-    <div class="small-device-sec">
-      <h2 class="small-device-title">The Gift Guide</h2>
-      <h2 class="small-device-subtitle">Discover Joy: Your Ultimate Holiday Gift Destination.</h2>
-      
-      <!-- Mobile banner image with centered button -->
-      <div class="mobile-banner-wrapper">
-        <a href="#" class="cta-button mobile-banner-button">
-          <span class="bttn-txt">Shop Now </span>
-          <span class="arrow">→</span>
-        </a>
-        <img src="{{ 'MobleBanner.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
-      </div>
-    </div>
-  </div>
-
-  <style>
+<style>
     .simple-banner-section {
       position: relative;
       max-height: 850px;
@@ -197,5 +165,84 @@
         padding: 10px;
       }
     }
+    .page-header {
+    background-color: #f8f8f8; /* Light background color */
+    padding: 10px; /* Add padding for spacing */
+    border-bottom: 2px solid #ccc; /* Optional border for separation */
+}
+
+.header-container {
+    display: flex; /* Use flexbox to arrange items */
+    justify-content: space-between; /* Distribute space between columns */
+    align-items: center; /* Align items vertically */
+}
+
+.header-left, .header-center, .header-right {
+    flex: 1; /* Each column takes equal space */
+    text-align: left; /* Default text alignment for left */
+}
+
+.header-center {
+    text-align: center; /* Center text for the middle column */
+}
+
+.header-right {
+    text-align: right; /* Right align text for the right column */
+}
+
+.header-left h1, .header-center h1, .header-right h1 {
+    margin: 0; /* Remove default margin */
+    font-family: Jost, sans-serif; /* Match your other text styles */
+    font-size: 24px; /* Adjust size as needed */
+    color: black; /* Text color */
+}
+
+<header class="page-header">
+    <div class="header-container">
+        <div class="header-left">
+            <h1>Left Aligned</h1>
+        </div>
+        <div class="header-center">
+            <h1>Centered Title</h1>
+        </div>
+        <div class="header-right">
+            <h1>Right Aligned</h1>
+        </div>
+    </div>
+</header>
+  <div class="simple-banner-section">
+    <!-- Background image for large devices -->
+    <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
+      <div class="text-overlay">
+      <div>
+        <div class="hero-title">The Gift Guide</div>
+        <div class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</div>
+        </div>
+        <div>
+        <a href="#" class="cta-button">
+          <span class="bttn-txt">Shop Now </span>
+          <span class="arrow">→</span>
+        </a>
+         </div>
+      </div>
+    </div>
+
+    <!-- Section for small devices -->
+    <div class="small-device-sec">
+      <h2 class="small-device-title">The Gift Guide</h2>
+      <h2 class="small-device-subtitle">Discover Joy: Your Ultimate Holiday Gift Destination.</h2>
+      
+      <!-- Mobile banner image with centered button -->
+      <div class="mobile-banner-wrapper">
+        <a href="#" class="cta-button mobile-banner-button">
+          <span class="bttn-txt">Shop Now </span>
+          <span class="arrow">→</span>
+        </a>
+        <img src="{{ 'MobleBanner.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
+      </div>
+    </div>
+  </div>
+
+  
   </style>
 </section>
