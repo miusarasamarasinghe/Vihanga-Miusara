@@ -171,42 +171,49 @@
 }
 
 .header-container {
-    display: flex; /* Use flexbox to arrange items */
-    justify-content: space-between; /* Distribute space between columns */
-    align-items: center; /* Align items vertically */
+    padding-left: 3rem;
+    padding-right:3rem
+    display: flex; 
+    justify-content: 
+    align-items: center;
 }
 
 .header-left, .header-center, .header-right {
-    flex: 1; /* Each column takes equal space */
-    text-align: left; /* Default text alignment for left */
+    flex: 1; 
+    text-align: left; 
 }
 
 .header-center {
-    text-align: center; /* Center text for the middle column */
+    text-align: center; 
 }
 
 .header-right {
-    text-align: right; /* Right align text for the right column */
+    text-align: right; 
 }
 
 .header-left h1, .header-center h1, .header-right h1 {
-    margin: 0; /* Remove default margin */
-    font-family: Jost, sans-serif; /* Match your other text styles */
-    font-size: 24px; /* Adjust size as needed */
-    color: black; /* Text color */
+    margin: 0; 
+    font-family: Jost, sans-serif; 
+    font-size: 24px; 
+    color: black; 
 }
 
   </style>
   <header class="page-header">
     <div class="header-container">
         <div class="header-left">
-            <h1>Left Aligned</h1>
+            <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav" />
         </div>
         <div class="header-center">
-            <h1>Centered Title</h1>
+            Find the ideal gift for your loved ones.
         </div>
         <div class="header-right">
-            <h1>Right Aligned</h1>
+            <div>
+        <a href="#" class="cta-button">
+          <span class="bttn-txt">Shop Now </span>
+          <span class="arrow">→</span>
+        </a>
+         </div>
         </div>
     </div>
 </header>
