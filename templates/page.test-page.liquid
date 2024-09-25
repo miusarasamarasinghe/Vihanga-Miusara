@@ -8,6 +8,10 @@
         <h2 class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</h2>
       </div>
     </div>
+
+  
+    <img src="{{ 'banner-imageBG.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
+
   </div>
 
   <style>
@@ -65,6 +69,13 @@
       }
     }
     @media (max-width: 768px) {
+      .banner-image {
+        display: none; /* Hide the background image */
+      }
+      .small-device-image {
+        width: 100%; /* Make the new image full width */
+        height: auto; /* Maintain aspect ratio */
+      }
       .hero-title {
         font-size: 30px; 
         position: absolute; /* Position the title at the top */
@@ -72,13 +83,16 @@
         left: 50%; /* Center horizontally */
         transform: translateX(-50%); /* Center the title */
         text-align: center; /* Center align text */
+        color: white; /* Change text color to white */
       }
       .hero-para {
         font-size: 14px; 
         position: absolute; /* Position the subtitle */
-        bottom: 20px; /* Adjust bottom position */
+        top: 80px; /* Adjust top position */
         left: 50%; /* Center horizontally */
         transform: translateX(-50%); /* Center the subtitle */
+        color: white; /* Change text color to white */
+        text-align: center; /* Center align text */
       }
     }
   </style>
