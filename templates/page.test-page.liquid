@@ -7,12 +7,12 @@
         <h2 class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</h2>
       </div>
     </div>
-
+ <div class="small-device-sec">
     <h2 class="small-device-title">The Gift Guide</h2>
     <h2 class="small-device-subtitle">Discover Joy: Your Ultimate Holiday Gift Destination.</h2>
 
     <img src="{{ 'MobleBanner.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
-
+  </div>
   </div>
 
   <style>
@@ -55,34 +55,29 @@
       line-height: 28px;
       text-align: left;
     }
-.small-device-title {
+.small-device-sec {
          display: none
       
       }
 
-      .small-device-subtitle {
-         display: none
- 
-      }
-            .small-device-image {
-         display: none
- 
-      }
+
     /* Responsive styles */
     @media (max-width: 768px) {
       .banner-image {
         display: none; /* Hide the background image */
       }
-
+small-device-sec{
+  display: block;
+}
       .small-device-image {
-        display: block; /* Show the new image */
+       /* Show the new image */
         width: 100%; /* Make the new image full width */
         height: auto; /* Maintain aspect ratio */
       }
 
       /* Add titles on small devices */
       .small-device-title {
-          display: block;
+       
         position: absolute; 
         top: 20px; 
         left: 50%; 
@@ -94,7 +89,7 @@
       }
 
       .small-device-subtitle {
-          display: block;
+      
         position: absolute; 
         top: 70px; 
         left: 50%; 
