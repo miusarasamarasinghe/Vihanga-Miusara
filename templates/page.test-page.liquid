@@ -38,7 +38,7 @@
       color: white;
       padding: 10px;
       width: 39%;
-      text-align: left; /* Keep text left-aligned for large devices */
+      text-align: left; 
     }
 
     .hero-title {
@@ -58,28 +58,27 @@
     }
 
     .small-device-sec {
-      display: none; /* Hide small device section by default */
-      position: absolute; /* Position it absolutely within the parent */
-      top: 0; /* Align it to the top of the parent */
-      left: 0; /* Align it to the left of the parent */
-      width: 100%; /* Make it full width */
-      z-index: 10; /* Bring it above other elements */
-      text-align: center; /* Center text */
-    }
+      display: none; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      z-index: 10; 
+      text-align: center; z}
 
     /* Responsive styles */
     @media (max-width: 768px) {
       .banner-image {
-        display: none; /* Hide the background image */
+        display: none; 
       }
 
       .small-device-sec {
-        display: block; /* Show the small device section */
+        display: block; 
       }
 
       .small-device-image {
-        width: 100%; /* Make the new image full width */
-        height: auto; /* Maintain aspect ratio */
+        width: 100%; 
+        height: auto; 
       }
 
       /* Add titles on small devices */
@@ -87,18 +86,17 @@
         font-family: Jost;
         font-size: 30px;
         color: black;
-        margin-top: 20px; /* Add margin to push down */
-        background-color: rgba(0, 0, 0, 0.5); /* Add background for visibility */
-        padding: 10px; /* Add padding for text */
+        margin-top: 20px; 
+        padding: 10px; 
       }
 
       .small-device-subtitle {
         font-family: Jost;
         font-size: 18px;
         color: black;
-        margin-top: 10px; /* Add margin to push down */
-        background-color: rgba(0, 0, 0, 0.5); /* Add background for visibility */
-        padding: 10px; /* Add padding for text */
+        margin-top: 10px; 
+    
+        padding: 10px; 
       }
     }
   </style>
