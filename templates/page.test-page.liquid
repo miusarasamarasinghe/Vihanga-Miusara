@@ -1,16 +1,18 @@
-{% layout 'theme' %}
-
 <section class="custom-page-section">
-<div class="simple-banner-section">
-  <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
-    <div class="text-overlay">
-      <h2 class="hero-title">The Gift Guide</h2>
-      <h2 class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</h2>
+  <div class="simple-banner-section">
+    <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
+      <div class="text-overlay">
+        <h2 class="hero-title">The Gift Guide</h2>
+        <h2 class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</h2>
+      </div>
     </div>
-  </div>
-</div>
 
-<style>
+    <!-- Additional image for small devices -->
+    <img src="{{ 'your-image.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
+
+  </div>
+
+  <style>
     .simple-banner-section {
       position: relative;
       height: 500px;
@@ -29,7 +31,8 @@
       margin-left: 3rem;
       color: white;
       padding: 10px;
-      width:39%;
+      width: 39%;
+      text-align: left; 
     }
     .hero-title {
       font-family: Jost;
@@ -64,11 +67,30 @@
       }
     }
     @media (max-width: 768px) {
+      .banner-image {
+        display: none; 
+      }
+      .small-device-image {
+        width: 100%; 
+        height: auto; 
+      }
       .hero-title {
         font-size: 30px; 
+        position: absolute; 
+        top: 20px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        text-align: center; 
+        color: white; 
       }
       .hero-para {
         font-size: 14px; 
+        position: absolute; 
+        top: 80px; 
+        left: 50%; /
+        transform: translateX(-50%); 
+        color: white; 
+        text-align: center; 
       }
     }
   </style>
