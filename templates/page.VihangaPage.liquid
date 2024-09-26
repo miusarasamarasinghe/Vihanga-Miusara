@@ -465,153 +465,150 @@
     </div>
 
     <!-- Popup for product details -->
-    <div class="product-popup" style="display: none;">
-    
+    <div class="product-popup">
       <div class="popup-content">
-        <button class="close-popup" onclick="closePopup()">×</button>
-      
-        <img src="" alt="" class="product-image">
-        <h3 class="product-name"></h3>
+        <span class="close-popup" onclick="closePopup()">×</span>
+        <img class="product-image" src="" alt="">
+        <h2 class="product-name"></h2>
         <p class="product-price"></p>
         <p class="product-description"></p>
-        <div class="product-variants"></div>
-        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+        <div class="product-colors"></div> <!-- Color options will be displayed here -->
+        <div class="product-sizes"></div> <!-- Size options will be displayed here -->
+        <button onclick="addToCart()">Add to Cart</button>
       </div>
     </div>
   </div>
 
   <script>
  
-   const products = [
-    {
-      id: 1,
-      name: 'Product 1',
-      price: 19.99,
-      description: 'Description for Product 1',
-      image: '{{ "bag.webp" | asset_url }}',
-      variants: [
-        { id: 'black-medium', name: 'Black - Medium' },
-        { id: 'black-large', name: 'Black - Large' },
-      ],
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      price: 29.99,
-      description: 'Description for Product 2',
-      image: '{{ "Blue.webp" | asset_url }}',
-      variants: [
-        { id: 'blue-medium', name: 'Blue - Medium' },
-        { id: 'blue-large', name: 'Blue - Large' },
-      ],
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      price: 39.99,
-      description: 'Description for Product 3',
-      image: '{{ "redja.webp" | asset_url }}',
-      variants: [
-        { id: 'red-medium', name: 'Red - Medium' },
-        { id: 'red-large', name: 'Red - Large' },
-      ],
-    },
-    {
-      id: 4,
-      name: 'Product 4',
-      price: 49.99,
-      description: 'Description for Product 4',
-      image: '{{ "coffee.webp" | asset_url }}',
-      variants: [
-        { id: 'coffee-medium', name: 'Coffee - Medium' },
-        { id: 'coffee-large', name: 'Coffee - Large' },
-      ],
-    },
-    {
-      id: 5,
-      name: 'Product 5',
-      price: 59.99,
-      description: 'Description for Product 5',
-      image: '{{ "redpoket.webp" | asset_url }}',
-      variants: [
-        { id: 'redpoket-medium', name: 'Red Pocket - Medium' },
-        { id: 'redpoket-large', name: 'Red Pocket - Large' },
-      ],
-    },
-    {
-      id: 6,
-      name: 'Product 6',
-      price: 69.99,
-      description: 'Description for Product 6',
-      image: '{{ "denim.webp" | asset_url }}',
-      variants: [
-        { id: 'denim-medium', name: 'Denim - Medium' },
-        { id: 'denim-large', name: 'Denim - Large' },
-      ],
-    },
-  ];
-  
- 
-  function renderProductGrid() {
-    const gridContainer = document.querySelector('.product-grid');
-    gridContainer.innerHTML = ''; 
-  
-    products.forEach((product) => {
-      const productBlock = document.createElement('div');
-      productBlock.className = 'product-block';
-      productBlock.setAttribute('data-product-id', product.id);
-      productBlock.innerHTML = `
+    const products = [
+      {
+        id: 1,
+        name: 'Product 1',
+        price: 19.99,
+        description: 'Description for Product 1',
+        image: '{{ "bag.webp" | asset_url }}',
+        colors: ['Black', 'White'],  // Define available colors
+        sizes: ['Medium', 'Large'],  // Define available sizes
+      },
+      {
+        id: 2,
+        name: 'Product 2',
+        price: 29.99,
+        description: 'Description for Product 2',
+        image: '{{ "Blue.webp" | asset_url }}',
+        colors: ['Blue', 'Green'],
+        sizes: ['Medium', 'Large'],
+      },
+      {
+        id: 3,
+        name: 'Product 3',
+        price: 39.99,
+        description: 'Description for Product 3',
+        image: '{{ "redja.webp" | asset_url }}',
+        colors: ['Red', 'Yellow'],
+        sizes: ['Medium', 'Large'],
+      },
+      {
+        id: 4,
+        name: 'Product 4',
+        price: 49.99,
+        description: 'Description for Product 4',
+        image: '{{ "coffee.webp" | asset_url }}',
+        colors: ['Coffee', 'Gray'],
+        sizes: ['Medium', 'Large'],
+      },
+      {
+        id: 5,
+        name: 'Product 5',
+        price: 59.99,
+        description: 'Description for Product 5',
+        image: '{{ "redpoket.webp" | asset_url }}',
+        colors: ['Red Pocket', 'White Pocket'],
+        sizes: ['Medium', 'Large'],
+      },
+      {
+        id: 6,
+        name: 'Product 6',
+        price: 69.99,
+        description: 'Description for Product 6',
+        image: '{{ "denim.webp" | asset_url }}',
+        colors: ['Denim', 'Light Denim'],
+        sizes: ['Medium', 'Large'],
+      },
+    ];
+    
+    function renderProductGrid() {
+      const gridContainer = document.querySelector('.product-grid');
+      gridContainer.innerHTML = ''; 
+    
+      products.forEach((product) => {
+        const productBlock = document.createElement('div');
+        productBlock.className = 'product-block';
+        productBlock.setAttribute('data-product-id', product.id);
+        productBlock.innerHTML = `
           <img src="${product.image}" alt="${product.name}" class="Card-img">
           <button class="view-details" onclick="showProductPopup(${product.id})">+</button>
-      `;
-      gridContainer.appendChild(productBlock);
-    });
-  }
-  
-  
-  function showProductPopup(productId) {
-    const product = products.find((p) => p.id === productId);
-    const popup = document.querySelector('.product-popup');
-    const productImage = popup.querySelector('.product-image');
-    const productName = popup.querySelector('.product-name');
-    const productPrice = popup.querySelector('.product-price');
-    const productDescription = popup.querySelector('.product-description');
-    const productVariants = popup.querySelector('.product-variants');
-  
-    productImage.src = product.image;
-    productName.textContent = product.name;
-    productPrice.textContent = `$${product.price.toFixed(2)}`;
-    productDescription.textContent = product.description;
-  
-    productVariants.innerHTML = '';
-    product.variants.forEach((variant) => {
-      const variantOption = document.createElement('div');
-      variantOption.textContent = variant.name;
-      productVariants.appendChild(variantOption);
-    });
-  
-    popup.style.display = 'flex'; 
-  }
-  
- 
-  function addToCart() {
-    alert('Product added to cart!'); 
-  }
-  
- 
-  document.querySelector('.product-popup').addEventListener('click', (e) => {
-    if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
-      e.target.style.display = 'none'; 
+        `;
+        gridContainer.appendChild(productBlock);
+      });
     }
-  });
-  function closePopup() {
-    const popup = document.querySelector('.product-popup');
-    popup.style.display = 'none'; 
-}
- 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderProductGrid();
-  });
+    
+    function showProductPopup(productId) {
+      const product = products.find((p) => p.id === productId);
+      const popup = document.querySelector('.product-popup');
+      const productImage = popup.querySelector('.product-image');
+      const productName = popup.querySelector('.product-name');
+      const productPrice = popup.querySelector('.product-price');
+      const productDescription = popup.querySelector('.product-description');
+      const productColors = popup.querySelector('.product-colors');
+      const productSizes = popup.querySelector('.product-sizes');
+    
+      productImage.src = product.image;
+      productName.textContent = product.name;
+      productPrice.textContent = `$${product.price.toFixed(2)}`;
+      productDescription.textContent = product.description;
+    
+      // Populate color options
+      productColors.innerHTML = '<strong>Colors:</strong>';
+      product.colors.forEach((color) => {
+        const colorOption = document.createElement('div');
+        colorOption.className = 'color-option';
+        colorOption.textContent = color;
+        productColors.appendChild(colorOption);
+      });
+    
+      // Populate size options
+      productSizes.innerHTML = '<strong>Sizes:</strong>';
+      product.sizes.forEach((size) => {
+        const sizeOption = document.createElement('div');
+        sizeOption.className = 'size-option';
+        sizeOption.textContent = size;
+        productSizes.appendChild(sizeOption);
+      });
+    
+      popup.style.display = 'flex';
+    }
+    
+    function addToCart() {
+      alert('Product added to cart!'); 
+    }
+    
+    document.querySelector('.product-popup').addEventListener('click', (e) => {
+      if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
+        e.target.style.display = 'none'; 
+      }
+    });
+    
+    function closePopup() {
+      const popup = document.querySelector('.product-popup');
+      popup.style.display = 'none'; 
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProductGrid();
+    });
+    
 
   </script>
 </section>
