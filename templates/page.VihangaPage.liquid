@@ -483,7 +483,13 @@
           </div>
         </div>
         <div class="popup-details">
-          <div class="product-colors"></div>
+          <div class="product-colors"><div class="color-list">
+            {% for color in color_array %}
+              {% if color != blank %}
+                <div class="color-swatch" style="background-color: {{ color }}; width: 30px; height: 30px; display: inline-block; margin: 5px; border-radius: 50%;"></div>
+              {% endif %}
+            {% endfor %}
+          </div></div>
           <div class="product-sizes"></div>
           <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
         </div>
@@ -498,25 +504,25 @@
         id: 1,
         name: 'Orange Wide Leg',
         price: 19.99,
-        description: 'Description for Product 1',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "bag.webp" | asset_url }}',
-        colors: ['Black', 'White'], 
+        colors: ['White', 'Black'], 
         sizes: ['Medium', 'Large'], 
       },
       {
         id: 2,
         name: 'Tailored Jacket',
         price: 29.99,
-        description: 'Description for Product 2',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "Blue.webp" | asset_url }}',
-        colors: ['Blue', 'Green'],
+        colors: ['Blue', 'black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 3,
         name: 'Accordion Pleated Dress',
         price: 39.99,
-        description: 'Description for Product 3',
+        description: 'DThis one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redja.webp" | asset_url }}',
         colors: ['Red', 'Yellow'],
         sizes: ['Medium', 'Large'],
@@ -525,27 +531,27 @@
         id: 4,
         name: 'Green Trench Coat',
         price: 49.99,
-        description: 'Tennis Blue T-Shirt',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "coffee.webp" | asset_url }}',
-        colors: ['Coffee', 'Gray'],
+        colors: ['White', 'black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 5,
         name: 'Tennis Blue T-Shirt',
         price: 59.99,
-        description: 'Description for Product 5',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redpoket.webp" | asset_url }}',
-        colors: ['Red Pocket', 'White Pocket'],
+        colors: ['Grey', 'black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 6,
-        name: 'Long Sleeve Tennis Top',
+        name: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         price: 69.99,
         description: 'Description for Product 6',
         image: '{{ "denim.webp" | asset_url }}',
-        colors: ['Denim', 'Light Denim'],
+        colors: ['Blue', 'black'],
         sizes: ['Medium', 'Large'],
       },
     ];
