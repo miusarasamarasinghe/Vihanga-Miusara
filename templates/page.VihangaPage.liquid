@@ -421,6 +421,7 @@
   <script>
     // Example products array
    // Example products array with images
+// Example products array with images
 const products = [
   {
     id: 1,
@@ -438,13 +439,56 @@ const products = [
     name: 'Product 2',
     price: 29.99,
     description: 'Description for Product 2',
-    image: '{{ "bag.webp" | asset_url }}', // Add the image URL here
+    image: '{{ "Blue.webp" | asset_url }}', // Add the image URL here
     variants: [
       { id: 'blue-medium', name: 'Blue - Medium' },
       { id: 'blue-large', name: 'Blue - Large' },
     ],
   },
-  // Add more products as needed
+  {
+    id: 3,
+    name: 'Product 3',
+    price: 39.99,
+    description: 'Description for Product 3',
+    image: '{{ "redja.webp" | asset_url }}', // Add the image URL here
+    variants: [
+      { id: 'red-medium', name: 'Red - Medium' },
+      { id: 'red-large', name: 'Red - Large' },
+    ],
+  },
+  {
+    id: 4,
+    name: 'Product 4',
+    price: 49.99,
+    description: 'Description for Product 4',
+    image: '{{ "coffee.webp" | asset_url }}', // Add the image URL here
+    variants: [
+      { id: 'coffee-medium', name: 'Coffee - Medium' },
+      { id: 'coffee-large', name: 'Coffee - Large' },
+    ],
+  },
+  {
+    id: 5,
+    name: 'Product 5',
+    price: 59.99,
+    description: 'Description for Product 5',
+    image: '{{ "redpoket.webp" | asset_url }}', // Add the image URL here
+    variants: [
+      { id: 'redpoket-medium', name: 'Red Pocket - Medium' },
+      { id: 'redpoket-large', name: 'Red Pocket - Large' },
+    ],
+  },
+  {
+    id: 6,
+    name: 'Product 6',
+    price: 69.99,
+    description: 'Description for Product 6',
+    image: '{{ "denim.webp" | asset_url }}', // Add the image URL here
+    variants: [
+      { id: 'denim-medium', name: 'Denim - Medium' },
+      { id: 'denim-large', name: 'Denim - Large' },
+    ],
+  },
 ];
 
 // Function to render the product grid
@@ -464,40 +508,47 @@ function renderProductGrid() {
   });
 }
 
-// Function to handle the popup display
+// Function to handle showing the product popup
 function showProductPopup(productId) {
   const product = products.find((p) => p.id === productId);
   const popup = document.querySelector('.product-popup');
+  const productImage = popup.querySelector('.product-image');
   const productName = popup.querySelector('.product-name');
   const productPrice = popup.querySelector('.product-price');
   const productDescription = popup.querySelector('.product-description');
   const productVariants = popup.querySelector('.product-variants');
-  
-  // Add an image element for the product
-  const productImage = popup.querySelector('.product-image');
-  productImage.src = product.image; // Set the product image source
 
+  productImage.src = product.image;
   productName.textContent = product.name;
   productPrice.textContent = `$${product.price.toFixed(2)}`;
   productDescription.textContent = product.description;
 
-  // Clear previous variants
   productVariants.innerHTML = '';
   product.variants.forEach((variant) => {
-    const variantItem = document.createElement('div');
-    variantItem.textContent = variant.name;
-    productVariants.appendChild(variantItem);
+    const variantOption = document.createElement('div');
+    variantOption.textContent = variant.name;
+    productVariants.appendChild(variantOption);
   });
 
-  // Show the popup
-  popup.style.display = 'flex';
+  popup.style.display = 'flex'; // Show the popup
 }
 
-// To close the popup when clicking outside of it
+// Function to handle adding to cart
+function addToCart() {
+  // Implement your add to cart logic here
+  alert('Product added to cart!'); // Example alert for demonstration
+}
+
+// Event listener for closing the popup when clicked outside
 document.querySelector('.product-popup').addEventListener('click', (e) => {
-  if (e.target === document.querySelector('.product-popup')) {
-    e.target.style.display = 'none';
+  if (e.target.classList.contains('product-popup')) {
+    e.target.style.display = 'none'; // Close the popup
   }
+});
+
+// Initialize the product grid on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderProductGrid();
 });
 
   </script>
