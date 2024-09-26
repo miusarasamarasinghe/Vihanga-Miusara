@@ -466,21 +466,22 @@
     <div class="product-popup">
       <div class="popup-content">
         <span class="close-popup" onclick="closePopup()">×</span>
-        <div>
-          <div>
-            <img class="product-image" src="" alt="">
-          </div>
-          <div>
+        <div class="popup-header">
+          <img class="product-image" src="" alt="">
+          <div class="popup-info">
             <h2 class="product-name"></h2>
             <p class="product-price"></p>
             <p class="product-description"></p>
           </div>
         </div>
-        <div class="product-colors"></div>
-        <div class="product-sizes"></div>
-        <button onclick="addToCart()">Add to Cart</button>
+        <div class="popup-details">
+          <div class="product-colors"></div>
+          <div class="product-sizes"></div>
+          <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+        </div>
       </div>
     </div>
+    
   </div>
 
   <script>
