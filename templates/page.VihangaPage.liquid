@@ -583,13 +583,14 @@
  
   document.querySelector('.product-popup').addEventListener('click', (e) => {
     if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
-      e.target.style.display = 'none'; // Close the popup
+      e.target.style.display = 'none'; 
     }
   });
   function closePopup() {
-    document.querySelector('.product-popup').style.display = 'none'; 
-  }
-  // Initialize the product grid on page load
+    const popup = document.querySelector('.product-popup');
+    popup.style.display = 'none'; 
+}
+ 
   document.addEventListener('DOMContentLoaded', () => {
     renderProductGrid();
   });
