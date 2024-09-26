@@ -482,61 +482,10 @@
   <script>
  
     const products = [
-      {
-        id: 1,
-        name: 'Product 1',
-        price: 19.99,
-        description: 'Description for Product 1',
-        image: '{{ "bag.webp" | asset_url }}',
-        colors: ['Black', 'White'],  // Define available colors
-        sizes: ['Medium', 'Large'],  // Define available sizes
-      },
-      {
-        id: 2,
-        name: 'Product 2',
-        price: 29.99,
-        description: 'Description for Product 2',
-        image: '{{ "Blue.webp" | asset_url }}',
-        colors: ['Blue', 'Green'],
-        sizes: ['Medium', 'Large'],
-      },
-      {
-        id: 3,
-        name: 'Product 3',
-        price: 39.99,
-        description: 'Description for Product 3',
-        image: '{{ "redja.webp" | asset_url }}',
-        colors: ['Red', 'Yellow'],
-        sizes: ['Medium', 'Large'],
-      },
-      {
-        id: 4,
-        name: 'Product 4',
-        price: 49.99,
-        description: 'Description for Product 4',
-        image: '{{ "coffee.webp" | asset_url }}',
-        colors: ['Coffee', 'Gray'],
-        sizes: ['Medium', 'Large'],
-      },
-      {
-        id: 5,
-        name: 'Product 5',
-        price: 59.99,
-        description: 'Description for Product 5',
-        image: '{{ "redpoket.webp" | asset_url }}',
-        colors: ['Red Pocket', 'White Pocket'],
-        sizes: ['Medium', 'Large'],
-      },
-      {
-        id: 6,
-        name: 'Product 6',
-        price: 69.99,
-        description: 'Description for Product 6',
-        image: '{{ "denim.webp" | asset_url }}',
-        colors: ['Denim', 'Light Denim'],
-        sizes: ['Medium', 'Large'],
-      },
+      // Your product data as defined earlier
     ];
+    
+    let popupClosed = false; // This flag will track if the popup was closed once
     
     function renderProductGrid() {
       const gridContainer = document.querySelector('.product-grid');
@@ -555,6 +504,8 @@
     }
     
     function showProductPopup(productId) {
+      if (popupClosed) return; // If the popup was closed, prevent it from showing
+    
       const product = products.find((p) => p.id === productId);
       const popup = document.querySelector('.product-popup');
       const productImage = popup.querySelector('.product-image');
@@ -594,15 +545,17 @@
       alert('Product added to cart!'); 
     }
     
+    // Handle popup close event
     document.querySelector('.product-popup').addEventListener('click', (e) => {
       if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
-        e.target.style.display = 'none'; 
+        closePopup(); // Call closePopup function to set the flag and hide the popup
       }
     });
     
     function closePopup() {
       const popup = document.querySelector('.product-popup');
       popup.style.display = 'none'; 
+      popupClosed = true; // Set the flag to true, preventing the popup from re-opening
     }
     
     document.addEventListener('DOMContentLoaded', () => {

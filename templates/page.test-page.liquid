@@ -1,18 +1,420 @@
 <section class="custom-page-section">
+  <style>
+        .simple-banner-section {
+          position: relative;
+          max-height: 850px;
+          max-width: 1800px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: auto;
+
+          color: black;
+        }
+
+        .banner-image {
+          background-size: cover;
+          background-position: center;
+          width: 100%;
+          height: 780px;
+          position: relative;
+        }
+
+        .text-overlay {
+          position: absolute;
+          bottom: 6%;
+          padding-left: 3rem;
+          color: black;
+          width: 35%;
+          text-align: left;
+        }
+
+        .hero-title {
+          font-family: Jost;
+          width:100%;
+          font-size: 70px;
+          font-weight: 500;
+          text-align: left;
+          color: black;
+        }
+
+        .hero-para {
+          font-family: Jost;
+          font-size: 20px;
+          font-weight: 400;
+          text-align: left;
+          color: black;
+        }
+
+        .small-device-sec {
+          display: none;
+          position: relative;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 10;
+          text-align: center;
+        }
+
+        /* Button styles */
+        .cta-button {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: black;
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+          position: relative;
+          overflow: hidden;
+          margin-top: 15px;
+          z-index: 1;
+          transition: color 0.4s ease;
+        }
+
+        .cta-button .arrow {
+          margin-left: 10px;
+          transition: color 0.4s ease;
+          color: white;
+        }
+
+       
+        .cta-button::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background-color: yellow;
+          z-index: 0;
+          transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+          left: 0;
+        }
+
+        .cta-button:hover {
+          color: black !important;
+        }
+
+        .cta-button .bttn-txt,
+        .cta-button .arrow {
+          position: relative;
+          z-index: 1;
+        }
+
+        .cta-button:hover .bttn-txt,
+        .cta-button:hover .arrow {
+          color: black !important;
+        }
+     @media (min-width: 768px) and (max-width: 1150px) {
+        .text-overlay {
+            bottom: 10%;
+
+
+        }
+
+        .hero-title {
+            font-size: 40px;
+        }
+
+        .hero-para {
+            font-size: 16px;
+        }
+    }
+        @media (max-width: 768px) {
+          .banner-image {
+            display: none;
+          }
+
+          .small-device-sec {
+            display: block;
+          }
+
+          .mobile-banner-wrapper {
+            position: relative;
+              z-index: 10;
+            margin-bottom: 2rem;
+          }
+
+          .mobile-banner-button {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+          }
+
+          .small-device-image {
+            width: 100%;
+            height: 264px;
+          }
+
+          .small-device-title {
+            font-family: Jost;
+            font-size: 30px;
+            color: black;
+            margin-top: 20px;
+            padding: 5px;
+          }
+
+          .small-device-subtitle {
+            font-family: Jost;
+            font-size: 18px;
+            color: black;
+            margin-top: 5px;
+            padding: 10px;
+          }
+        }
+        .page-header {
+        background-color: #F5F5F5;
+        padding: 10px;
+        border-bottom: 2px solid #ccc;
+    }
+
+    .header-container {
+        padding-left: 3rem;
+        padding-right:3rem;
+        display: flex;
+        justify-content:
+        align-items: center;
+    }
+
+    .header-left, .header-center, .header-right {
+        flex: 1;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .header-center {
+        text-align: center;
+    }
+
+    .header-right {
+        text-align: right;
+    }
+
+    .header-left h1, .header-center h1, .header-right h1 {
+        margin: 0;
+        font-family: Jost, sans-serif;
+        font-size: 24px;
+        color: black;
+    }
+
+        .header-button-nav {
+
+          padding: 10px 20px;
+          background-color: #FFF544;
+          color: black;
+          text-decoration: none;
+          border-radius: 5px;
+          position: relative;
+          overflow: hidden !important;
+          transition: color 0.4s ease;
+        }
+
+        .header-button-nav .arrow-header-nav {
+          margin-left: 10px;
+          transition: color 0.4s ease;
+          color: black;
+        }
+
+     
+        .header-button-nav::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          color:white;
+          background-color: black;
+          z-index: 0;
+          transition: left 0.5s ease;
+        }
+
+        .header-button-nav:hover::before {
+          left: 0;
+        }
+
+        .header-button-nav:hover {
+          color: black !important;
+        }
+
+        .header-button-nav .bttn-txt-header-nav,
+        .header-button-nav .arrow-header-nav {
+          position: relative;
+          z-index: 1;
+        }
+
+        .header-button-nav:hover .bttn-txt-header-nav,
+        .header-button-nav:hover .arrow-header-nav {
+          color: black !important;
+        }
+        .hero-end-part {
+      font-family: Jost;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 13.42px;
+      text-align: center;
+      padding-top:5px;
+      padding-bottom:5px;
+      background-color:#F5F5F5;
+    }
+    .Grid-container{
+      max-width:1800px
+      width:100%
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+        padding-left: 3rem;
+        max-width: 1800px;
+    }
+    .Card-img{
+     max-height:444px;
+     max-width:433px;
+     display: block;
+
+    }
+    @media (max-width: 1370px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+      }
+    
+      .Card-img {
+        max-width: 90%; 
+      }
+    }
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr); 
+      }
+    
+      .Card-img {
+        max-height: 186.42px;
+        width: 100%; /
+      }
+    }
+
+
+
+
+  
+    .grid-title{
+      font-family: Lustria;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 43.2px;
+    text-align: left;
+    padding-left:3rem;
+    margin-top:1rem;
+    margin-bottom:0.5rem;
+
+    }
+    .product-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    max-width: 311px; 
+    max-height: 447px;
+    overflow-y: auto; 
+  }
+
+  .close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: black;
+    z-index: 1001; 
+  }
+  .product-image{
+   width:120px;
+   height:140px;
+
+  }
+  .product-block {
+    position: relative; /* Make the product block a positioning context */
+    display: inline-block;
+    margin: 10px;
+  }
+  .view-details {
+    position: absolute;
+    top: 30%;  /* Adjust as needed to place it higher or lower */
+    right: 30%; /* Adjust this value to control the horizontal position */
+    background-color:#F8F8F8E5; /* Semi-transparent background */
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .popup-content {
+      max-width: 95%; 
+      padding: 15px; 
+    }
+    
+    .close-popup {
+      font-size: 18px; 
+    }
+  }
+
+  </style>
+  <header class="page-header">
+    <div class="header-container">
+      <div class="header-left">
+        <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
+      </div>
+      <div class="header-center">Find the ideal gift for your loved ones.</div>
+      <div class="header-right">
+        <div>
+          <a href="#" class="header-button-nav">
+            <span class="bttn-txt-header-nav">Shop Now </span>
+            <span class="arrow-header-nav">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
   <div class="simple-banner-section">
-    <!-- Background image for large devices -->
     <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
       <div class="text-overlay">
-      <div>
-        <div class="hero-title">The Gift Guide</div>
-        <div class="hero-para">Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</div>
+        <div>
+          <div class="hero-title">The Gift Guide</div>
+          <div class="hero-para">
+            Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect
+            gifts to delight your loved ones this holiday season.
+          </div>
         </div>
         <div>
-        <a href="#" class="cta-button">
-          <span class="bttn-txt">Shop Now </span>
-          <span class="arrow">→</span>
-        </a>
-         </div>
+          <a href="#" class="cta-button">
+            <span class="bttn-txt">Shop Now </span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -20,182 +422,193 @@
     <div class="small-device-sec">
       <h2 class="small-device-title">The Gift Guide</h2>
       <h2 class="small-device-subtitle">Discover Joy: Your Ultimate Holiday Gift Destination.</h2>
-      
-      <!-- Mobile banner image with centered button -->
+
+ 
       <div class="mobile-banner-wrapper">
         <a href="#" class="cta-button mobile-banner-button">
           <span class="bttn-txt">Shop Now </span>
           <span class="arrow">→</span>
         </a>
-        <img src="{{ 'MobleBanner.png' | asset_url }}" alt="Gift Guide" class="small-device-image" />
+        <img src="{{ 'MobleBanner.png' | asset_url }}" alt="Gift Guide" class="small-device-image">
+      </div>
+    </div>
+  </div>
+  <div class="hero-end-part">SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</div>
+
+  <div class="Grid-container">
+    <div class="grid-title">Tisso vison in the wild</div>
+    <div class="product-grid">
+      <div class="product-block" data-product-id="1">
+        <img src="{{ 'bag.webp' | asset_url }}" alt="Gift" class="Card-img">
+        <button class="view-details">+</button>
+      </div>
+      <div class="product-block" data-product-id="1">
+        <img src="{{ 'Blue.webp' | asset_url }}" alt="Gift" class="Card-img">
+        <button class="view-details">+</button>
+      </div>
+      <div class="product-block" data-product-id="1">
+        <img src="{{ 'redja.webp' | asset_url }}" alt="Gift" class="Card-img">
+        <button class="view-details">+</button>
+      </div>
+      <div class="product-block" data-product-id="1">
+        <img src="{{ 'coffee.webp' | asset_url }}" alt="Gift" class="Card-img">
+        <button class="view-details">+</button>
+      </div>
+      <div class="product-block" data-product-id="5">
+        <img src="{{ 'redpoket.webp' | asset_url }}" alt="Gift" class="Card-img">
+        <button class="view-details">+</button>
+      </div>
+      <div class="product-block" data-product-id="6">
+        <img src="{{ 'denim.webp' | asset_url }}" alt="Gift" class="Card-img">
+        <button class="view-details">+</button>
+      </div>
+    </div>
+
+    <!-- Popup for product details -->
+    <div class="product-popup">
+      <div class="popup-content">
+        <span class="close-popup" onclick="closePopup()">×</span>
+        <img class="product-image" src="" alt="">
+        <h2 class="product-name"></h2>
+        <p class="product-price"></p>
+        <p class="product-description"></p>
+        <div class="product-colors"></div> <!-- Color options will be displayed here -->
+        <div class="product-sizes"></div> <!-- Size options will be displayed here -->
+        <button onclick="addToCart()">Add to Cart</button>
       </div>
     </div>
   </div>
 
-  <style>
-    .simple-banner-section {
-      position: relative;
-      max-height: 850px;
-      max-width: 1800px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: auto;
-   
-      color: black;
+  <script>
+ 
+    const products = [
+      {
+        id: 1,
+        name: 'Product 1',
+        price: 19.99,
+        description: 'Description for Product 1',
+        image: '{{ "bag.webp" | asset_url }}',
+        colors: ['Black', 'White'],  // Define available colors
+        sizes: ['Medium', 'Large'],  // Define available sizes
+      },
+      {
+        id: 2,
+        name: 'Product 2',
+        price: 29.99,
+        description: 'Description for Product 2',
+        image: '{{ "Blue.webp" | asset_url }}',
+        colors: ['Blue', 'Green'],
+        sizes: ['Medium', 'Large'],
+      },
+      {
+        id: 3,
+        name: 'Product 3',
+        price: 39.99,
+        description: 'Description for Product 3',
+        image: '{{ "redja.webp" | asset_url }}',
+        colors: ['Red', 'Yellow'],
+        sizes: ['Medium', 'Large'],
+      },
+      {
+        id: 4,
+        name: 'Product 4',
+        price: 49.99,
+        description: 'Description for Product 4',
+        image: '{{ "coffee.webp" | asset_url }}',
+        colors: ['Coffee', 'Gray'],
+        sizes: ['Medium', 'Large'],
+      },
+      {
+        id: 5,
+        name: 'Product 5',
+        price: 59.99,
+        description: 'Description for Product 5',
+        image: '{{ "redpoket.webp" | asset_url }}',
+        colors: ['Red Pocket', 'White Pocket'],
+        sizes: ['Medium', 'Large'],
+      },
+      {
+        id: 6,
+        name: 'Product 6',
+        price: 69.99,
+        description: 'Description for Product 6',
+        image: '{{ "denim.webp" | asset_url }}',
+        colors: ['Denim', 'Light Denim'],
+        sizes: ['Medium', 'Large'],
+      },
+    ];
+    
+    function renderProductGrid() {
+      const gridContainer = document.querySelector('.product-grid');
+      gridContainer.innerHTML = ''; 
+    
+      products.forEach((product) => {
+        const productBlock = document.createElement('div');
+        productBlock.className = 'product-block';
+        productBlock.setAttribute('data-product-id', product.id);
+        productBlock.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" class="Card-img">
+          <button class="view-details" onclick="showProductPopup(${product.id})">+</button>
+        `;
+        gridContainer.appendChild(productBlock);
+      });
     }
-
-    .banner-image {
-      background-size: cover;
-      background-position: center;
-      width: 100%;
-      height: 780px;
-      position: relative;
+    
+    function showProductPopup(productId) {
+      const product = products.find((p) => p.id === productId);
+      const popup = document.querySelector('.product-popup');
+      const productImage = popup.querySelector('.product-image');
+      const productName = popup.querySelector('.product-name');
+      const productPrice = popup.querySelector('.product-price');
+      const productDescription = popup.querySelector('.product-description');
+      const productColors = popup.querySelector('.product-colors');
+      const productSizes = popup.querySelector('.product-sizes');
+    
+      productImage.src = product.image;
+      productName.textContent = product.name;
+      productPrice.textContent = `$${product.price.toFixed(2)}`;
+      productDescription.textContent = product.description;
+    
+      // Populate color options
+      productColors.innerHTML = '<strong>Colors:</strong>';
+      product.colors.forEach((color) => {
+        const colorOption = document.createElement('div');
+        colorOption.className = 'color-option';
+        colorOption.textContent = color;
+        productColors.appendChild(colorOption);
+      });
+    
+      // Populate size options
+      productSizes.innerHTML = '<strong>Sizes:</strong>';
+      product.sizes.forEach((size) => {
+        const sizeOption = document.createElement('div');
+        sizeOption.className = 'size-option';
+        sizeOption.textContent = size;
+        productSizes.appendChild(sizeOption);
+      });
+    
+      popup.style.display = 'flex';
     }
-
-    .text-overlay {
-      position: absolute;
-      bottom: 6%;
-      padding-left: 3rem;
-      color: black;
-      width: 45%;
-      text-align: left;
+    
+    function addToCart() {
+      alert('Product added to cart!'); 
     }
-
-    .hero-title {
-      font-family: Jost;
-      width:100%;
-      font-size: 70px;
-      font-weight: 500;
-      text-align: left;
-      color: black;
-    }
-
-    .hero-para {
-      font-family: Jost;
-      font-size: 20px;
-      font-weight: 400;
-      text-align: left;
-      color: black;
-    }
-
-    .small-device-sec {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      text-align: center;
-    }
-
-    /* Button styles */
-    .cta-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: black;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      position: relative;
-      overflow: hidden;
-      margin-top: 15px;
-      z-index: 1;
-      transition: color 0.4s ease; 
-    }
-
-    .cta-button .arrow {
-      margin-left: 10px;
-      transition: color 0.4s ease;
-      color: white;
-    }
-
-    /* Background animation on hover */
-    .cta-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%; 
-      width: 100%;
-      height: 100%;
-      background-color: yellow; 
-      z-index: 0;
-      transition: left 0.5s ease; 
-    }
-
-    .cta-button:hover::before {
-      left: 0;
-    }
-
-    .cta-button:hover {
-      color: black !important; 
-    }
-
-    .cta-button .bttn-txt,
-    .cta-button .arrow {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-button:hover .bttn-txt,
-    .cta-button:hover .arrow {
-      color: black !important; 
-    }
- @media (min-width: 768px) and (max-width: 1150px) {
-    .text-overlay {
-        bottom: 10%;
-         
-          
-    }
-
-    .hero-title {
-        font-size: 40px;
-    }
-
-    .hero-para {
-        font-size: 16px;
-    }
-}
-    @media (max-width: 768px) {
-      .banner-image {
-        display: none;
+    
+    document.querySelector('.product-popup').addEventListener('click', (e) => {
+      if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
+        e.target.style.display = 'none'; 
       }
-
-      .small-device-sec {
-        display: block;
-      }
-
-      .mobile-banner-wrapper {
-        position: relative;
-      }
-
-      .mobile-banner-button {
-        position: absolute;
-        top: 10%; /* Adjust as needed for spacing */
-        left: 50%;
-        transform: translateX(-50%); /* Center the button */
-        z-index: 1;
-      }
-
-      .small-device-image {
-        width: 100%;
-        height: auto;
-      }
-
-      .small-device-title {
-        font-family: Jost;
-        font-size: 30px;
-        color: black;
-        margin-top: 20px;
-        padding: 5px;
-      }
-
-      .small-device-subtitle {
-        font-family: Jost;
-        font-size: 18px;
-        color: black;
-        margin-top: 5px;
-        padding: 10px;
-      }
+    });
+    
+    function closePopup() {
+      const popup = document.querySelector('.product-popup');
+      popup.style.display = 'none'; 
     }
-  </style>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProductGrid();
+    });
+    
+
+  </script>
 </section>
