@@ -530,10 +530,7 @@
               <div class="color-list">
                 {% for color in color_array %}
                   {% if color != blank %}
-                    <div
-                      class="color-swatch"
-                      style="background-color: {{ color }}; width: 30px; height: 30px; display: inline-block; margin: 5px; border-radius: 50%;"
-                    ></div>
+                    <div class="color-swatch" style="border-left: 5px solid {{ color }};"></div>
                   {% endif %}
                 {% endfor %}
               </div>
