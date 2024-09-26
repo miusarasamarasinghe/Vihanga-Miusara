@@ -370,7 +370,12 @@
       font-size: 18px;
       transition: background-color 0.3s ease;
     }
+.popup-header{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
+
+}
     @media (max-width: 768px) {
       .popup-content {
         max-width: 95%;
@@ -467,6 +472,7 @@
       <div class="popup-content">
         <span class="close-popup" onclick="closePopup()">×</span>
         <div class="popup-header">
+
           <img class="product-image" src="" alt="">
           <div class="popup-info">
             <h2 class="product-name"></h2>
