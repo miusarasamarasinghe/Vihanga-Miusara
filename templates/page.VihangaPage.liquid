@@ -133,10 +133,12 @@
 
       .mobile-banner-wrapper {
         position: relative;
+          z-index: 10;
+        margin-bottom: 2rem; 
       }
 
       .mobile-banner-button {
-        position: absolute;
+        position: relative;
         top: 10%; 
         left: 50%;
         transform: translateX(-50%); 
@@ -261,7 +263,7 @@
 }
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 10px;
     padding-left: 3rem; 
     max-width: 1800px;
@@ -270,16 +272,12 @@
 
 @media (max-width: 768px) {
     .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* Change to 2 columns on small devices */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
 
-@media (max-width: 480px) {
-    .product-grid {
-        grid-template-columns: 1fr; 
-    }
-}
+
 
 .product-popup {
     position: fixed;
