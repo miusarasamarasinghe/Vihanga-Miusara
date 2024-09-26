@@ -261,6 +261,10 @@
   padding-bottom:5px;
   background-color:#F5F5F5;
 }
+.Grid-container{
+  max-width:1800px
+  width:100%
+}
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -276,8 +280,12 @@
 
 @media (max-width: 768px) {
     .product-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: repeat(2, 1fr); 
     }
+    .Grid-container{
+  max-width:800px
+  width:100%
+}
     .Card-img {
         max-height:186.42px   
         max-width: 169px     
@@ -377,7 +385,7 @@ margin-bottom:0.5rem;
   </div>
 
 
-<div>
+<div class="Grid-container">
  <div class="grid-title">Tisso vison in the wild</div>
 <div class="product-grid">
     <div class="product-block" data-product-id="1">
