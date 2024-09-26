@@ -76,7 +76,7 @@
           color: white;
         }
 
-        /* Background animation on hover */
+       
         .cta-button::before {
           content: "";
           position: absolute;
@@ -219,7 +219,7 @@
           color: black;
         }
 
-        /* Background animation on hover */
+     
         .header-button-nav::before {
           content: "";
           position: absolute;
@@ -330,9 +330,9 @@
     padding: 20px;
     border-radius: 8px;
     position: relative;
-    max-width: 311px; /* Set a max-width */
+    max-width: 311px; 
     max-height: 447px;
-    overflow-y: auto; /* Adds scrolling if content is too long */
+    overflow-y: auto; 
   }
 
   .close-popup {
@@ -344,7 +344,7 @@
     background: transparent;
     border: none;
     color: black;
-    z-index: 1001; /* Ensures it's above the popup content */
+    z-index: 1001; 
   }
   .product-image{
    width:120px;
@@ -352,15 +352,15 @@
 
   }
 
-  /* Responsive adjustments */
+
   @media (max-width: 768px) {
     .popup-content {
-      max-width: 95%; /* Wider on small screens */
-      padding: 15px; /* Reduced padding */
+      max-width: 95%; 
+      padding: 15px; 
     }
     
     .close-popup {
-      font-size: 18px; /* Smaller close button text */
+      font-size: 18px; 
     }
   }
 
@@ -405,7 +405,7 @@
       <h2 class="small-device-title">The Gift Guide</h2>
       <h2 class="small-device-subtitle">Discover Joy: Your Ultimate Holiday Gift Destination.</h2>
 
-      <!-- Mobile banner image with centered button -->
+ 
       <div class="mobile-banner-wrapper">
         <a href="#" class="cta-button mobile-banner-button">
           <span class="bttn-txt">Shop Now </span>
@@ -451,7 +451,7 @@
     
       <div class="popup-content">
         <button class="close-popup" onclick="closePopup()">×</button>
-        <span class="close-popup">&times;</span>
+      
         <img src="" alt="" class="product-image">
         <h3 class="product-name"></h3>
         <p class="product-price"></p>
@@ -536,7 +536,7 @@
  
   function renderProductGrid() {
     const gridContainer = document.querySelector('.product-grid');
-    gridContainer.innerHTML = ''; // Clear existing content
+    gridContainer.innerHTML = ''; 
   
     products.forEach((product) => {
       const productBlock = document.createElement('div');
@@ -572,23 +572,23 @@
       productVariants.appendChild(variantOption);
     });
   
-    popup.style.display = 'flex'; // Show the popup
+    popup.style.display = 'flex'; 
   }
   
-  // Function to handle adding to cart
+ 
   function addToCart() {
-    alert('Product added to cart!'); // Example alert for demonstration
+    alert('Product added to cart!'); 
   }
   
-  // Event listener for closing the popup when clicked outside
+ 
   document.querySelector('.product-popup').addEventListener('click', (e) => {
     if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
       e.target.style.display = 'none'; // Close the popup
     }
   });
   function closePopup() {
-    document.getElementById('productPopup').style.display = 'none'; // Hide the popup
-}
+    document.querySelector('.product-popup').style.display = 'none'; 
+  }
   // Initialize the product grid on page load
   document.addEventListener('DOMContentLoaded', () => {
     renderProductGrid();
