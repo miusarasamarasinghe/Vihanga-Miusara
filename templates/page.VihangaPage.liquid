@@ -277,11 +277,19 @@
      max-width:433px
 
     }
-
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+      }
+    
+      .Card-img {
+        max-width: 90%; 
+      }
+    }
     @media (max-width: 768px) {
-        .product-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust grid items for small screens */
+      }
 
         .Card-img {
             max-height:186.42px;
@@ -445,8 +453,7 @@
   </div>
 
   <script>
-    // Example products array
-   // Example products array with images
+ 
    const products = [
     {
       id: 1,
@@ -516,7 +523,7 @@
     },
   ];
   
-  // Function to render the product grid
+ 
   function renderProductGrid() {
     const gridContainer = document.querySelector('.product-grid');
     gridContainer.innerHTML = ''; // Clear existing content
@@ -533,7 +540,7 @@
     });
   }
   
-  // Function to handle showing the product popup
+  
   function showProductPopup(productId) {
     const product = products.find((p) => p.id === productId);
     const popup = document.querySelector('.product-popup');
