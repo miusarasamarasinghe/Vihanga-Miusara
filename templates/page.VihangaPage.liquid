@@ -323,6 +323,35 @@
     margin-bottom:0.5rem;
 
     }
+    .product-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .close-popup {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
   </style>
   <header class="page-header">
     <div class="header-container">
@@ -408,12 +437,13 @@
     <!-- Popup for product details -->
     <div class="product-popup" style="display: none;">
       <div class="popup-content">
-        <img class="product-image" src="" alt="Product Image" style="width: 100%; height: auto;">
-        <h2 class="product-name"></h2>
+        <span class="close-popup">&times;</span>
+        <img src="" alt="" class="product-image">
+        <h3 class="product-name"></h3>
         <p class="product-price"></p>
         <p class="product-description"></p>
         <div class="product-variants"></div>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -421,135 +451,133 @@
   <script>
     // Example products array
    // Example products array with images
-// Example products array with images
-const products = [
-  {
-    id: 1,
-    name: 'Product 1',
-    price: 19.99,
-    description: 'Description for Product 1',
-    image: '{{ "bag.webp" | asset_url }}', // Add the image URL here
-    variants: [
-      { id: 'black-medium', name: 'Black - Medium' },
-      { id: 'black-large', name: 'Black - Large' },
-    ],
-  },
-  {
-    id: 2,
-    name: 'Product 2',
-    price: 29.99,
-    description: 'Description for Product 2',
-    image: '{{ "Blue.webp" | asset_url }}', // Add the image URL here
-    variants: [
-      { id: 'blue-medium', name: 'Blue - Medium' },
-      { id: 'blue-large', name: 'Blue - Large' },
-    ],
-  },
-  {
-    id: 3,
-    name: 'Product 3',
-    price: 39.99,
-    description: 'Description for Product 3',
-    image: '{{ "redja.webp" | asset_url }}', // Add the image URL here
-    variants: [
-      { id: 'red-medium', name: 'Red - Medium' },
-      { id: 'red-large', name: 'Red - Large' },
-    ],
-  },
-  {
-    id: 4,
-    name: 'Product 4',
-    price: 49.99,
-    description: 'Description for Product 4',
-    image: '{{ "coffee.webp" | asset_url }}', // Add the image URL here
-    variants: [
-      { id: 'coffee-medium', name: 'Coffee - Medium' },
-      { id: 'coffee-large', name: 'Coffee - Large' },
-    ],
-  },
-  {
-    id: 5,
-    name: 'Product 5',
-    price: 59.99,
-    description: 'Description for Product 5',
-    image: '{{ "redpoket.webp" | asset_url }}', // Add the image URL here
-    variants: [
-      { id: 'redpoket-medium', name: 'Red Pocket - Medium' },
-      { id: 'redpoket-large', name: 'Red Pocket - Large' },
-    ],
-  },
-  {
-    id: 6,
-    name: 'Product 6',
-    price: 69.99,
-    description: 'Description for Product 6',
-    image: '{{ "denim.webp" | asset_url }}', // Add the image URL here
-    variants: [
-      { id: 'denim-medium', name: 'Denim - Medium' },
-      { id: 'denim-large', name: 'Denim - Large' },
-    ],
-  },
-];
-
-// Function to render the product grid
-function renderProductGrid() {
-  const gridContainer = document.querySelector('.product-grid');
-  products.forEach((product) => {
-    const productBlock = document.createElement('div');
-    productBlock.className = 'product-block';
-    productBlock.setAttribute('data-product-id', product.id);
-    productBlock.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" class="Card-img">
-        <h3>${product.name}</h3>
-        <p>$${product.price.toFixed(2)}</p>
-        <button class="view-details" onclick="showProductPopup(${product.id})">View Details</button>
-    `;
-    gridContainer.appendChild(productBlock);
-  });
-}
-
-// Function to handle showing the product popup
-function showProductPopup(productId) {
-  const product = products.find((p) => p.id === productId);
-  const popup = document.querySelector('.product-popup');
-  const productImage = popup.querySelector('.product-image');
-  const productName = popup.querySelector('.product-name');
-  const productPrice = popup.querySelector('.product-price');
-  const productDescription = popup.querySelector('.product-description');
-  const productVariants = popup.querySelector('.product-variants');
-
-  productImage.src = product.image;
-  productName.textContent = product.name;
-  productPrice.textContent = `$${product.price.toFixed(2)}`;
-  productDescription.textContent = product.description;
-
-  productVariants.innerHTML = '';
-  product.variants.forEach((variant) => {
-    const variantOption = document.createElement('div');
-    variantOption.textContent = variant.name;
-    productVariants.appendChild(variantOption);
-  });
-
-  popup.style.display = 'flex'; // Show the popup
-}
-
-// Function to handle adding to cart
-function addToCart() {
-  // Implement your add to cart logic here
-  alert('Product added to cart!'); // Example alert for demonstration
-}
-
-// Event listener for closing the popup when clicked outside
-document.querySelector('.product-popup').addEventListener('click', (e) => {
-  if (e.target.classList.contains('product-popup')) {
-    e.target.style.display = 'none'; // Close the popup
+   const products = [
+    {
+      id: 1,
+      name: 'Product 1',
+      price: 19.99,
+      description: 'Description for Product 1',
+      image: '{{ "bag.webp" | asset_url }}',
+      variants: [
+        { id: 'black-medium', name: 'Black - Medium' },
+        { id: 'black-large', name: 'Black - Large' },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Product 2',
+      price: 29.99,
+      description: 'Description for Product 2',
+      image: '{{ "Blue.webp" | asset_url }}',
+      variants: [
+        { id: 'blue-medium', name: 'Blue - Medium' },
+        { id: 'blue-large', name: 'Blue - Large' },
+      ],
+    },
+    {
+      id: 3,
+      name: 'Product 3',
+      price: 39.99,
+      description: 'Description for Product 3',
+      image: '{{ "redja.webp" | asset_url }}',
+      variants: [
+        { id: 'red-medium', name: 'Red - Medium' },
+        { id: 'red-large', name: 'Red - Large' },
+      ],
+    },
+    {
+      id: 4,
+      name: 'Product 4',
+      price: 49.99,
+      description: 'Description for Product 4',
+      image: '{{ "coffee.webp" | asset_url }}',
+      variants: [
+        { id: 'coffee-medium', name: 'Coffee - Medium' },
+        { id: 'coffee-large', name: 'Coffee - Large' },
+      ],
+    },
+    {
+      id: 5,
+      name: 'Product 5',
+      price: 59.99,
+      description: 'Description for Product 5',
+      image: '{{ "redpoket.webp" | asset_url }}',
+      variants: [
+        { id: 'redpoket-medium', name: 'Red Pocket - Medium' },
+        { id: 'redpoket-large', name: 'Red Pocket - Large' },
+      ],
+    },
+    {
+      id: 6,
+      name: 'Product 6',
+      price: 69.99,
+      description: 'Description for Product 6',
+      image: '{{ "denim.webp" | asset_url }}',
+      variants: [
+        { id: 'denim-medium', name: 'Denim - Medium' },
+        { id: 'denim-large', name: 'Denim - Large' },
+      ],
+    },
+  ];
+  
+  // Function to render the product grid
+  function renderProductGrid() {
+    const gridContainer = document.querySelector('.product-grid');
+    gridContainer.innerHTML = ''; // Clear existing content
+  
+    products.forEach((product) => {
+      const productBlock = document.createElement('div');
+      productBlock.className = 'product-block';
+      productBlock.setAttribute('data-product-id', product.id);
+      productBlock.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" class="Card-img">
+          <button class="view-details" onclick="showProductPopup(${product.id})">+</button>
+      `;
+      gridContainer.appendChild(productBlock);
+    });
   }
-});
-
-// Initialize the product grid on page load
-document.addEventListener('DOMContentLoaded', () => {
-  renderProductGrid();
-});
+  
+  // Function to handle showing the product popup
+  function showProductPopup(productId) {
+    const product = products.find((p) => p.id === productId);
+    const popup = document.querySelector('.product-popup');
+    const productImage = popup.querySelector('.product-image');
+    const productName = popup.querySelector('.product-name');
+    const productPrice = popup.querySelector('.product-price');
+    const productDescription = popup.querySelector('.product-description');
+    const productVariants = popup.querySelector('.product-variants');
+  
+    productImage.src = product.image;
+    productName.textContent = product.name;
+    productPrice.textContent = `$${product.price.toFixed(2)}`;
+    productDescription.textContent = product.description;
+  
+    productVariants.innerHTML = '';
+    product.variants.forEach((variant) => {
+      const variantOption = document.createElement('div');
+      variantOption.textContent = variant.name;
+      productVariants.appendChild(variantOption);
+    });
+  
+    popup.style.display = 'flex'; // Show the popup
+  }
+  
+  // Function to handle adding to cart
+  function addToCart() {
+    alert('Product added to cart!'); // Example alert for demonstration
+  }
+  
+  // Event listener for closing the popup when clicked outside
+  document.querySelector('.product-popup').addEventListener('click', (e) => {
+    if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
+      e.target.style.display = 'none'; // Close the popup
+    }
+  });
+  
+  // Initialize the product grid on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    renderProductGrid();
+  });
 
   </script>
 </section>
