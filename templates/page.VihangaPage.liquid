@@ -464,29 +464,22 @@
 
     <!-- Popup for product details -->
     <div class="product-popup">
-      <div class="popup-content" style="display: none;">
-        <button class="close-popup" onclick="closePopup()">×</button>
-        <div class="popup-top">
-            <img class="product-image" src="" alt="Product Image">
-            <div class="product-info">
-                <h2 class="product-name"></h2>
-                <p class="product-price"></p>
-                <p class="product-description"></p>
-            </div>
+      <div class="popup-content">
+        <span class="close-popup" onclick="closePopup()">×</span>
+        <div>
+          <div>
+            <img class="product-image" src="" alt="">
+          </div>
+          <div>
+            <h2 class="product-name"></h2>
+            <p class="product-price"></p>
+            <p class="product-description"></p>
+          </div>
         </div>
-        <div class="popup-options">
-            <div class="product-colors">
-                <strong>Color:</strong>
-            </div>
-            <div class="product-sizes">
-                <strong>Size:</strong>
-                <select class="size-select">
-                    <option>Choose your size</option>
-                </select>
-            </div>
-        </div>
-        <button class="add-to-cart-button" onclick="addToCart()">ADD TO CART →</button>
-    </div>
+        <div class="product-colors"></div>
+        <div class="product-sizes"></div>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
     </div>
   </div>
 
