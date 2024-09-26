@@ -632,20 +632,24 @@
       productPrice.textContent = `$${product.price.toFixed(2)}`;
       productDescription.textContent = product.description;
     
-      // Populate color options
+      // Populate color options as joined buttons
       productColors.innerHTML = '<strong>Colors:</strong>';
       product.colors.forEach((color) => {
         const colorOption = document.createElement('div');
         colorOption.className = 'color-option';
         colorOption.textContent = color;
+        colorOption.onclick = () => {
+          document.querySelectorAll('.color-option').forEach(option => option.classList.remove('selected'));
+          colorOption.classList.add('selected');
+        };
         productColors.appendChild(colorOption);
       });
     
-      // Populate size options
-      productSizes.innerHTML = '<strong>Sizes:</strong>';
+      // Populate size dropdown
+      productSizes.innerHTML = '';
       product.sizes.forEach((size) => {
-        const sizeOption = document.createElement('div');
-        sizeOption.className = 'size-option';
+        const sizeOption = document.createElement('option');
+        sizeOption.value = size;
         sizeOption.textContent = size;
         productSizes.appendChild(sizeOption);
       });
@@ -654,24 +658,16 @@
     }
     
     function addToCart() {
-      alert('Product added to cart!'); 
+      alert('Product added to cart!');
     }
-    
-    document.querySelector('.product-popup').addEventListener('click', (e) => {
-      if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
-        e.target.style.display = 'none'; 
-      }
-    });
     
     function closePopup() {
       const popup = document.querySelector('.product-popup');
-      popup.style.display = 'none'; 
+      popup.style.display = 'none';
     }
     
     document.addEventListener('DOMContentLoaded', () => {
       renderProductGrid();
-    });
-    
 
   </script>
 </section>
