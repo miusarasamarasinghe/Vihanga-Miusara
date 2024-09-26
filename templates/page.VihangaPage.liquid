@@ -273,8 +273,9 @@
         max-width: 1800px;
     }
     .Card-img{
-     max-height:444px
-     max-width:433px
+     max-height:444px;
+     max-width:433px;
+     display: block;
 
     }
     @media (max-width: 1370px) {
@@ -351,7 +352,24 @@
    height:140px;
 
   }
-
+  .product-block {
+    position: relative; /* Make the product block a positioning context */
+    display: inline-block;
+    margin: 10px;
+  }
+  .view-details {
+    position: absolute;
+    top: 10px;  /* Adjust as needed to place it higher or lower */
+    right: 10px; /* Adjust this value to control the horizontal position */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
 
   @media (max-width: 768px) {
     .popup-content {
