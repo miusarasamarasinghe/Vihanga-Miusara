@@ -313,28 +313,7 @@
     margin-bottom:0.5rem;
 
     }
-    .product-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-    max-width: 311px; 
-    max-height: 447px;
-    overflow-y: auto; 
-  }
+   
 
   .close-popup {
     position: absolute;
@@ -347,11 +326,90 @@
     color: black;
     z-index: 1001; 
   }
-  .product-image{
-   width:120px;
-   height:140px;
-
+  .product-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
   }
+  
+  .popup-content {
+    display: flex;
+    background: #fff;
+    width: 60%;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .popup-left {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .popup-right {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .product-image {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .product-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .product-price {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    margin-bottom: 20px;
+  }
+  
+  .product-colors {
+    margin-bottom: 20px;
+  }
+  
+  .color-option {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    background: #ddd;
+    border: 1px solid #aaa;
+    cursor: pointer;
+  }
+  
+  .color-option.selected {
+    background: #555;
+    color: #fff;
+  }
+  
+  .color-option:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  
+  .color-option:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  .product-sizes {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
   .product-block {
     position: relative; /* Make the product block a positioning context */
     display: inline-block;
@@ -468,15 +526,20 @@
     <div class="product-popup">
       <div class="popup-content">
         <span class="close-popup" onclick="closePopup()">×</span>
-        <img class="product-image" src="" alt="">
-        <h2 class="product-name"></h2>
-        <p class="product-price"></p>
-        <p class="product-description"></p>
-        <div class="product-colors"></div> <!-- Color options will be displayed here -->
-        <div class="product-sizes"></div> <!-- Size options will be displayed here -->
-        <button onclick="addToCart()">Add to Cart</button>
+        <div class="popup-left">
+          <img class="product-image" src="" alt="">
+        </div>
+        <div class="popup-right">
+          <h2 class="product-name"></h2>
+          <p class="product-price"></p>
+          <p class="product-description"></p>
+          <div class="product-colors"></div> <!-- Color options will be displayed here -->
+          <select class="product-sizes"></select> <!-- Size options dropdown will be here -->
+          <button onclick="addToCart()">Add to Cart</button>
+        </div>
       </div>
     </div>
+    
   </div>
 
   <script>
