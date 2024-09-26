@@ -383,15 +383,15 @@
         <img src="{{ 'bag.webp' | asset_url }}" alt="Gift" class="Card-img">
         <button class="view-details">+</button>
       </div>
-      <div class="product-block" data-product-id="2">
+      <div class="product-block" data-product-id="1">
         <img src="{{ 'Blue.webp' | asset_url }}" alt="Gift" class="Card-img">
         <button class="view-details">+</button>
       </div>
-      <div class="product-block" data-product-id="3">
+      <div class="product-block" data-product-id="1">
         <img src="{{ 'redja.webp' | asset_url }}" alt="Gift" class="Card-img">
         <button class="view-details">+</button>
       </div>
-      <div class="product-block" data-product-id="4">
+      <div class="product-block" data-product-id="1">
         <img src="{{ 'coffee.webp' | asset_url }}" alt="Gift" class="Card-img">
         <button class="view-details">+</button>
       </div>
@@ -408,108 +408,97 @@
     <!-- Popup for product details -->
     <div class="product-popup" style="display: none;">
       <div class="popup-content">
+        <img class="product-image" src="" alt="Product Image" style="width: 100%; height: auto;">
         <h2 class="product-name"></h2>
         <p class="product-price"></p>
         <p class="product-description"></p>
         <div class="product-variants"></div>
-        <button class="add-to-cart" >Add to Cart</button>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
   </div>
 
   <script>
     // Example products array
-    const products = [
-      {
-        id: 1,
-        name: 'Product 1',
-        price: 19.99,
-        description: 'Description for Product 1',
-        variants: [
-          { id: 'black-medium', name: 'Black - Medium' },
-          { id: 'black-large', name: 'Black - Large' },
-          // Add more variants as needed
-        ],
-      },
-      // Add more products
-    ];
+   // Example products array with images
+const products = [
+  {
+    id: 1,
+    name: 'Product 1',
+    price: 19.99,
+    description: 'Description for Product 1',
+    image: '{{ "bag.webp" | asset_url }}', // Add the image URL here
+    variants: [
+      { id: 'black-medium', name: 'Black - Medium' },
+      { id: 'black-large', name: 'Black - Large' },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Product 2',
+    price: 29.99,
+    description: 'Description for Product 2',
+    image: '{{ "bag.webp" | asset_url }}', // Add the image URL here
+    variants: [
+      { id: 'blue-medium', name: 'Blue - Medium' },
+      { id: 'blue-large', name: 'Blue - Large' },
+    ],
+  },
+  // Add more products as needed
+];
 
-    // Function to render the product grid
-    function renderProductGrid() {
-      const gridContainer = document.querySelector('.product-grid');
-      products.forEach((product) => {
-        const productBlock = document.createElement('div');
-        productBlock.className = 'product-block';
-        productBlock.setAttribute('data-product-id', product.id);
-        productBlock.innerHTML = `
-            <img src="path_to_product_image" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>$${product.price.toFixed(2)}</p>
-            <button class="view-details">View Details</button>
-        `;
-        gridContainer.appendChild(productBlock);
-      });
-    }
+// Function to render the product grid
+function renderProductGrid() {
+  const gridContainer = document.querySelector('.product-grid');
+  products.forEach((product) => {
+    const productBlock = document.createElement('div');
+    productBlock.className = 'product-block';
+    productBlock.setAttribute('data-product-id', product.id);
+    productBlock.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="Card-img">
+        <h3>${product.name}</h3>
+        <p>$${product.price.toFixed(2)}</p>
+        <button class="view-details" onclick="showProductPopup(${product.id})">View Details</button>
+    `;
+    gridContainer.appendChild(productBlock);
+  });
+}
 
-    // Function to handle the popup display
-    function showProductPopup(productId) {
-      const product = products.find((p) => p.id === productId);
-      const popup = document.querySelector('.product-popup');
-      const productName = popup.querySelector('.product-name');
-      const productPrice = popup.querySelector('.product-price');
-      const productDescription = popup.querySelector('.product-description');
-      const productVariants = popup.querySelector('.product-variants');
+// Function to handle the popup display
+function showProductPopup(productId) {
+  const product = products.find((p) => p.id === productId);
+  const popup = document.querySelector('.product-popup');
+  const productName = popup.querySelector('.product-name');
+  const productPrice = popup.querySelector('.product-price');
+  const productDescription = popup.querySelector('.product-description');
+  const productVariants = popup.querySelector('.product-variants');
+  
+  // Add an image element for the product
+  const productImage = popup.querySelector('.product-image');
+  productImage.src = product.image; // Set the product image source
 
-      productName.textContent = product.name;
-      productPrice.textContent = `$${product.price.toFixed(2)}`;
-      productDescription.textContent = product.description;
+  productName.textContent = product.name;
+  productPrice.textContent = `$${product.price.toFixed(2)}`;
+  productDescription.textContent = product.description;
 
-      // Clear previous variants
-      productVariants.innerHTML = '';
-      product.variants.forEach((variant) => {
-        const variantOption = document.createElement('div');
-        variantOption.textContent = variant.name;
-        productVariants.appendChild(variantOption);
-      });
+  // Clear previous variants
+  productVariants.innerHTML = '';
+  product.variants.forEach((variant) => {
+    const variantItem = document.createElement('div');
+    variantItem.textContent = variant.name;
+    productVariants.appendChild(variantItem);
+  });
 
-      popup.style.display = 'flex'; // Show the popup
-    }
+  // Show the popup
+  popup.style.display = 'flex';
+}
 
-    // Function to add the product to the cart
-    function addToCart(productId) {
-    
-      console.log(`Product ${productId} added to cart`);
+// To close the popup when clicking outside of it
+document.querySelector('.product-popup').addEventListener('click', (e) => {
+  if (e.target === document.querySelector('.product-popup')) {
+    e.target.style.display = 'none';
+  }
+});
 
-      // Check if the product with variant 'black-medium' is added to the cart
-      if (productId === 1) {
-        // Example condition, modify as needed
-        console.log('Also adding Soft Winter Jacket to cart');
-        // Add logic to add the "Soft Winter Jacket" to the cart
-      }
-    }
-
-    // Event listeners
-    document.addEventListener('DOMContentLoaded', () => {
-      renderProductGrid();
-
-      document.querySelectorAll('.view-details').forEach((button) => {
-        button.addEventListener('click', (e) => {
-          const productId = parseInt(e.target.closest('.product-block').getAttribute('data-product-id'));
-          showProductPopup(productId);
-        });
-      });
-
-      document.querySelector('.add-to-cart').addEventListener('click', (e) => {
-        const productId = parseInt(e.target.closest('.product-popup').querySelector('.product-name').textContent);
-        addToCart(productId);
-      });
-
-      // Close popup on background click (optional)
-      document.querySelector('.product-popup').addEventListener('click', (e) => {
-        if (e.target === e.currentTarget) {
-          e.currentTarget.style.display = 'none'; // Hide popup
-        }
-      });
-    });
   </script>
 </section>
