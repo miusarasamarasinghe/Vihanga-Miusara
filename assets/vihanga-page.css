@@ -618,7 +618,8 @@ color:black;
   /* Selected option styling */
   #selected-option {
     flex: 1;
-    padding-left: 10px; /* Align text to the left */
+    padding-left: 10px; 
+    height: 40px;/* Align text to the left */
   }
   
   /* Divider styling */
@@ -647,7 +648,7 @@ color:black;
     top: 100%;
     left: 0;
     z-index: 9999;
-height: 40px;
+
     overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
