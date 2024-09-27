@@ -393,6 +393,19 @@ l    line-height: 19.2px;
     margin-left: 0; /* Remove left margin to eliminate gap */
     margin-right: 0; /* Remove right margin to eliminate gap */
 }
+.popup-bttn{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 15px;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
   @media (min-width: 768px) and (max-width: 1150px) {
     .text-overlay {
         bottom: 10%;
@@ -687,7 +700,7 @@ color:black;
             </div>
           
             <div>
-              <a href="#" class="cta-button">
+              <a href="#" class="popup-bttn">
                 <span class="bttn-txt">Shop Now </span>
                 <span class="arrow">→</span>
               </a>
