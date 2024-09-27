@@ -265,6 +265,39 @@
               .header-button-nav:hover .arrow-header-nav {
                 color: white !important;
               }
+              .burger-icon {
+                display: none; /* Hide burger icon on larger screens */
+                cursor: pointer;
+                font-size: 24px;
+            }
+            
+            .mobile-menu {
+                display: none; /* Hide mobile menu by default */
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 60px; /* Adjust based on header height */
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .mobile-menu .close-menu {
+                cursor: pointer;
+                font-size: 24px;
+                align-self: flex-end;
+            }
+            
+            .mobile-button-nav {
+                margin-top: 10px;
+                padding: 10px 20px;
+                background-color: #f0c14b;
+                color: #111;
+                text-decoration: none;
+                border-radius: 5px;
+            }
               .hero-end-part {
             font-family: Jost;
             font-size: 16px;
@@ -292,6 +325,17 @@
            display: block;
 
           }
+          .menu-open .header-center {
+            display: flex; /* Show text when menu is open */
+        }
+        
+        .menu-open .burger-icon {
+            content: "\00d7"; /* Change burger icon to 'X' */
+        }
+        
+        .menu-open .mobile-menu {
+            display: flex; /* Show mobile menu when open */
+        }
           {% comment %} @media (max-width: 1370px) {
             .product-grid {
               grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -313,7 +357,21 @@
             }
           }
 
-
+          .header-center {
+            display: none; /* Hide text on mobile */
+        }
+        .header-left {
+            flex: 1;
+            justify-content: center; /* Center logo */
+        }
+        .header-right {
+            flex: 1;
+            justify-content: flex-end;
+        }
+        .burger-icon {
+            display: block; /* Show burger icon on mobile */
+            font-size: 24px;
+        }
 
 
 
@@ -432,20 +490,25 @@
   </style>
   <header class="page-header">
     <div class="header-container">
-      <div class="header-left">
-        <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
-      </div>
-      <div class="header-center">Find the ideal gift for your loved ones.</div>
-      <div class="header-right">
-        <div>
-          <a href="#" class="header-button-nav">
-            <span class="bttn-txt-header-nav">Shop Now </span>
-            <span class="arrow-header-nav">→</span>
-          </a>
+        <div class="header-left">
+            <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
         </div>
-      </div>
+        <div class="header-center">Find the ideal gift for your loved ones.</div>
+        <div class="header-right">
+            <div class="header-button-nav">
+                <span class="bttn-txt-header-nav">Shop Now </span>
+                <span class="arrow-header-nav">→</span>
+            </div>
+            <div class="burger-icon" onclick="toggleMenu()">&#9776;</div>
+        </div>
     </div>
-  </header>
+    <div class="mobile-menu">
+        <div class="close-menu" onclick="toggleMenu()">✖</div>
+        <div class="mobile-text">Find the ideal gift for your loved ones.</div>
+        <a href="#" class="mobile-button-nav">Shop Now</a>
+    </div>
+</header>
+
   <div class="Main-container">
     <div class="simple-banner-section">
       <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
@@ -679,7 +742,12 @@
         e.target.style.display = 'none';
       }
     });
-
+    function toggleMenu() {
+      const header = document.querySelector('.header-container');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      header.classList.toggle('menu-open');
+      mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex'; // Toggle mobile menu visibility
+  }
     function closePopup() {
       const popup = document.querySelector('.product-popup');
       popup.style.display = 'none';

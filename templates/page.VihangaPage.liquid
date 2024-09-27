@@ -1,5 +1,10 @@
 <section class="custom-page-section">
   <style>
+    body {
+      font-family: 'Jost', sans-serif, 'Lustria', serif;
+  }
+  
+  
     .Main-container {
       max-width: 1600px;
       margin: 0 auto; 
@@ -195,7 +200,6 @@
 
           .header-center {
               text-align: center;
-              display:block;
           }
 
           .header-right {
@@ -272,7 +276,7 @@
             background-color:#F5F5F5;
           }
           .Grid-container{
-            max-width:1400px;
+            max-width:1600px
             width:100%
           }
           .product-grid {
@@ -310,21 +314,7 @@
           }
 
 
-          .header-center {
-            display: none; /* Hide text on mobile */
-        }
-        .header-left {
-            flex: 1;
-            justify-content: center; /* Center logo */
-        }
-        .header-right {
-            flex: 1;
-            justify-content: flex-end;
-        }
-        .burger-icon {
-            display: block; /* Show burger icon on mobile */
-            font-size: 24px;
-        }
+
 
 
           .grid-title{
@@ -546,12 +536,10 @@
             
             </div>
             <div class="product-sizes">
-              <h3>Size Array: {{ size_array }}</h3>
-
-       
+              <label for="size-select" class="size-label">Choose your size:</label>
               <div class="dropdown-container">
                 <select id="size-select" class="size-dropdown">
-                  <option value="" disabled selected>Choose your size</option>
+                  <option value="" disabled selected>Select Size</option>
                   {% for size in size_array %}
                     <option value="{{ size }}">{{ size }}</option>
                   {% endfor %}
@@ -655,23 +643,22 @@
       const productDescription = popup.querySelector('.product-description');
       const productColors = popup.querySelector('.product-colors');
       const productSizes = popup.querySelector('.product-sizes');
-    
+
       productImage.src = product.image;
       productName.textContent = product.name;
       productPrice.textContent = `$${product.price.toFixed(2)}`;
       productDescription.textContent = product.description;
-    
-     
+
+      // Populate color options
       productColors.innerHTML = '<strong>Colors:</strong>';
       product.colors.forEach((color) => {
         const colorOption = document.createElement('div');
         colorOption.className = 'color-option';
-        colorOption.style.backgroundColor = color; 
         colorOption.textContent = color;
         productColors.appendChild(colorOption);
       });
-    
-   
+
+      // Populate size options
       productSizes.innerHTML = '<strong>Sizes:</strong>';
       product.sizes.forEach((size) => {
         const sizeOption = document.createElement('div');
@@ -679,27 +666,27 @@
         sizeOption.textContent = size;
         productSizes.appendChild(sizeOption);
       });
-    
+
       popup.style.display = 'flex';
     }
-    
-  
+
+    function addToCart() {
+      alert('Product added to cart!');
+    }
+
+    document.querySelector('.product-popup').addEventListener('click', (e) => {
+      if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
+        e.target.style.display = 'none';
+      }
+    });
+
     function closePopup() {
       const popup = document.querySelector('.product-popup');
       popup.style.display = 'none';
     }
-    
- 
+
     document.addEventListener('DOMContentLoaded', () => {
       renderProductGrid();
-    
-   
-      document.querySelector('.product-popup').addEventListener('click', (e) => {
-        if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
-          closePopup();
-        }
-      });
     });
-    
   </script>
 </section>
