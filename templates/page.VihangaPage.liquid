@@ -66,7 +66,20 @@
           </div>
         </div>
       </div>
-     
+      <div class="custom-dropdown">
+        <div class="dropdown-header">
+          <div class="dropdown-content" onclick="toggleDropdown()">
+            <div id="selected-option">Size</div>
+            
+            <div id="dropdown-arrow" class="arrow">&#9662;</div>
+          </div>
+        </div>
+        <div id="dropdown-menu" class="dropdown-menu">
+          <div class="dropdown-item" onclick="selectOption('XS')">XS</div>
+          <div class="dropdown-item" onclick="selectOption('S')">S</div>
+          <div class="dropdown-item" onclick="selectOption('M')">M</div>
+        </div>
+      </div>
       
       
       
@@ -138,7 +151,21 @@
           <div class="popup-details">
             <strong>Colors</strong>
             <div class="product-colors"></div>
-           
+            <div class="custom-dropdown">
+              <div class="dropdown-header">
+                <div class="dropdown-content" onclick="toggleDropdown()">
+                  <div id="selected-option">Size</div>
+                  
+                  <div id="dropdown-arrow" class="arrow">&#9662;</div>
+                </div>
+              </div>
+              <div id="dropdown-menu" class="dropdown-menu">
+                <div class="dropdown-item" onclick="selectOption('XS')">XS</div>
+                <div class="dropdown-item" onclick="selectOption('S')">S</div>
+                <div class="dropdown-item" onclick="selectOption('M')">M</div>
+              </div>
+            </div>
+            
 
             <div>
               <a href="#" class="popup-bttn">
@@ -164,7 +191,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "bag.webp" | asset_url }}',
         colors: ['White', 'Black'],
-     
+        sizes: ['Medium', 'Large'],
       },
       {
         id: 2,
@@ -174,7 +201,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "Blue.webp" | asset_url }}',
         colors: ['Blue', 'Black'],
-  
+        sizes: ['Medium', 'Large'],
       },
       {
         id: 3,
@@ -184,7 +211,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redja.webp" | asset_url }}',
         colors: ['Red', 'Yellow'],
-     
+        sizes: ['Medium', 'Large'],
       },
       {
         id: 4,
@@ -194,7 +221,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "coffee.webp" | asset_url }}',
         colors: ['White', 'Black'],
-      
+        sizes: ['Medium', 'Large'],
       },
       {
         id: 5,
@@ -204,7 +231,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redpoket.webp" | asset_url }}',
         colors: ['Grey', 'Black'],
-     
+        sizes: ['Medium', 'Large'],
       },
       {
         id: 6,
@@ -214,7 +241,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "denim.webp" | asset_url }}',
         colors: ['Blue', 'Black'],
-     
+        sizes: ['Medium', 'Large'],
       },
     ];
 
@@ -266,6 +293,21 @@
       const productDescription = popup.querySelector('.product-description');
       const productColors = popup.querySelector('.product-colors');
 
+
+      // Update popup content with selected product details
+      productImage.src = product.image;
+      productName.textContent = product.name;
+      productPrice.textContent = `$${product.price.toFixed(2)}`;
+      productDescription.textContent = product.description;
+
+      // Populate color options
+      renderColorSwatches(product.colors);
+
+      // Populate size options
+      
+      console.log('Popup content set for product:', product.name);
+      popup.style.display = 'flex';
+    }
 
     function renderColorSwatches(colors) {
       const productColors = document.querySelector('.product-colors');
