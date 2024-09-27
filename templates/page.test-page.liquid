@@ -131,50 +131,7 @@
                   font-size: 16px;
               }
           }
-              @media (max-width: 768px) {
-                .banner-image {
-                  display: none;
-                }
-
-                .small-device-sec {
-                  display: block;
-                }
-
-                .mobile-banner-wrapper {
-                  position: relative;
-                    z-index: 10;
-                  margin-bottom: 2rem;
-                }
-
-                .mobile-banner-button {
-                  position: absolute;
-                  top: 10%;
-                  left: 50%;
-                  transform: translateX(-50%);
-                  z-index: 1;
-                }
-
-                .small-device-image {
-                  width: 100%;
-                  height: 264px;
-                }
-
-                .small-device-title {
-                  font-family: Jost;
-                  font-size: 30px;
-                  color: black;
-                  margin-top: 20px;
-                  padding: 5px;
-                }
-
-                .small-device-subtitle {
-                  font-family: Jost;
-                  font-size: 18px;
-                  color: black;
-                  margin-top: 5px;
-                  padding: 10px;
-                }
-              }
+            
               .page-header {
               background-color: #F5F5F5;
               padding: 10px;
@@ -302,17 +259,7 @@
               max-width: 100%;
             }
           } {% endcomment %}
-          @media (max-width: 768px) {
-            .product-grid {
-              grid-template-columns: repeat(2, 1fr);
-            }
-
-            .Card-img {
-              max-height: 186.42px;
-              width: 100%; /
-            }
-          }
-
+          
 
 
 
@@ -425,7 +372,59 @@
   .overlay{
     display: none;
   }
+ 
+
         @media (max-width: 768px) {
+          .banner-image {
+            display: none;
+          }
+      
+          .small-device-sec {
+            display: block;
+          }
+      
+          .mobile-banner-wrapper {
+            position: relative;
+              z-index: 10;
+            margin-bottom: 2rem;
+          }
+      
+          .mobile-banner-button {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+          }
+      
+          .small-device-image {
+            width: 100%;
+            height: 264px;
+          }
+      
+          .small-device-title {
+            font-family: Jost;
+            font-size: 30px;
+            color: black;
+            margin-top: 20px;
+            padding: 5px;
+          }
+      
+          .small-device-subtitle {
+            font-family: Jost;
+            font-size: 18px;
+            color: black;
+            margin-top: 5px;
+            padding: 10px;
+          }
+          .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+      
+          .Card-img {
+            max-height: 186.42px;
+            width: 100%; /
+          }
           .popup-content {
             max-width: 95%;
             padding: 15px;
