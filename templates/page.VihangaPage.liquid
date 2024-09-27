@@ -824,10 +824,18 @@ color:black;
 
     function closePopup() {
       const popup = document.querySelector('.product-popup');
-      popup.style.display = 'none'; // Hide the popup
-      const closeIcon = popup.querySelector('.close-popup');
-      closeIcon.style.display = 'none'; // Hide the close icon when popup is closed
-    }
+      popup.style.display = 'none'; 
+  }
+  
+ 
+  document.querySelector('.close-popup').addEventListener('click', closePopup);
+  
+
+  document.querySelector('.product-popup').addEventListener('click', (e) => {
+      if (e.target === document.querySelector('.product-popup')) {
+          closePopup();
+      }
+  });
 
     document.addEventListener('DOMContentLoaded', () => {
       renderProductGrid();
