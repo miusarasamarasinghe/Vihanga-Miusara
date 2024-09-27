@@ -77,6 +77,7 @@
           <div class="dropdown-item" onclick="selectOption('M')">M</div>
         </div>
       </div>
+      
       <!-- Section for small devices -->
       <div class="small-device-sec">
         <h2 class="small-device-title">The Gift Guide</h2>
@@ -360,26 +361,27 @@
       renderProductGrid();
     });
     // Function to toggle the dropdown menu
+// Function to toggle the dropdown menu
 function toggleDropdown() {
   const dropdownMenu = document.getElementById("dropdown-menu");
   const dropdownArrow = document.getElementById("dropdown-arrow");
 
   if (dropdownMenu.style.display === "block") {
     dropdownMenu.style.display = "none";
-    dropdownArrow.style.transform = "rotate(0deg)";
+    dropdownArrow.style.transform = "rotate(0deg)"; // Reset arrow to default
   } else {
     dropdownMenu.style.display = "block";
-    dropdownArrow.style.transform = "rotate(180deg)";
+    dropdownArrow.style.transform = "rotate(180deg)"; // Rotate arrow when open
   }
 }
 
-
+// Function to handle option selection
 function selectOption(option) {
   document.getElementById("selected-option").innerText = option;
-  toggleDropdown(); 
+  toggleDropdown(); // Close the dropdown after selecting an option
 }
 
-
+// Close the dropdown if clicked outside
 window.onclick = function(event) {
   if (!event.target.matches('.dropdown-header') && !event.target.closest(".custom-dropdown")) {
     const dropdowns = document.getElementsByClassName("dropdown-menu");
@@ -393,6 +395,7 @@ window.onclick = function(event) {
     }
   }
 };
+
 
   </script>
 

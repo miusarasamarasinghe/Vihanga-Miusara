@@ -583,43 +583,6 @@ color:black;
         pointer-events: none;
       }
       /* Style for the dropdown container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Button styling */
-  .dropdown-toggle {
-    background-color: #f0f0f0;
-    color: black;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  
-  /* Hide dropdown content initially */
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Dropdown item styling */
-  .dropdown-item {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Hover effect for dropdown items */
-  .dropdown-item:hover {
-    background-color: #ddd;
-  }
 /* Container styling */
 .custom-dropdown {
     width: 150px; /* Adjust width as needed */
@@ -633,7 +596,7 @@ color:black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 10px 0px; /* Vertically center content */
     background-color: white;
     border: 1px solid #000;
     border-radius: 5px;
@@ -641,16 +604,17 @@ color:black;
     position: relative;
   }
   
-  /* Separated section with a line in between */
-  .dropdown-header span:first-child {
-    margin-right: auto; /* Ensures the option and arrow are separated */
+  /* Styling for selected option */
+  #selected-option {
+    flex: 1;
+    padding-left: 15px; /* Add padding to align properly */
   }
   
   /* Arrow styling */
   .arrow {
-    border-left: 1px solid #000; /* Line separator */
-    padding-left: 10px;
-    transition: transform 0.3s ease-in-out;
+    padding: 10px 15px; /* Padding for arrow section */
+    border-left: 1px solid #000; /* Divider connecting to borders */
+    transition: transform 0.3s ease-in-out; /* Smooth rotation */
   }
   
   /* Dropdown menu styles */
@@ -682,4 +646,5 @@ color:black;
     background-color: black;
     color: white;
   }
+  
     
