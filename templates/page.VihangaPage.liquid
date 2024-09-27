@@ -773,34 +773,36 @@ color:black;
     function showProductPopup(productId) {
       const product = products.find((p) => p.id === productId);
       const popup = document.querySelector('.product-popup');
+      
+      // Only update dynamic content areas, without modifying the close button or other static structure
       const productImage = popup.querySelector('.product-image');
       const productName = popup.querySelector('.product-name');
       const productPrice = popup.querySelector('.product-price');
       const productDescription = popup.querySelector('.product-description');
       const productColors = popup.querySelector('.product-colors');
       const productSizes = popup.querySelector('.product-sizes');
-
+    
+      // Update product details in the popup
       productImage.src = product.image;
       productName.textContent = product.name;
       productPrice.textContent = `$${product.price.toFixed(2)}`;
       productDescription.textContent = product.description;
-
- 
-      productColors.innerHTML = '<strong></strong>'; 
-  // Populate color options
-  product.colors.forEach((color) => {
-    const colorOption = document.createElement('div');
-    colorOption.className = 'color-option';
-    colorOption.style.border = '2px solid black'; // Add black outer border
-    colorOption.style.borderLeft = `5px solid ${color}`; // Inner border with specific color
-    colorOption.style.padding = '5px'; // Optional: add some padding for better visibility
-    colorOption.style.margin = '5px 0';
-    colorOption.style.width = '130px'; // Optional: add some margin for spacing
-    colorOption.textContent = color; // Optional: show color name
-    productColors.appendChild(colorOption);
-});
-
-      // Populate size options
+    
+      // Populate color options dynamically without overwriting existing structure
+      productColors.innerHTML = '<strong>Colors:</strong>';
+      product.colors.forEach((color) => {
+        const colorOption = document.createElement('div');
+        colorOption.className = 'color-option';
+        colorOption.style.border = '2px solid black';
+        colorOption.style.borderLeft = `5px solid ${color}`;
+        colorOption.style.padding = '5px';
+        colorOption.style.margin = '5px 0';
+        colorOption.style.width = '130px';
+        colorOption.textContent = color;
+        productColors.appendChild(colorOption);
+      });
+    
+      // Populate size options dynamically
       productSizes.innerHTML = '<strong>Sizes:</strong>';
       product.sizes.forEach((size) => {
         const sizeOption = document.createElement('div');
@@ -808,20 +810,12 @@ color:black;
         sizeOption.textContent = size;
         productSizes.appendChild(sizeOption);
       });
-
+    
+      // Display the popup
       popup.style.display = 'flex';
     }
-
-    function addToCart() {
-      alert('Product added to cart!');
-    }
-
-    document.querySelector('.product-popup').addEventListener('click', (e) => {
-      if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
-        e.target.style.display = 'none';
-      }
-    });
-
+    
+    // Close popup function
     function closePopup() {
       const popup = document.querySelector('.product-popup');
       popup.style.display = 'none';
@@ -832,10 +826,6 @@ color:black;
       if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
         closePopup();
       }
- 
-
-    document.addEventListener('DOMContentLoaded', () => {
-      renderProductGrid();
     });
   </script>
 </section>
