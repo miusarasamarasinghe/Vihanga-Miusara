@@ -772,9 +772,17 @@ color:black;
 
     function showProductPopup(productId) {
       const product = products.find((p) => p.id === productId);
+      if (!product) {
+        console.error('Product not found for ID:', productId);
+        return;
+      }
+    
       const popup = document.querySelector('.product-popup');
-      
-      // Only update dynamic content areas, without modifying the close button or other static structure
+      if (!popup) {
+        console.error('Popup element not found');
+        return;
+      }
+    
       const productImage = popup.querySelector('.product-image');
       const productName = popup.querySelector('.product-name');
       const productPrice = popup.querySelector('.product-price');
@@ -782,13 +790,13 @@ color:black;
       const productColors = popup.querySelector('.product-colors');
       const productSizes = popup.querySelector('.product-sizes');
     
-      // Update product details in the popup
+      // Update popup content with selected product details
       productImage.src = product.image;
       productName.textContent = product.name;
       productPrice.textContent = `$${product.price.toFixed(2)}`;
       productDescription.textContent = product.description;
     
-      // Populate color options dynamically without overwriting existing structure
+      // Populate color options
       productColors.innerHTML = '<strong>Colors:</strong>';
       product.colors.forEach((color) => {
         const colorOption = document.createElement('div');
@@ -802,7 +810,7 @@ color:black;
         productColors.appendChild(colorOption);
       });
     
-      // Populate size options dynamically
+      // Populate size options
       productSizes.innerHTML = '<strong>Sizes:</strong>';
       product.sizes.forEach((size) => {
         const sizeOption = document.createElement('div');
@@ -811,21 +819,32 @@ color:black;
         productSizes.appendChild(sizeOption);
       });
     
+      console.log('Popup content set for product:', product.name);
+    
       // Display the popup
       popup.style.display = 'flex';
     }
     
-    // Close popup function
     function closePopup() {
       const popup = document.querySelector('.product-popup');
-      popup.style.display = 'none';
+      if (popup) {
+        popup.style.display = 'none';
+      }
     }
     
-    // Event listener to close popup on background click
+    // Event listener to close popup on background click or close button
     document.querySelector('.product-popup').addEventListener('click', (e) => {
+      console.log('Click event detected on popup:', e.target);
       if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
         closePopup();
       }
     });
+    
+    // Render the product grid on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Document loaded, rendering product grid.');
+      renderProductGrid();
+    });
+    
   </script>
 </section>
