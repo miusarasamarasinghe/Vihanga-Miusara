@@ -791,10 +791,14 @@ color:black;
   product.colors.forEach((color) => {
     const colorOption = document.createElement('div');
     colorOption.className = 'color-option';
-    colorOption.style.borderLeft = `5px solid ${color}`; // Add color swatch
+    colorOption.style.border = '2px solid black'; // Add black outer border
+    colorOption.style.borderLeft = `5px solid ${color}`; // Inner border with specific color
+    colorOption.style.padding = '5px'; // Optional: add some padding for better visibility
+    colorOption.style.margin = '5px 0';
+    colorOption.style.width = '100px'; // Optional: add some margin for spacing
     colorOption.textContent = color; // Optional: show color name
     productColors.appendChild(colorOption);
-  });
+});
 
       // Populate size options
       productSizes.innerHTML = '<strong>Sizes:</strong>';
