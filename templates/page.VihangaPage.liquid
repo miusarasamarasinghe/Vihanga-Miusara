@@ -303,6 +303,7 @@
         .product-image{
          width:100%;
          height:160px;
+         padding-top:20px;
 
         }
         .product-block {
@@ -665,7 +666,7 @@ color:black;
                 
                   {% for color in color_array %}
                       {% if color != blank %}
-                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 100px; height: 20px; display: inline-block; margin-right: 5px;"   onclick="handleColorClick(this)">  
+                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 100px; height: 20px; display: inline-block; margin-right: 5px;">  
                            </div> 
 
                       {% endif %}
@@ -865,36 +866,7 @@ color:black;
       renderProductGrid();
     });
 
-    function handleColorClick(element) {
-      // Reset the styles of all color swatches
-      const allSwatches = document.querySelectorAll('.color-swatch');
-      allSwatches.forEach((swatch) => {
-        swatch.style.backgroundColor = '';
-        swatch.style.color = '';
-      });
-  
-      // Change the background color and text color of the clicked element
-      const selectedColor = element.getAttribute('data-color');
-      element.style.backgroundColor = selectedColor;
-      element.style.color = 'white';
-      element.style.borderColor = 'black'; // Set border to black
-  
-      // Optional: Apply a left-to-right transition
-      element.style.transition = 'all 0.3s ease-out';
-  
-      // Animate a background transition from left to right
-      element.animate(
-        [
-          { backgroundColor: 'white' },  // Starting state
-          { backgroundColor: selectedColor }  // Ending state
-        ], 
-        {
-          duration: 500,
-          easing: 'ease-in-out',
-          fill: 'forwards'
-        }
-      );
-    }
+    
     
   </script>
 </section>
