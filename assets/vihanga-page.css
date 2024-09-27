@@ -613,7 +613,7 @@ color:black;
   .dropdown-content {
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 45px;
     cursor: pointer;
   }
   
