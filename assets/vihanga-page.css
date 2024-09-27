@@ -611,14 +611,14 @@ color:black;
   .dropdown-content {
     display: flex;
     align-items: center;
-    padding: 10px; /* Add padding */
+    padding: 2px; /* Add padding */
     cursor: pointer;
   }
   
   /* Selected option styling */
   #selected-option {
     flex: 1;
-    padding-left: 15px; /* Align text to the left */
+    padding-left: 10px; /* Align text to the left */
   }
   
   /* Divider styling */
@@ -669,7 +669,9 @@ color:black;
   
   /* Arrow positioning */
   #dropdown-arrow {
-    margin-left: 10px; /* Adjust margin if needed */
+    margin-left: 10px;
+    font-size: 30px; 
+    border-left: 2px;/* Adjust margin if needed */
   }
   
   
