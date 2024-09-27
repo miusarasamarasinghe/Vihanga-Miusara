@@ -721,8 +721,7 @@ color:black;
         id: 1,
         name: 'Orange Wide Leg',
         price: 19.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "bag.webp" | asset_url }}',
         colors: ['White', 'Black'],
         sizes: ['Medium', 'Large'],
@@ -731,18 +730,16 @@ color:black;
         id: 2,
         name: 'Tailored Jacket',
         price: 29.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "Blue.webp" | asset_url }}',
-        colors: ['Blue', 'black'],
+        colors: ['Blue', 'Black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 3,
         name: 'Accordion Pleated Dress',
         price: 39.99,
-        description:
-          'DThis one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redja.webp" | asset_url }}',
         colors: ['Red', 'Yellow'],
         sizes: ['Medium', 'Large'],
@@ -751,36 +748,35 @@ color:black;
         id: 4,
         name: 'Green Trench Coat',
         price: 49.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "coffee.webp" | asset_url }}',
-        colors: ['White', 'black'],
+        colors: ['White', 'Black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 5,
         name: 'Tennis Blue T-Shirt',
         price: 59.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redpoket.webp" | asset_url }}',
-        colors: ['Grey', 'black'],
+        colors: ['Grey', 'Black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 6,
         name: 'Long Sleeve Tennis Top',
         price: 69.99,
-        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "denim.webp" | asset_url }}',
-        colors: ['Blue', 'black'],
+        colors: ['Blue', 'Black'],
         sizes: ['Medium', 'Large'],
       },
     ];
+    
     function toggleMenu() {
       const overlay = document.getElementById('overlayMenu');
       const burgerIcon = document.querySelector('.burger-icon');
-
+    
       if (overlay.style.display === 'block') {
         overlay.style.display = 'none';
         burgerIcon.innerHTML = '&#9776;'; // Burger icon
@@ -789,10 +785,11 @@ color:black;
         burgerIcon.innerHTML = 'X'; // Close icon
       }
     }
+    
     function renderProductGrid() {
       const gridContainer = document.querySelector('.product-grid');
       gridContainer.innerHTML = '';
-
+    
       products.forEach((product) => {
         const productBlock = document.createElement('div');
         productBlock.className = 'product-block';
@@ -804,7 +801,7 @@ color:black;
         gridContainer.appendChild(productBlock);
       });
     }
-
+    
     function showProductPopup(productId) {
       const product = products.find((p) => p.id === productId);
       if (!product) {
@@ -832,45 +829,14 @@ color:black;
       productDescription.textContent = product.description;
     
       // Populate color options
-      function renderColorSwatches(colors) {
-        const productColors = document.querySelector('.product-colors');
-        productColors.innerHTML = ''; 
+      renderColorSwatches(product.colors);
     
-        colors.forEach((color) => {
-            const colorOption = document.createElement('div');
-            colorOption.className = 'color-option';
-            colorOption.style.border = '1px solid black';
-            colorOption.style.borderLeft = `7px solid ${color}`;
-            colorOption.style.padding = '5px';
-            colorOption.style.margin = '5px 0';
-            colorOption.style.width = '130px';
-            colorOption.textContent = color;
-    
-            // Add click event to handle selection
-            colorOption.addEventListener('click', () => {
-                // Remove 'selected' class from all options
-                const allOptions = document.querySelectorAll('.color-option');
-                allOptions.forEach(option => option.classList.remove('selected'));
-    
-                // Add 'selected' class to the clicked option
-                colorOption.classList.add('selected');
-    
-                // Get the selected color value
-                const selectedColor = colorOption.textContent;
-                console.log('Selected Color:', selectedColor); // You can handle this value as needed
-            });
-    
-            productColors.appendChild(colorOption);
-        });
-    }
-    
-    
-      productSizes.innerHTML = '<strong></strong>';
+      // Populate size options
+      productSizes.innerHTML = '<strong>Choose your size:</strong>';
       const sizeDropdown = document.createElement('select'); 
       sizeDropdown.className = 'size-dropdown';
       sizeDropdown.style.margin = '10px 0';
-      
-     
+    
       product.sizes.forEach((size) => {
         const sizeOption = document.createElement('option');
         sizeOption.value = size;
@@ -878,13 +844,41 @@ color:black;
         sizeDropdown.appendChild(sizeOption);
       });
     
-     
       productSizes.appendChild(sizeDropdown);
-    
       console.log('Popup content set for product:', product.name);
-    
-   
       popup.style.display = 'flex';
+    }
+    
+    function renderColorSwatches(colors) {
+      const productColors = document.querySelector('.product-colors');
+      productColors.innerHTML = ''; // Clear existing colors
+    
+      colors.forEach((color) => {
+        const colorOption = document.createElement('div');
+        colorOption.className = 'color-option';
+        colorOption.style.border = '1px solid black';
+        colorOption.style.borderLeft = `7px solid ${color}`;
+        colorOption.style.padding = '5px';
+        colorOption.style.margin = '5px 0';
+        colorOption.style.width = '130px';
+        colorOption.textContent = color;
+    
+        // Add click event to handle selection
+        colorOption.addEventListener('click', () => {
+          // Remove 'selected' class from all options
+          const allOptions = document.querySelectorAll('.color-option');
+          allOptions.forEach(option => option.classList.remove('selected'));
+    
+          // Add 'selected' class to the clicked option
+          colorOption.classList.add('selected');
+    
+          // Get the selected color value
+          const selectedColor = colorOption.textContent;
+          console.log('Selected Color:', selectedColor); // You can handle this value as needed
+        });
+    
+        productColors.appendChild(colorOption);
+      });
     }
     
     function closePopup() {
@@ -907,6 +901,8 @@ color:black;
       console.log('Document loaded, rendering product grid.');
       renderProductGrid();
     });
+    
+
 
     
     
