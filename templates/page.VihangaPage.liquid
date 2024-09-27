@@ -824,9 +824,10 @@ color:black;
 
     function closePopup() {
       const popup = document.querySelector('.product-popup');
+      const closeIcon = popup.querySelector('.close-popup');
       popup.style.display = 'none';
+      closeIcon.style.display = 'none'; // Hide the close icon when popup is closed
     }
-    document.querySelector('.close-popup').addEventListener('click', closePopup);
 
     document.addEventListener('DOMContentLoaded', () => {
       renderProductGrid();
