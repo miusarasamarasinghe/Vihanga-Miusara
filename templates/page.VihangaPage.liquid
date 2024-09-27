@@ -507,6 +507,7 @@
       </div>
 
       <!-- Popup for product details -->
+     
       <div class="product-popup">
         <div class="popup-content">
           <span class="close-popup" onclick="closePopup()">×</span>
@@ -522,43 +523,23 @@
           </div>
           <div class="popup-details">
             <div class="product-colors">
-              {% for color in color_array %}
-                {% if color != blank %}
-                  <div class="color-swatch" style="border-left: 5px solid {{ color }};"></div>
-                {% endif %}
-              {% endfor %}
+              <!-- Colors will be dynamically rendered here -->
             </div>
-            
-            <div class="product-sizes">
-              <label for="size-select" class="size-label">Choose your size:</label>
-  <div class="dropdown-container">
-    <select id="size-select" class="size-dropdown">
-      <option value="" disabled selected>Select Size</option>
-      {% for size in size_array %}
-        <option value="{{ size }}">{{ size }}</option>
-      {% endfor %}
-    </select>
-    <span class="arrow-divider">▼</span>
-              </div>
-            </div>
-            
             <div class="product-sizes">
               <label for="size-select" class="size-label">Choose your size:</label>
               <div class="dropdown-container">
                 <select id="size-select" class="size-dropdown">
-                  <option value="" disabled selected>Select Size</option>
-                  {% for size in size_array %}
-                    <option value="{{ size }}">{{ size }}</option>
-                  {% endfor %}
+                  <option value="" disabled selected>Choose your size</option>
+                  <!-- Size options will be dynamically added here -->
                 </select>
                 <span class="arrow-divider">▼</span>
               </div>
             </div>
-          
             <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 
