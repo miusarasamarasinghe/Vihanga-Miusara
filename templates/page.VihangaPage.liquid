@@ -650,17 +650,12 @@ color:black;
           <div class="popup-details">
             <strong>Colors</strong>
             <div class="product-colors">
-              {% if color_array %}
                 
                   {% for color in color_array %}
                       {% if color != blank %}
                           <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 20px; height: 20px; display: inline-block; margin-right: 5px;">         /div>
                       {% endif %}
                   {% endfor %}
-       
-              {% else %}
-                  <p>No colors available.</p>
-              {% endif %}
           </div>
             <div class="product-sizes">
               <label for="size-select" class="size-label">Choose your size:</label>
