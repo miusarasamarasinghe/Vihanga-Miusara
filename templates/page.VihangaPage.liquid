@@ -650,30 +650,22 @@ color:black;
           </div>
           <div class="popup-details">
             <strong>Colors</strong>
-            <div class="product-colors">
-                
-                  {% for color in color_array %}
-                      {% if color != blank %}
-                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 100px; height: 20px; display: inline-block; margin-right: 5px;">  
-                                </div> 
-
-                      {% endif %}
-                  {% endfor %}
-          </div>
-          <div class="product-sizes">
-            <label for="size-select" class="size-label">Choose your size:</label>
-            <div class="dropdown-container">
-              <select id="size-select" class="size-dropdown">
-                <option value="" disabled selected>Select Size</option>
-                <!-- Size options will be dynamically inserted here -->
-              </select>
+            <div class="product-colors"></div>
+            
+            <div class="product-sizes">
+              <label for="size-select" class="size-label">Choose your size:</label>
+              <div class="dropdown-container">
+                <select id="size-select" class="size-dropdown">
+                  <option value="" disabled selected>Select Size</option>
+                  <!-- Size options will be dynamically inserted here -->
+                </select>
+              </div>
             </div>
-          </div>
-          
             <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 
@@ -767,7 +759,7 @@ color:black;
       });
     }
 
-    function showProductPopup(productId) {
+    unction showProductPopup(productId) {
       const product = products.find((p) => p.id === productId);
       if (!product) {
         console.error('Product not found for ID:', productId);
@@ -785,7 +777,7 @@ color:black;
       const productPrice = popup.querySelector('.product-price');
       const productDescription = popup.querySelector('.product-description');
       const productColors = popup.querySelector('.product-colors');
-      const productSizes = popup.querySelector('.product-sizes');
+      const sizeDropdown = popup.querySelector('#size-select');
     
       // Update popup content with selected product details
       productImage.src = product.image;
@@ -793,8 +785,8 @@ color:black;
       productPrice.textContent = `$${product.price.toFixed(2)}`;
       productDescription.textContent = product.description;
     
-      // Populate color options
-      productColors.innerHTML = '<strong></strong>';
+      // Clear and populate color options
+      productColors.innerHTML = '';
       product.colors.forEach((color) => {
         const colorOption = document.createElement('div');
         colorOption.className = 'color-option';
@@ -807,7 +799,7 @@ color:black;
         productColors.appendChild(colorOption);
       });
     
-      // Populate size options
+      // Clear and populate size dropdown options
       sizeDropdown.innerHTML = '<option value="" disabled selected>Select Size</option>';
       product.sizes.forEach((size) => {
         const sizeOption = document.createElement('option');
@@ -816,7 +808,10 @@ color:black;
         sizeDropdown.appendChild(sizeOption);
       });
     
-      console.log('Popup content set for product:', product.name);
+      // Add event listener to detect size changes
+      sizeDropdown.addEventListener('change', function () {
+        console.log(`Selected size: ${sizeDropdown.value}`);
+      });
     
       // Display the popup
       popup.style.display = 'flex';
@@ -831,16 +826,9 @@ color:black;
     
     // Event listener to close popup on background click or close button
     document.querySelector('.product-popup').addEventListener('click', (e) => {
-      console.log('Click event detected on popup:', e.target);
       if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
         closePopup();
       }
-    });
-    
-    // Render the product grid on DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('Document loaded, rendering product grid.');
-      renderProductGrid();
     });
     
   </script>
