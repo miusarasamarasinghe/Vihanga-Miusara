@@ -599,6 +599,7 @@ color:black;
     position: relative;
     user-select: none;
     height: 33px;
+    margin-bottom: 1rem;
   }
   
   /* Header styling */
