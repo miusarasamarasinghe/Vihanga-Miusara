@@ -677,7 +677,8 @@ color:black;
     /* Adjust margin if needed */
   }
   .arrow-container{
-    border-left: 2px solid;
+    border-left: 2px solid black;
+    height: 40px;
   }
   
   
