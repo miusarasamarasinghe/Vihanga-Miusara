@@ -583,6 +583,7 @@ color:black;
         pointer-events: none;
       }
       /* Style for the dropdown container */
+
 /* Container styling */
 .custom-dropdown {
     width: 150px; /* Adjust width as needed */
@@ -604,17 +605,25 @@ color:black;
     position: relative;
   }
   
-  /* Styling for selected option */
+  /* Selected option styling */
   #selected-option {
     flex: 1;
-    padding-left: 15px; /* Add padding to align properly */
+    padding-left: 15px; /* Align text to the left */
+  }
+  
+  /* Arrow container to handle divider */
+  .arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #000; /* Divider line connecting to borders */
+    height: 100%; /* Full height to connect top and bottom borders */
+    padding: 0 15px; /* Add spacing for the arrow */
   }
   
   /* Arrow styling */
   .arrow {
-    padding: 10px 15px; /* Padding for arrow section */
-    border-left: 1px solid #000; /* Divider connecting to borders */
-    transition: transform 0.3s ease-in-out; /* Smooth rotation */
+    transition: transform 0.3s ease-in-out; /* Smooth rotation effect */
   }
   
   /* Dropdown menu styles */
@@ -646,5 +655,6 @@ color:black;
     background-color: black;
     color: white;
   }
+  
   
     

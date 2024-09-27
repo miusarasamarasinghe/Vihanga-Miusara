@@ -69,7 +69,9 @@
       <div class="custom-dropdown">
         <div class="dropdown-header" onclick="toggleDropdown()">
           <span id="selected-option">Size</span>
-          <span id="dropdown-arrow" class="arrow">&#9662;</span>
+          <div class="arrow-container">
+            <span id="dropdown-arrow" class="arrow">&#9662;</span>
+          </div>
         </div>
         <div id="dropdown-menu" class="dropdown-menu">
           <div class="dropdown-item" onclick="selectOption('XS')">XS</div>
@@ -77,6 +79,7 @@
           <div class="dropdown-item" onclick="selectOption('M')">M</div>
         </div>
       </div>
+      
       
       <!-- Section for small devices -->
       <div class="small-device-sec">
@@ -362,6 +365,7 @@
     });
     // Function to toggle the dropdown menu
 // Function to toggle the dropdown menu
+// Function to toggle the dropdown menu
 function toggleDropdown() {
   const dropdownMenu = document.getElementById("dropdown-menu");
   const dropdownArrow = document.getElementById("dropdown-arrow");
@@ -395,6 +399,7 @@ window.onclick = function(event) {
     }
   }
 };
+
 
 
   </script>
