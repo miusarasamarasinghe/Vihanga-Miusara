@@ -277,6 +277,7 @@
           justify-content: center;
           align-items: center;
           z-index: 1000;
+          border-radius: 0 !important;
         }
 
         .popup-content {
@@ -302,7 +303,8 @@
         }
         .product-image{
          width:100%;
-         height:140px;
+         height:160px;
+         
 
         }
         .product-block {
@@ -335,18 +337,29 @@
     text-align:left;
     font-family: Jost;
     line-height: 13.2px;
+    padding-top:1px;
 
 
 
     }
     .product-name{
-      font-size:16px;
+      
       color:black;
-      padding-bottom:3px;
+      font-family: Jost;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 16.2px;
+      text-align: left;
+      
 
     }
     .product-price{
-      font-size:16px;
+      font-family: Lustria;
+      font-size: 16px;
+      font-weight: 400;
+l    line-height: 19.2px;
+     text-align: left;
+
 
     }
     .popup-info{
@@ -380,13 +393,25 @@
     margin-left: 0; /* Remove left margin to eliminate gap */
     margin-right: 0; /* Remove right margin to eliminate gap */
 }
+.popup-bttn{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  width:100%;
+  margin-top: 15px;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
   @media (min-width: 768px) and (max-width: 1150px) {
     .text-overlay {
         bottom: 10%;
-
-
     }
-
     .hero-title {
         font-size: 40px;
     }
@@ -464,28 +489,28 @@
             .lg-end-text{
               display:none;
               }
-          /* Mobile Header Styles */
+        
           .mobile-header {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #F5F5F5; /* Same background as the desktop header */
+            background-color: #F5F5F5; 
             padding: 10px;
           }
 
           .mobile-header-left {
             position: absolute;
-            left: 10px; /* Adjust as needed */
+            left: 10px; 
           }
 
           .mobile-header-center {
-            flex: 1; /* Center the logo */
+            flex: 1; 
             text-align: center;
           }
 
           .burger-icon {
-            font-size: 24px; /* Adjust size as needed */
-            cursor: pointer; /* Change cursor to pointer */
+            font-size: 24px; 
+            cursor: pointer; 
 
           }
           .overlay {
@@ -502,8 +527,8 @@
           }
 
           .overlay-content {
-            text-align: center; /* Center text */
-            color: white; /* White text color */
+            text-align: center; 
+            color: white; 
           }
           .mobile-heder-text{
             font-family: Jost;
@@ -516,7 +541,7 @@ color:black;
           }
         .close-icon {
             cursor: pointer;
-            font-size: 40px; /* Close button size */
+            font-size: 40px; 
             margin-bottom: 20px;
         }
         .Grid-container{
@@ -525,6 +550,18 @@ color:black;
         }
 
         }
+        .color-option {
+          display: flex;
+          align-items: center;
+          padding: 5px;
+          margin-right: 5px;
+          cursor: pointer; 
+      }
+      
+      .color-option.selected {
+          background-color: black; 
+          color: white; 
+      }
 </style>
 <header class="page-header">
 <div class="header-container">
@@ -645,7 +682,7 @@ color:black;
             <div class="popup-info">
               <span class="product-name"></span>
               <span class="product-price"></span>
-              <p class="product-description"></p>
+              <div class="product-description"></div>
             </div>
           </div>
           <div class="popup-details">
@@ -655,7 +692,7 @@ color:black;
                   {% for color in color_array %}
                       {% if color != blank %}
                           <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 100px; height: 20px; display: inline-block; margin-right: 5px;">  
-                                </div> 
+                           </div> 
 
                       {% endif %}
                   {% endfor %}
@@ -664,7 +701,7 @@ color:black;
               <label for="size-select" class="size-label">Choose your size:</label>
               <div class="dropdown-container">
                 <select id="size-select" class="size-dropdown">
-                  <option value="" disabled selected>Select Size</option>
+                
                   {% for size in size_array %}
                     <option value="{{ size }}">{{ size }}</option>
                   {% endfor %}
@@ -673,7 +710,12 @@ color:black;
               </div>
             </div>
           
-            <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+            <div>
+              <a href="#" class="popup-bttn">
+                <span class="bttn-txt">ADD TO CART </span>
+                <span class="arrow">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -797,31 +839,58 @@ color:black;
       productDescription.textContent = product.description;
     
       // Populate color options
-      productColors.innerHTML = '<strong></strong>';
-      product.colors.forEach((color) => {
-        const colorOption = document.createElement('div');
-        colorOption.className = 'color-option';
-        colorOption.style.border = '2px solid black';
-        colorOption.style.borderLeft = `5px solid ${color}`;
-        colorOption.style.padding = '5px';
-        colorOption.style.margin = '5px 0';
-        colorOption.style.width = '130px';
-        colorOption.textContent = color;
-        productColors.appendChild(colorOption);
+      function renderColorSwatches(colors) {
+        const productColors = document.querySelector('.product-colors');
+        productColors.innerHTML = ''; 
+    
+        colors.forEach((color) => {
+            const colorOption = document.createElement('div');
+            colorOption.className = 'color-option';
+            colorOption.style.border = '1px solid black';
+            colorOption.style.borderLeft = `7px solid ${color}`;
+            colorOption.style.padding = '5px';
+            colorOption.style.margin = '5px 0';
+            colorOption.style.width = '130px';
+            colorOption.textContent = color;
+    
+            // Add click event to handle selection
+            colorOption.addEventListener('click', () => {
+                // Remove 'selected' class from all options
+                const allOptions = document.querySelectorAll('.color-option');
+                allOptions.forEach(option => option.classList.remove('selected'));
+    
+                // Add 'selected' class to the clicked option
+                colorOption.classList.add('selected');
+    
+                // Get the selected color value
+                const selectedColor = colorOption.textContent;
+                console.log('Selected Color:', selectedColor); // You can handle this value as needed
+            });
+    
+            productColors.appendChild(colorOption);
+        });
+    }
+    
+    
+      productSizes.innerHTML = '<strong></strong>';
+      const sizeDropdown = document.createElement('select'); 
+      sizeDropdown.className = 'size-dropdown';
+      sizeDropdown.style.margin = '10px 0';
+      
+     
+      product.sizes.forEach((size) => {
+        const sizeOption = document.createElement('option');
+        sizeOption.value = size;
+        sizeOption.textContent = size;
+        sizeDropdown.appendChild(sizeOption);
       });
     
-      // Populate size options
-      productSizes.innerHTML = '<strong>Sizes:</strong>';
-      product.sizes.forEach((size) => {
-        const sizeOption = document.createElement('div');
-        sizeOption.className = 'size-option';
-        sizeOption.textContent = size;
-        productSizes.appendChild(sizeOption);
-      });
+     
+      productSizes.appendChild(sizeDropdown);
     
       console.log('Popup content set for product:', product.name);
     
-      // Display the popup
+   
       popup.style.display = 'flex';
     }
     
@@ -845,6 +914,8 @@ color:black;
       console.log('Document loaded, rendering product grid.');
       renderProductGrid();
     });
+
+    
     
   </script>
 </section>
