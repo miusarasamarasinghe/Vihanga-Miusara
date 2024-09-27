@@ -598,6 +598,7 @@ color:black;
     font-family: Arial, sans-serif;
     position: relative;
     user-select: none;
+    height: 33px;
   }
   
   /* Header styling */
@@ -611,7 +612,7 @@ color:black;
   .dropdown-content {
     display: flex;
     align-items: center;
-    padding: 2px; /* Add padding */
+     /* Add padding */
     cursor: pointer;
   }
   
@@ -647,7 +648,7 @@ color:black;
     top: 100%;
     left: 0;
     z-index: 9999;
-    border-radius: 5px;
+ 
     overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
