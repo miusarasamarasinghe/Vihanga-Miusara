@@ -660,8 +660,9 @@ color:black;
     background-color: black;
     color: white;
   }
-  .dropdown-arrow{
+  #dropdown-arrow{
     border-left: 5px solid black;
+    
   }
   
   
