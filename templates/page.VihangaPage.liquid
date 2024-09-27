@@ -635,17 +635,17 @@
       productPrice.textContent = `$${product.price.toFixed(2)}`;
       productDescription.textContent = product.description;
     
-      // Populate color options
+     
       productColors.innerHTML = '<strong>Colors:</strong>';
       product.colors.forEach((color) => {
         const colorOption = document.createElement('div');
         colorOption.className = 'color-option';
-        colorOption.style.backgroundColor = color; // Set background color for visibility
+        colorOption.style.backgroundColor = color; 
         colorOption.textContent = color;
         productColors.appendChild(colorOption);
       });
     
-      // Populate size options
+   
       productSizes.innerHTML = '<strong>Sizes:</strong>';
       product.sizes.forEach((size) => {
         const sizeOption = document.createElement('div');
@@ -657,17 +657,17 @@
       popup.style.display = 'flex';
     }
     
-    // Keep the close logic simple
+  
     function closePopup() {
       const popup = document.querySelector('.product-popup');
       popup.style.display = 'none';
     }
     
-    // Attach event listeners when the DOM is loaded
+ 
     document.addEventListener('DOMContentLoaded', () => {
       renderProductGrid();
     
-      // Add event listener for close button
+   
       document.querySelector('.product-popup').addEventListener('click', (e) => {
         if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
           closePopup();
