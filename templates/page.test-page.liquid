@@ -551,17 +551,18 @@ color:black;
 
         }
         .color-option {
-          display: flex;
-          align-items: center;
+          border: 1px solid black;
           padding: 5px;
-          margin-right: 5px;
-          cursor: pointer; 
-      }
-      
-      .color-option.selected {
-          background-color: black; 
-          color: white; 
-      }
+          margin: 5px 0;
+          width: 130px;
+          cursor: pointer; /* Change cursor on hover */
+          transition: background-color 0.3s ease, color 0.3s ease; /* Transition for background and text color */
+        }
+        
+        .color-option.selected {
+          background-color: black; /* Background color for selected option */
+          color: white; /* Text color for selected option */
+        }
 </style>
 <header class="page-header">
 <div class="header-container">
