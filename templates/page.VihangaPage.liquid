@@ -139,7 +139,7 @@
               <div class="dropdown-header">
                 <div class="dropdown-content" onclick="toggleDropdown()">
                   <div id="selected-option">Size</div>
-                  
+                  <div class="divider"></div>
                   <div id="dropdown-arrow" class="arrow">&#9662;</div>
                 </div>
               </div>
@@ -149,6 +149,7 @@
                 <div class="dropdown-item" onclick="selectOption('M')">M</div>
               </div>
             </div>
+            
             
 
             <div>
@@ -351,22 +352,21 @@
 // Function to toggle the dropdown menu
 function toggleDropdown() {
   const dropdownMenu = document.getElementById("dropdown-menu");
-  const dropdownHeader = document.querySelector('.dropdown-header');
+  const dropdownArrow = document.getElementById("dropdown-arrow");
 
   if (dropdownMenu.style.display === "block") {
-      dropdownMenu.style.display = "none";
-      dropdownHeader.classList.remove('active'); // Remove active class
+    dropdownMenu.style.display = "none";
+    dropdownArrow.style.transform = "rotate(0deg)"; // Reset arrow to default
   } else {
-      dropdownMenu.style.display = "block";
-      dropdownHeader.classList.add('active'); // Add active class
+    dropdownMenu.style.display = "block";
+    dropdownArrow.style.transform = "rotate(180deg)"; // Rotate arrow when open
   }
 }
 
+// Function to handle option selection
 function selectOption(option) {
-  const selectedOption = document.getElementById("selected-option");
-  selectedOption.textContent = option;
-  toggleDropdown(); // Close the dropdown after selecting
-  console.log('Selected Size:', option); // Handle the selected size as needed
+  document.getElementById("selected-option").innerText = option;
+  toggleDropdown(); // Close the dropdown after selecting an option
 }
 
 // Close the dropdown if clicked outside
