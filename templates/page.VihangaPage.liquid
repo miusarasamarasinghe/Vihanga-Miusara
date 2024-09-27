@@ -826,8 +826,12 @@ color:black;
       const popup = document.querySelector('.product-popup');
       popup.style.display = 'none';
     }
-
-    document.querySelector('.close-popup').addEventListener('click', closePopup);
+    
+    // Event listener to close popup on background click
+    document.querySelector('.product-popup').addEventListener('click', (e) => {
+      if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
+        closePopup();
+      }
  
 
     document.addEventListener('DOMContentLoaded', () => {
