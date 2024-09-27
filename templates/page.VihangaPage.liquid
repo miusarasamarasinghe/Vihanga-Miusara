@@ -393,6 +393,49 @@ l    line-height: 19.2px;
     margin-left: 0; /* Remove left margin to eliminate gap */
     margin-right: 0; /* Remove right margin to eliminate gap */
 }
+
+/* Style the dropdown container */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style the dropdown */
+.size-dropdown {
+  width: 100%;
+  padding: 10px; /* Adjust padding as needed */
+  border: 2px solid transparent; /* Initial border color */
+  border-radius: 4px; /* Optional: border radius */
+  background-color: white; /* Background color */
+  cursor: pointer;
+  transition: border 0.3s ease; /* Smooth transition for border */
+}
+
+/* Change border color on hover */
+.size-dropdown:hover {
+  border-color: black; /* Change border color on hover */
+}
+
+/* Style options in the dropdown */
+.size-dropdown option {
+  background-color: white; /* Default background for options */
+  color: black; /* Default text color for options */
+}
+
+/* Change background and text color of options when hovered */
+.size-dropdown option:hover {
+  background-color: black; /* Background color on hover */
+  color: white; /* Text color on hover */
+}
+
+/* Arrow divider styling */
+.arrow-divider {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust position as needed */
+  transform: translateY(-50%); /* Center vertically */
+  pointer-events: none; /* Allow clicks to pass through */
+}
   @media (min-width: 768px) and (max-width: 1150px) {
     .text-overlay {
         bottom: 10%;
@@ -682,7 +725,7 @@ color:black;
                     <option value="{{ size }}">{{ size }}</option>
                   {% endfor %}
                 </select>
-                <span class="arrow-divider">▼</span>
+                
               </div>
             </div>
           
