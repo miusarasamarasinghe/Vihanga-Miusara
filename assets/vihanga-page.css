@@ -671,7 +671,7 @@ color:black;
   #dropdown-arrow {
     margin-left: 10px;
     font-size: 30px; 
-    border-left: 2px;/* Adjust margin if needed */
+    border-left: 2px solid black;/* Adjust margin if needed */
   }
   
   
