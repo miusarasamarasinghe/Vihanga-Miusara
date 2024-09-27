@@ -753,6 +753,18 @@
       const popup = document.querySelector('.product-popup');
       popup.style.display = 'none';
     }
+    function toggleMenu() {
+      const header = document.querySelector('.page-header');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      header.classList.toggle('menu-open');
+      
+      // Toggle mobile menu visibility
+      if (mobileMenu.style.display === 'flex') {
+          mobileMenu.style.display = 'none';
+      } else {
+          mobileMenu.style.display = 'flex';
+      }
+  }
 
     document.addEventListener('DOMContentLoaded', () => {
       renderProductGrid();
