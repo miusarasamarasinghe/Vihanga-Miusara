@@ -660,18 +660,15 @@ color:black;
                       {% endif %}
                   {% endfor %}
           </div>
-            <div class="product-sizes">
-              <label for="size-select" class="size-label">Choose your size:</label>
-              <div class="dropdown-container">
-                <select id="size-select" class="size-dropdown">
-                  <option value="" disabled selected>Select Size</option>
-                  {% for size in size_array %}
-                    <option value="{{ size }}">{{ size }}</option>
-                  {% endfor %}
-                </select>
-                <span class="arrow-divider">▼</span>
-              </div>
+          <div class="product-sizes">
+            <label for="size-select" class="size-label">Choose your size:</label>
+            <div class="dropdown-container">
+              <select id="size-select" class="size-dropdown">
+                <option value="" disabled selected>Select Size</option>
+                <!-- Size options will be dynamically inserted here -->
+              </select>
             </div>
+          </div>
           
             <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
           </div>
@@ -811,12 +808,12 @@ color:black;
       });
     
       // Populate size options
-      productSizes.innerHTML = '<strong>Sizes:</strong>';
+      sizeDropdown.innerHTML = '<option value="" disabled selected>Select Size</option>';
       product.sizes.forEach((size) => {
-        const sizeOption = document.createElement('div');
-        sizeOption.className = 'size-option';
+        const sizeOption = document.createElement('option');
+        sizeOption.value = size;
         sizeOption.textContent = size;
-        productSizes.appendChild(sizeOption);
+        sizeDropdown.appendChild(sizeOption);
       });
     
       console.log('Popup content set for product:', product.name);
