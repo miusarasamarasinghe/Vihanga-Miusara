@@ -591,6 +591,7 @@ color:black;
 /* Container styling */
 /* Container styling */
 /* Container styling */
+/* Container styling */
 .custom-dropdown {
     width: 150px; /* Adjust width as needed */
     font-family: Arial, sans-serif;
@@ -611,7 +612,6 @@ color:black;
     align-items: center;
     padding: 10px; /* Add padding */
     cursor: pointer;
-    position: relative; /* Make position relative for the divider */
   }
   
   /* Selected option styling */
@@ -624,8 +624,11 @@ color:black;
   .divider {
     width: 1px; /* Width of the divider line */
     background-color: #000; /* Divider color */
-    height: 100%; /* Set height to 100% to connect to borders */
+    height: 100%; /* Height of the divider */
     margin: 0 10px; /* Spacing around the divider */
+    position: absolute; /* Positioning absolute to align correctly */
+    top: 0; /* Align to the top */
+    bottom: 0; /* Align to the bottom */
   }
   
   /* Arrow styling */
@@ -667,6 +670,7 @@ color:black;
   #dropdown-arrow {
     margin-left: 10px; /* Adjust margin if needed */
   }
+  
   
   
   
