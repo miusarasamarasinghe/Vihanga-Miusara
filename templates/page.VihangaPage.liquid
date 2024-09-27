@@ -351,21 +351,22 @@
 // Function to toggle the dropdown menu
 function toggleDropdown() {
   const dropdownMenu = document.getElementById("dropdown-menu");
-  const dropdownArrow = document.getElementById("dropdown-arrow");
+  const dropdownHeader = document.querySelector('.dropdown-header');
 
   if (dropdownMenu.style.display === "block") {
-    dropdownMenu.style.display = "none";
-    dropdownArrow.style.transform = "rotate(0deg)"; // Reset arrow to default
+      dropdownMenu.style.display = "none";
+      dropdownHeader.classList.remove('active'); // Remove active class
   } else {
-    dropdownMenu.style.display = "block";
-    dropdownArrow.style.transform = "rotate(180deg)"; // Rotate arrow when open
+      dropdownMenu.style.display = "block";
+      dropdownHeader.classList.add('active'); // Add active class
   }
 }
 
-// Function to handle option selection
 function selectOption(option) {
-  document.getElementById("selected-option").innerText = option;
-  toggleDropdown(); // Close the dropdown after selecting an option
+  const selectedOption = document.getElementById("selected-option");
+  selectedOption.textContent = option;
+  toggleDropdown(); // Close the dropdown after selecting
+  console.log('Selected Size:', option); // Handle the selected size as needed
 }
 
 // Close the dropdown if clicked outside
