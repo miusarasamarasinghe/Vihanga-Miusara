@@ -429,60 +429,6 @@
             font-size: 18px;
           }
         }
-
-
-        .burger-icon {
-          display: none; /* Hide on medium and large screens */
-          cursor: pointer;
-        }
-        
-        .mobile-menu {
-          display: none; /* Hidden by default */
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: rgba(255, 255, 255, 0.9); /* Background color for mobile menu */
-          text-align: center;
-          padding: 20px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        .mobile-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-        }
-        
-        .close-icon {
-          cursor: pointer;
-        }
-        
-        .mobile-text {
-          margin-bottom: 20px;
-        }
-        
-        .mobile-button {
-          display: inline-block;
-          padding: 10px 20px;
-          background-color: yellow; /* Change to your desired button color */
-          border: none;
-          color: black;
-          text-decoration: none;
-          font-weight: bold;
-        }
-        
-        /* Media Queries */
-        @media (max-width: 768px) {
-          .header-center {
-            display: none; /* Hide centered text on mobile */
-          }
-          .burger-icon {
-            display: block; /* Show burger icon on mobile */
-          }
-        }
   </style>
   <header class="page-header">
     <div class="header-container">
@@ -491,19 +437,15 @@
       </div>
       <div class="header-center">Find the ideal gift for your loved ones.</div>
       <div class="header-right">
-        <div class="burger-icon" onclick="toggleMenu()">☰</div>
+        <div>
+          <a href="#" class="header-button-nav">
+            <span class="bttn-txt-header-nav">Shop Now </span>
+            <span class="arrow-header-nav">→</span>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="mobile-menu" id="mobile-menu">
-      <div class="mobile-header">
-        <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
-        <div class="close-icon" onclick="toggleMenu()">×</div>
-      </div>
-      <div class="mobile-text">Find the ideal gift for your loved ones.</div>
-      <a href="#" class="mobile-button">Shop Now</a>
     </div>
   </header>
-  
   <div class="Main-container">
     <div class="simple-banner-section">
       <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
@@ -746,11 +688,5 @@
     document.addEventListener('DOMContentLoaded', () => {
       renderProductGrid();
     });
-
-    function toggleMenu() {
-      const mobileMenu = document.getElementById('mobile-menu');
-      mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
-    }
-    
   </script>
 </section>
