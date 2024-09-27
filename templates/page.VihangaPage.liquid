@@ -654,7 +654,9 @@ color:black;
                 
                   {% for color in color_array %}
                       {% if color != blank %}
-                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 20px; height: 20px; display: inline-block; margin-right: 5px;">         </div>
+                          {% comment %} <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 20px; height: 20px; display: inline-block; margin-right: 5px;">  
+                                </div> {% endcomment %}
+                                <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"><div class="color-sect"  style=" background-color: {{ color }}; width: 20px;" > </div >  <div class="content-sect"> </div>    </div>
                       {% endif %}
                   {% endfor %}
           </div>
