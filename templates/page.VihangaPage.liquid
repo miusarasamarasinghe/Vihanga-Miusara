@@ -133,14 +133,14 @@
             <strong>Colors</strong>
             <div class="product-colors"></div>
             <div class="product-sizes">
-              <label for="size-select" class="size-label"> size:</label>
-              <div class="dropdown-container">
-                <select id="size-select" class="size-dropdown">
-                  {% for size in size_array %}
-                    <option value="{{ size }}">{{ size }}</option>
-                  {% endfor %}
-                </select>
-              </div>
+              <div class="dropdown">
+                <button class="dropdown-toggle" onclick="toggleDropdown()">Size</button>
+                <div id="dropdown-menu" class="dropdown-menu">
+                  <a href="#" class="dropdown-item">XS</a>
+                  <a href="#" class="dropdown-item">S</a>
+                  <a href="#" class="dropdown-item">M</a>
+                </div>
+              </div>              
             </div>
 
             <div>
