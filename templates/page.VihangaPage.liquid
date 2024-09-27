@@ -648,17 +648,16 @@ color:black;
             </div>
           </div>
           <div class="popup-details">
+            <strong>Colors</strong>
             <div class="product-colors">
               {% if color_array %}
-                  <strong>Colors:</strong>
+                
                   {% for color in color_array %}
                       {% if color != blank %}
-                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></div>
+                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 20px; height: 20px; display: inline-block; margin-right: 5px;">         /div>
                       {% endif %}
                   {% endfor %}
-                  <script>
-                      console.log("Color Array:", {{ color_array | json }});
-                  </script>
+       
               {% else %}
                   <p>No colors available.</p>
               {% endif %}
