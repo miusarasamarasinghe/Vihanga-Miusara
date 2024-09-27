@@ -507,7 +507,6 @@
       </div>
 
       <!-- Popup for product details -->
-     
       <div class="product-popup">
         <div class="popup-content">
           <span class="close-popup" onclick="closePopup()">×</span>
@@ -523,23 +522,27 @@
           </div>
           <div class="popup-details">
             <div class="product-colors">
-              <!-- Colors will be dynamically rendered here -->
+           
+               
+            
             </div>
             <div class="product-sizes">
+              <h3>Size Array: {{ size_array }}</h3>
+
               <label for="size-select" class="size-label">Choose your size:</label>
               <div class="dropdown-container">
                 <select id="size-select" class="size-dropdown">
                   <option value="" disabled selected>Choose your size</option>
-                  <!-- Size options will be dynamically added here -->
+                  
                 </select>
                 <span class="arrow-divider">▼</span>
               </div>
             </div>
+          
             <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 
