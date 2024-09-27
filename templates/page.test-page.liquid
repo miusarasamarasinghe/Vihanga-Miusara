@@ -433,7 +433,7 @@
       top: 60px; /* Adjust based on header height */
       left: 0;
       right: 0;
-      background-color: #fff;
+      background-color: #f8f9fa; /* Add your desired background color */
       padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
@@ -453,14 +453,6 @@
       border-radius: 5px;
   }
         @media (max-width: 768px) {
-          .popup-content {
-            max-width: 95%;
-            padding: 15px;
-          }
-
-          .close-popup {
-            font-size: 18px;
-          }
           .header-center {
             display: none; /* Hide center text on mobile */
         }
@@ -477,7 +469,8 @@
             font-size: 24px;
         }
         .mobile-menu {
-            display: 
+            display: flex; /* Show mobile menu when open */
+        }
         }
         .menu-open .header-center {
           display: none; /* Ensure center text remains hidden when menu is open */
@@ -490,6 +483,18 @@
       .menu-open .mobile-menu {
           display: flex; /* Show mobile menu when open */
       }
+          .popup-content 
+            max-width: 95%;
+            padding: 15px;
+          }
+
+          .close-popup {
+            font-size: 18px;
+          }
+          .header-center {
+            display: none; /* Hide center text on mobile */
+        }
+       
   </style>
   <header class="page-header">
     <div class="header-container">
@@ -499,21 +504,16 @@
         <div class="header-center mobile-center-text">Find the ideal gift for your loved ones.</div>
         <div class="header-right">
             <div class="burger-icon" onclick="toggleMenu()">&#9776;</div> <!-- Burger icon -->
-            <div class="header-button-nav">
-                <a href="#" class="header-button-nav">
-                    <span class="bttn-txt-header-nav">Shop Now </span>
-                    <span class="arrow-header-nav">→</span>
-                </a>
-            </div>
         </div>
     </div>
     <div class="mobile-menu">
         <div class="close-menu" onclick="toggleMenu()">✖</div>
         <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav"> <!-- Logo in mobile menu -->
         <div class="mobile-text">Find the ideal gift for your loved ones.</div>
-        <a href="#" class="mobile-button-nav">Shop Now</a>
+        <a href="#" class="mobile-button-nav">Shop Now</a> <!-- Button in mobile menu -->
     </div>
 </header>
+
 
   <div class="Main-container">
     <div class="simple-banner-section">
