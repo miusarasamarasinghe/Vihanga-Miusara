@@ -613,6 +613,7 @@ color:black;
     align-items: center;
     padding: 2px; /* Add padding */
     cursor: pointer;
+    height: 40px;
   }
   
   /* Selected option styling */
