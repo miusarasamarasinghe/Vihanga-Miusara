@@ -365,7 +365,8 @@
   }
   .product-colors {
     display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
+    align-items: center;
+    width:100%; /* Center items vertically */
 }
 
 .product-colors strong {
@@ -374,7 +375,7 @@
 
 .color-swatch {
     border-left: 5px solid; /* Keep the left border */
-    width: 20px; /* Fixed width for color swatch */
+    width: 100%; /* Fixed width for color swatch */
     height: 20px; /* Fixed height for color swatch */
     margin-left: 0; /* Remove left margin to eliminate gap */
     margin-right: 0; /* Remove right margin to eliminate gap */
@@ -653,7 +654,7 @@ color:black;
                 
                   {% for color in color_array %}
                       {% if color != blank %}
-                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 20px; height: 20px; display: inline-block; margin-right: 5px;">         /div>
+                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 20px; height: 20px; display: inline-block; margin-right: 5px;">         </div>
                       {% endif %}
                   {% endfor %}
           </div>
