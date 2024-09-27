@@ -428,82 +428,62 @@
           .close-popup {
             font-size: 18px;
           }
-        }
-        .burger-icon {
-          display: none; /* Hidden by default */
-          background: transparent;
-          border: none;
-          font-size: 24px;
-          cursor: pointer;
-      }
-      
-      /* For small devices */
-      @media (max-width: 768px) {
-          .header-center {
-              display: none; /* Hide center text on mobile */
+          .header-container {
+            display: none;
           }
-      
+        
+          /* Mobile Header Styles */
+          .mobile-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #F5F5F5; /* Same background as the desktop header */
+            padding: 10px;
+          }
+        
+          .mobile-header-left {
+            position: absolute;
+            left: 10px; /* Adjust as needed */
+          }
+        
+          .mobile-header-center {
+            flex: 1; /* Center the logo */
+            text-align: center;
+          }
+        
           .burger-icon {
-              display: block; /* Show burger icon on mobile */
-              position: absolute;
-              left: 10px; /* Adjust as necessary */
-              top: 10px; /* Adjust as necessary */
+            font-size: 24px; /* Adjust size as needed */
+            cursor: pointer; /* Change cursor to pointer */
           }
-      
-          .mobile-menu {
-              background-color: #F5F5F5; /* Background for menu */
-              position: absolute;
-              top: 100%; /* Place below the header */
-              left: 0;
-              right: 0;
-              z-index: 100; /* Ensure it appears above other elements */
-              transition: all 0.3s ease; /* Smooth transition */
-          }
-      
-          .mobile-menu ul {
-              list-style: none; /* Remove bullet points */
-              padding: 0;
-          }
-      
-          .mobile-menu li {
-              padding: 10px 20px; /* Spacing for menu items */
-          }
-      
-          .mobile-menu a {
-              text-decoration: none; /* No underline */
-              color: black; /* Text color */
-          }
-      }
+        }
   </style>
   <header class="page-header">
     <div class="header-container">
-        <div class="header-left">
-            <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
-            <button class="burger-icon" onclick="toggleMenu()">☰</button>
+      <div class="header-left">
+        <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
+      </div>
+      <div class="header-center">Find the ideal gift for your loved ones.</div>
+      <div class="header-right">
+        <div>
+          <a href="#" class="header-button-nav">
+            <span class="bttn-txt-header-nav">Shop Now </span>
+            <span class="arrow-header-nav">→</span>
+          </a>
         </div>
-        <div class="header-center small-device-center">
-            <!-- Center text will be hidden on mobile -->
-            Find the ideal gift for your loved ones.
-        </div>
-        <div class="header-right">
-            <!-- This will be hidden on mobile -->
-            <div>
-                <a href="#" class="header-button-nav">
-                    <span class="bttn-txt-header-nav">Shop Now</span>
-                    <span class="arrow-header-nav">→</span>
-                </a>
-            </div>
-        </div>
+      </div>
+        <!-- Mobile Header -->
+  <div class="mobile-header">
+    <div class="mobile-header-left">
+      <div class="burger-icon" onclick="toggleMenu()">
+        &#9776; <!-- Unicode character for burger icon -->
+      </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" style="display: none;">
-        <!-- Add your menu items here -->
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    <div class="mobile-header-center">
+      <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
+    </div>
+  </div>
+    </div>
+  </header>
   <div class="Main-container">
     <div class="simple-banner-section">
       <div class="banner-image" style="background-image: url('{{ 'banner-imageBG.png' | asset_url }}');">
@@ -742,16 +722,7 @@
       const popup = document.querySelector('.product-popup');
       popup.style.display = 'none';
     }
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      if (menu.style.display === 'none' || menu.style.display === '') {
-          menu.style.display = 'block'; // Show menu
-          document.querySelector('.burger-icon').innerHTML = '←'; // Change to arrow
-      } else {
-          menu.style.display = 'none'; // Hide menu
-          document.querySelector('.burger-icon').innerHTML = '☰'; // Change back to burger icon
-      }
-  }
+
     document.addEventListener('DOMContentLoaded', () => {
       renderProductGrid();
     });
