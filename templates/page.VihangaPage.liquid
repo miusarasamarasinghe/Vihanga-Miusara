@@ -309,7 +309,21 @@
           }
 
 
-
+          .header-center {
+            display: none; /* Hide text on mobile */
+        }
+        .header-left {
+            flex: 1;
+            justify-content: center; /* Center logo */
+        }
+        .header-right {
+            flex: 1;
+            justify-content: flex-end;
+        }
+        .burger-icon {
+            display: block; /* Show burger icon on mobile */
+            font-size: 24px;
+        }
 
 
           .grid-title{
@@ -523,17 +537,23 @@
           <div class="popup-details">
             <div class="product-colors">
            
-               
+                {% for color in color_array %}
+                  {% if color != blank %}
+                    <div class="color-swatch" style="border-left: 5px solid {{ color }};"></div>
+                  {% endif %}
+                {% endfor %}
             
             </div>
             <div class="product-sizes">
               <h3>Size Array: {{ size_array }}</h3>
 
-              <label for="size-select" class="size-label">Choose your size:</label>
+       
               <div class="dropdown-container">
                 <select id="size-select" class="size-dropdown">
                   <option value="" disabled selected>Choose your size</option>
-                  
+                  {% for size in size_array %}
+                    <option value="{{ size }}">{{ size }}</option>
+                  {% endfor %}
                 </select>
                 <span class="arrow-divider">▼</span>
               </div>
