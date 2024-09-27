@@ -620,4 +620,66 @@ color:black;
   .dropdown-item:hover {
     background-color: #ddd;
   }
+/* Container styling */
+.custom-dropdown {
+    width: 150px; /* Adjust width as needed */
+    font-family: Arial, sans-serif;
+    position: relative;
+    user-select: none;
+  }
   
+  /* Header styling */
+  .dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  /* Separated section with a line in between */
+  .dropdown-header span:first-child {
+    margin-right: auto; /* Ensures the option and arrow are separated */
+  }
+  
+  /* Arrow styling */
+  .arrow {
+    border-left: 1px solid #000; /* Line separator */
+    padding-left: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Dropdown menu styles */
+  .dropdown-menu {
+    display: none;
+    background-color: white;
+    border: 1px solid #000;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    z-index: 9999;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dropdown item styles */
+  .dropdown-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Hover effect for dropdown items */
+  .dropdown-item:hover {
+    background-color: black;
+    color: white;
+  }
+    
