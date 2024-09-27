@@ -457,7 +457,34 @@
           .burger-icon {
             font-size: 24px; /* Adjust size as needed */
             cursor: pointer; /* Change cursor to pointer */
+            
           }
+          .overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            z-index: 999; /* Above everything */
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            flex-direction: column;
+        }
+    
+        .overlay-content {
+            margin: 20px;
+        }
+    
+        .close-icon {
+            cursor: pointer;
+            font-size: 40px; /* Close button size */
+            margin-bottom: 20px;
+        }
+    
         }
   </style>
   <header class="page-header">
@@ -478,14 +505,24 @@
     </div>
     <div class="mobile-header">
       <div class="mobile-header-left">
-        <div class="burger-icon" onclick="toggleMenu()">
-          &#9776; <!-- Unicode character for burger icon -->
-        </div>
+          <div class="burger-icon" id="burgerIcon" onclick="toggleMenu()">
+              &#9776; <!-- Unicode character for burger icon -->
+          </div>
       </div>
       <div class="mobile-header-center">
-        <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
+          <img src="{{ 'logoPic.png' | asset_url }}" alt="Gift Guide" class="Logo-nav">
       </div>
-    </div>
+  </div>
+
+  <!-- Overlay Menu -->
+  <div class="overlay" id="overlay">
+      <div class="overlay-content">
+          <div class="close-icon" onclick="toggleMenu()">&times;</div>
+          <h2>Menu</h2>
+          <p>Find the ideal gift for your loved ones.</p>
+          <a href="#" class="overlay-button">Shop Now</a>
+      </div>
+  </div>
   </header>
   <div class="Main-container">
     <div class="simple-banner-section">
@@ -658,6 +695,18 @@
         sizes: ['Medium', 'Large'],
       },
     ];
+    function toggleMenu() {
+      const overlay = document.getElementById('overlay');
+      const burgerIcon = document.getElementById('burgerIcon');
+      
+      if (overlay.style.display === "flex") {
+          overlay.style.display = "none"; // Hide the overlay
+          burgerIcon.innerHTML = "&#9776;"; // Change icon back to burger
+      } else {
+          overlay.style.display = "flex"; // Show the overlay
+          burgerIcon.innerHTML = "&times;"; // Change icon to X
+      }
+  }
 
     function renderProductGrid() {
       const gridContainer = document.querySelector('.product-grid');
