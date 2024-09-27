@@ -134,15 +134,13 @@
             <div class="product-colors"></div>
             <div class="product-sizes">
               <label for="size-select" class="size-label"> size:</label>
-              <div class="dropdown">
-                <button class="dropdown-toggle" onclick="toggleDropdown()">Size</button>
-                <div id="dropdown-menu" class="dropdown-menu">
-                  <a href="#" class="dropdown-item">XS</a>
-                  <a href="#" class="dropdown-item">S</a>
-                  <a href="#" class="dropdown-item">M</a>
-                </div>
+              <div class="dropdown-container">
+                <select id="size-select" class="size-dropdown">
+                  {% for size in size_array %}
+                    <option value="{{ size }}">{{ size }}</option>
+                  {% endfor %}
+                </select>
               </div>
-              
             </div>
 
             <div>
@@ -345,28 +343,7 @@
         closePopup();
       }
     });
-    function toggleDropdown() {
-      var dropdownMenu = document.getElementById("dropdown-menu");
-      if (dropdownMenu.style.display === "block") {
-        dropdownMenu.style.display = "none";
-      } else {
-        dropdownMenu.style.display = "block";
-      }
-    }
-    
-    // Close the dropdown if clicked outside
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropdown-toggle')) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.style.display === "block") {
-            openDropdown.style.display = "none";
-          }
-        }
-      }
-    }
-    
+
     // Render the product grid on DOMContentLoaded
     
   </script>
