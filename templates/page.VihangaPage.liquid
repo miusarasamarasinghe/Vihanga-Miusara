@@ -530,7 +530,19 @@
                 {% endfor %}
               </div>
             </div>
-            <div class="product-sizes"></div>
+            <div class="product-sizes">
+              <label for="size-select" class="size-label">Choose your size:</label>
+              <div class="dropdown-container">
+                <select id="size-select" class="size-dropdown">
+                  <option value="" disabled selected>Select Size</option>
+                  {% for size in size_array %}
+                    <option value="{{ size }}">{{ size }}</option>
+                  {% endfor %}
+                </select>
+                <span class="arrow-divider">▼</span>
+              </div>
+            </div>
+          
             <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
           </div>
         </div>
