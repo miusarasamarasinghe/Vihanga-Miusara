@@ -707,7 +707,18 @@ color:black;
         sizes: ['Medium', 'Large'],
       },
     ];
+    function toggleMenu() {
+      const overlay = document.getElementById('overlayMenu');
+      const burgerIcon = document.querySelector('.burger-icon');
 
+      if (overlay.style.display === 'block') {
+        overlay.style.display = 'none';
+        burgerIcon.innerHTML = '&#9776;'; // Burger icon
+      } else {
+        overlay.style.display = 'block';
+        burgerIcon.innerHTML = 'X'; // Close icon
+      }
+    }
     function renderProductGrid() {
       const gridContainer = document.querySelector('.product-grid');
       gridContainer.innerHTML = '';
