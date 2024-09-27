@@ -669,7 +669,8 @@ color:black;
   
   /* Arrow positioning */
   #dropdown-arrow {
-    margin-left: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     font-size: 30px; 
     /* Adjust margin if needed */
   }
