@@ -363,6 +363,22 @@
   .overlay{
     display: none;
   }
+  .product-colors {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+}
+
+.product-colors strong {
+    margin-right: 0; /* Remove any right margin from the strong element */
+}
+
+.color-swatch {
+    border-left: 5px solid; /* Keep the left border */
+    width: 20px; /* Fixed width for color swatch */
+    height: 20px; /* Fixed height for color swatch */
+    margin-left: 0; /* Remove left margin to eliminate gap */
+    margin-right: 0; /* Remove right margin to eliminate gap */
+}
   @media (min-width: 768px) and (max-width: 1150px) {
     .text-overlay {
         bottom: 10%;
