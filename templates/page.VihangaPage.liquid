@@ -345,7 +345,10 @@
     });
 
     // Render the product grid on DOMContentLoaded
-    
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Document loaded, rendering product grid.');
+      renderProductGrid();
+    });
   </script>
 
 
