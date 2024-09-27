@@ -672,13 +672,14 @@ color:black;
 
 /* Arrow positioning */
 #dropdown-arrow {
-    margin-left: 1rem;
+    margin-left: 10px;
     font-size: 30px; 
     /* Adjust margin if needed */
 }
 
   .arrow-container{
     border-left: 2px solid;
+    height: 40px;
   }
   
   
