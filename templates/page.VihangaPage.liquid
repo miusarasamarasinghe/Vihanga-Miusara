@@ -686,10 +686,12 @@ color:black;
               </div>
             </div>
           
-            <a href="#" class="cta-button mobile-banner-button">
-              <span class="bttn-txt">Add to Cart </span>
-              <span class="arrow">→</span>
-            </a>
+            <div>
+              <a href="#" class="cta-button">
+                <span class="bttn-txt">Shop Now </span>
+                <span class="arrow">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -817,8 +819,8 @@ color:black;
       product.colors.forEach((color) => {
         const colorOption = document.createElement('div');
         colorOption.className = 'color-option';
-        colorOption.style.border = '2px solid black';
-        colorOption.style.borderLeft = `5px solid ${color}`;
+        colorOption.style.border = '1px solid black';
+        colorOption.style.borderLeft = `7px solid ${color}`;
         colorOption.style.padding = '5px';
         colorOption.style.margin = '5px 0';
         colorOption.style.width = '130px';
