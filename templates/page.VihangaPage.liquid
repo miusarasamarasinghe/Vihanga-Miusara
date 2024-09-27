@@ -489,28 +489,28 @@ l    line-height: 19.2px;
             .lg-end-text{
               display:none;
               }
-          /* Mobile Header Styles */
+        
           .mobile-header {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #F5F5F5; /* Same background as the desktop header */
+            background-color: #F5F5F5; 
             padding: 10px;
           }
 
           .mobile-header-left {
             position: absolute;
-            left: 10px; /* Adjust as needed */
+            left: 10px; 
           }
 
           .mobile-header-center {
-            flex: 1; /* Center the logo */
+            flex: 1; 
             text-align: center;
           }
 
           .burger-icon {
-            font-size: 24px; /* Adjust size as needed */
-            cursor: pointer; /* Change cursor to pointer */
+            font-size: 24px; 
+            cursor: pointer; 
 
           }
           .overlay {
@@ -527,8 +527,8 @@ l    line-height: 19.2px;
           }
 
           .overlay-content {
-            text-align: center; /* Center text */
-            color: white; /* White text color */
+            text-align: center; 
+            color: white; 
           }
           .mobile-heder-text{
             font-family: Jost;
@@ -541,7 +541,7 @@ color:black;
           }
         .close-icon {
             cursor: pointer;
-            font-size: 40px; /* Close button size */
+            font-size: 40px; 
             margin-bottom: 20px;
         }
         .Grid-container{
@@ -549,6 +549,47 @@ color:black;
         
         }
 
+        }
+        .color-option {
+          border: 1px solid black;
+          padding: 5px;
+          margin: 5px 0;
+          width: 130px;
+          cursor: pointer; /* Change cursor on hover */
+          transition: background-color 0.3s ease, color 1s ease; /* Transition for background and text color */
+        }
+        
+        .color-option.selected {
+          background-color: black; /* Background color for selected option */
+          color: white; /* Text color for selected option */
+        }
+        .dropdown-container {
+          position: relative; /* Make sure the dropdown is positioned correctly */
+        }
+        
+        /* Default styles for the select element */
+        .size-dropdown {
+          background-color: white; /* Default background color */
+          color: black; /* Default text color */
+          padding: 10px; /* Add some padding */
+          border: 1px solid black; /* Add border */
+          cursor: pointer; /* Change cursor to pointer */
+          width: 100%; /* Make it full width */
+        }
+        
+        /* Styles for the select element on hover */
+        .size-dropdown:hover {
+          background-color: black; /* Background color on hover */
+          color: white; /* Text color on hover */
+        }
+        
+        /* Style for the arrow divider */
+        .arrow-divider {
+          position: absolute; /* Position it relative to the dropdown */
+          top: 50%; /* Center it vertically */
+          right: 10px; /* Position it on the right */
+          transform: translateY(-50%); /* Center it perfectly */
+          pointer-events: none; /* Prevent pointer events on this span */
         }
 </style>
 <header class="page-header">
@@ -676,17 +717,10 @@ color:black;
           <div class="popup-details">
             <strong>Colors</strong>
             <div class="product-colors">
-                
-                  {% for color in color_array %}
-                      {% if color != blank %}
-                          <div class="color-swatch" style="border-left: 5px solid {{ color }}; width: 100px; height: 20px; display: inline-block; margin-right: 5px;">  
-                           </div> 
 
-                      {% endif %}
-                  {% endfor %}
           </div>
             <div class="product-sizes">
-              <label for="size-select" class="size-label">Choose your size:</label>
+              <label for="size-select" class="size-label"> size:</label>
               <div class="dropdown-container">
                 <select id="size-select" class="size-dropdown">
                 
@@ -694,7 +728,7 @@ color:black;
                     <option value="{{ size }}">{{ size }}</option>
                   {% endfor %}
                 </select>
-                <span class="arrow-divider">▼</span>
+        
               </div>
             </div>
           
@@ -716,8 +750,7 @@ color:black;
         id: 1,
         name: 'Orange Wide Leg',
         price: 19.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "bag.webp" | asset_url }}',
         colors: ['White', 'Black'],
         sizes: ['Medium', 'Large'],
@@ -726,18 +759,16 @@ color:black;
         id: 2,
         name: 'Tailored Jacket',
         price: 29.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "Blue.webp" | asset_url }}',
-        colors: ['Blue', 'black'],
+        colors: ['Blue', 'Black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 3,
         name: 'Accordion Pleated Dress',
         price: 39.99,
-        description:
-          'DThis one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redja.webp" | asset_url }}',
         colors: ['Red', 'Yellow'],
         sizes: ['Medium', 'Large'],
@@ -746,36 +777,35 @@ color:black;
         id: 4,
         name: 'Green Trench Coat',
         price: 49.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "coffee.webp" | asset_url }}',
-        colors: ['White', 'black'],
+        colors: ['White', 'Black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 5,
         name: 'Tennis Blue T-Shirt',
         price: 59.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redpoket.webp" | asset_url }}',
-        colors: ['Grey', 'black'],
+        colors: ['Grey', 'Black'],
         sizes: ['Medium', 'Large'],
       },
       {
         id: 6,
         name: 'Long Sleeve Tennis Top',
         price: 69.99,
-        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief',
+        description: 'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "denim.webp" | asset_url }}',
-        colors: ['Blue', 'black'],
+        colors: ['Blue', 'Black'],
         sizes: ['Medium', 'Large'],
       },
     ];
+    
     function toggleMenu() {
       const overlay = document.getElementById('overlayMenu');
       const burgerIcon = document.querySelector('.burger-icon');
-
+    
       if (overlay.style.display === 'block') {
         overlay.style.display = 'none';
         burgerIcon.innerHTML = '&#9776;'; // Burger icon
@@ -784,10 +814,11 @@ color:black;
         burgerIcon.innerHTML = 'X'; // Close icon
       }
     }
+    
     function renderProductGrid() {
       const gridContainer = document.querySelector('.product-grid');
       gridContainer.innerHTML = '';
-
+    
       products.forEach((product) => {
         const productBlock = document.createElement('div');
         productBlock.className = 'product-block';
@@ -799,7 +830,7 @@ color:black;
         gridContainer.appendChild(productBlock);
       });
     }
-
+    
     function showProductPopup(productId) {
       const product = products.find((p) => p.id === productId);
       if (!product) {
@@ -827,8 +858,31 @@ color:black;
       productDescription.textContent = product.description;
     
       // Populate color options
-      productColors.innerHTML = '<strong></strong>';
-      product.colors.forEach((color) => {
+      renderColorSwatches(product.colors);
+    
+      // Populate size options
+      productSizes.innerHTML = '<strong>Choose your size:</strong>';
+      const sizeDropdown = document.createElement('select'); 
+      sizeDropdown.className = 'size-dropdown';
+      sizeDropdown.style.margin = '10px 0';
+    
+      product.sizes.forEach((size) => {
+        const sizeOption = document.createElement('option');
+        sizeOption.value = size;
+        sizeOption.textContent = size;
+        sizeDropdown.appendChild(sizeOption);
+      });
+    
+      productSizes.appendChild(sizeDropdown);
+      console.log('Popup content set for product:', product.name);
+      popup.style.display = 'flex';
+    }
+    
+    function renderColorSwatches(colors) {
+      const productColors = document.querySelector('.product-colors');
+      productColors.innerHTML = ''; // Clear existing colors
+    
+      colors.forEach((color) => {
         const colorOption = document.createElement('div');
         colorOption.className = 'color-option';
         colorOption.style.border = '1px solid black';
@@ -837,30 +891,23 @@ color:black;
         colorOption.style.margin = '5px 0';
         colorOption.style.width = '130px';
         colorOption.textContent = color;
+    
+        // Add click event to handle selection
+        colorOption.addEventListener('click', () => {
+          // Remove 'selected' class from all options
+          const allOptions = document.querySelectorAll('.color-option');
+          allOptions.forEach(option => option.classList.remove('selected'));
+    
+          // Add 'selected' class to the clicked option
+          colorOption.classList.add('selected');
+    
+          // Get the selected color value
+          const selectedColor = colorOption.textContent;
+          console.log('Selected Color:', selectedColor); // You can handle this value as needed
+        });
+    
         productColors.appendChild(colorOption);
       });
-    
-    
-      productSizes.innerHTML = '<strong></strong>';
-      const sizeDropdown = document.createElement('select'); 
-      sizeDropdown.className = 'size-dropdown';
-      sizeDropdown.style.margin = '10px 0';
-      
-     
-      product.sizes.forEach((size) => {
-        const sizeOption = document.createElement('option');
-        sizeOption.value = size;
-        sizeOption.textContent = size;
-        sizeDropdown.appendChild(sizeOption);
-      });
-    
-     
-      productSizes.appendChild(sizeDropdown);
-    
-      console.log('Popup content set for product:', product.name);
-    
-   
-      popup.style.display = 'flex';
     }
     
     function closePopup() {
@@ -883,6 +930,8 @@ color:black;
       console.log('Document loaded, rendering product grid.');
       renderProductGrid();
     });
+    
+
 
     
     
