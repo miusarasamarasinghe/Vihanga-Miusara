@@ -315,11 +315,11 @@ body {
         transition: background-color 0.3s ease;
        
       }
-      #frist-card{
-        top: 75%;
-        right: 30%;
-
-      }
+      .product-block[data-product-id="1"] .view-details {
+        /* Your specific styles for this button */
+        background-color: #4CAF50; /* Change background color for product ID 1 */
+        color: white; /* Change text color */
+    }
      
   .popup-header{
     display: grid;
