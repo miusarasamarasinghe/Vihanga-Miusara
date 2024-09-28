@@ -316,7 +316,8 @@ body {
        
       }
       .product-block[data-product-id="1"] .view-details {
-        /* Your specific styles for this button */
+       top:50%;
+       right:10%;
         background-color: #4CAF50; /* Change background color for product ID 1 */
         color: white; /* Change text color */
     }
