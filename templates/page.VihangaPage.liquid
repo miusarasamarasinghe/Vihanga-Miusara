@@ -236,16 +236,7 @@
         colors: ['Blue', 'Black'],
        
       },
-      {
-        id: 7,
-        name: 'Soft Winter Jacket',
-        price: 69.99,
-        description:
-          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
-        image: '{{ "soft-winter.webp" | asset_url }}',
-        colors: ['Blue', 'Black'],
-       
-      },
+        
     ];
     let selectedColor = '';
     let selectedSize = '';
@@ -426,17 +417,14 @@ function addToCart(event, productId) {
  
   console.log(`Added to cart: ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
   if (selectedSize === "M" && selectedColor === "Black") {
-    const softWinterJacket = products.find(p => p.name === "Soft Winter Jacket");
-    if (softWinterJacket) {
-      console.log(`Also added to cart: ${softWinterJacket.name}, Size: Medium, Color: Black, Price: $${softWinterJacket.price.toFixed(2)}`);
+   
+      console.log(`Also added to cart : Soft Winter Jacket , Size: Medium, Color: Black, Price: $69.99`);
       
-      // Show alert with added products
-      alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}\n- ${softWinterJacket.name}, Size: Medium, Color: Black, Price: $${softWinterJacket.price.toFixed(2)}`);
-    } else {
-      console.error('Soft Winter Jacket not found');
-    }
+    
+      alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}\n- Soft Winter Jacket, Size: Medium, Color: Black,Price: $69.99`);
+  
   } else {
-    // Show alert for only the main product
+   
     alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
   }
  
