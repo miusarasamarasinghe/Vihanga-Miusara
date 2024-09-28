@@ -255,7 +255,7 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        overflow: auto;
+        overflow: hidden;
         height: 100%;
         background: rgba(0, 0, 0, 0.8);
         justify-content: center;
@@ -613,16 +613,8 @@ color:black;
         transform: translateY(-50%);
         pointer-events: none;
       }
-      /* Style for the dropdown container */
+  
 
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
 /* Container styling */
 .custom-dropdown {
     width: 260px; /* Adjust width as needed */
@@ -630,6 +622,7 @@ color:black;
     position: relative;
     user-select: none;
     height: 40px;
+    overflow:auto;
   }
   
   /* Header styling */
@@ -644,30 +637,30 @@ color:black;
   .dropdown-content {
     display: flex;
     align-items: center;
-    padding-left: 5px; /* Add padding */
+    padding-left: 1px; /* Add padding */
     cursor: pointer;
   }
   
-  /* Selected option styling */
+
   #selected-option {
     flex: 1;
-    padding-left: 10px; /* Align text to the left */
+    padding-left: 10px; 
   }
   
-  /* Divider styling */
+
   .divider {
-    width: 1px; /* Width of the divider line */
-    background-color: #000; /* Divider color */
-    height: 100%; /* Height of the divider */
-    margin: 0 10px; /* Spacing around the divider */
-    position: absolute; /* Positioning absolute to align correctly */
-    top: 0; /* Align to the top */
-    bottom: 0; /* Align to the bottom */
+    width: 1px; 
+    background-color: #000; 
+    height: 100%; 
+    margin: 0 10px; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
   }
   
   /* Arrow styling */
   .arrow {
-    transition: transform 0.3s ease-in-out; /* Smooth rotation effect */
+    transition: transform 0.3s ease-in-out;
   }
   
   /* Dropdown menu styles */
@@ -680,8 +673,8 @@ color:black;
     top: 100%;
     left: 0;
     z-index: 9999;
-
-    overflow-y: auto;
+ 
+    overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
   
@@ -692,11 +685,8 @@ color:black;
     background-color: white;
     color: black;
     transition: background-color 0.3s ease, color 0.3s ease;
-
   }
   
-  #dropdown-menu::-webkit-scrollbar {
-    display: none; }
   /* Hover effect for dropdown items */
   .dropdown-item:hover {
     background-color: black;
