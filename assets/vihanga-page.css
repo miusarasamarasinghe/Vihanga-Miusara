@@ -613,7 +613,7 @@ color:black;
         transform: translateY(-50%);
         pointer-events: none;
       }
-  
+      /* Style for the dropdown container */
 
 /* Container styling */
 .custom-dropdown {
@@ -622,7 +622,6 @@ color:black;
     position: relative;
     user-select: none;
     height: 40px;
-    overflow:auto;
   }
   
   /* Header styling */
