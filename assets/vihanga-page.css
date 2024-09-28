@@ -621,8 +621,8 @@ color:black;
     font-family: Arial, sans-serif;
     position: relative;
     user-select: none;
-    height: 72px;
-    overflow:auto;
+    height: 40px;
+    overflow:hidden;
   }
   
   /* Header styling */
@@ -639,6 +639,9 @@ color:black;
     align-items: center;
     padding-left: 1px; /* Add padding */
     cursor: pointer;
+    height: 72px;
+    overflow:auto;
+
   }
   
 
