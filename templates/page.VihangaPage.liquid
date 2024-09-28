@@ -158,7 +158,7 @@
             
 
             <div>
-              <a href="#" class="popup-bttn">
+              <a href="#" class="popup-bttn" onclick="addToCart(event)">
                 <span class="bttn-txt">ADD TO CART </span>
                 <span class="arrow">→</span>
               </a>
@@ -388,7 +388,64 @@ window.onclick = function(event) {
     }
   }
 };
+let selectedSize = '';
+let selectedColor = '';
+const cart = []; // Simple cart array to store added products
 
+// Function to handle selecting a color
+function selectColor(color) {
+  selectedColor = color;
+  console.log("Selected color:", color); // Debugging purpose
+}
+
+// Function to handle selecting a size from the dropdown
+function selectOption(size) {
+  selectedSize = size;
+  document.getElementById("selected-option").innerText = size;
+}
+
+// Function to add items to the cart when "ADD TO CART" is clicked
+function addToCart(event) {
+  event.preventDefault();
+
+  if (!selectedSize || !selectedColor) {
+    alert("Please select a size and color before adding to the cart.");
+    return;
+  }
+
+  // Add the main product to the cart
+  const mainProduct = {
+    name: "Main Product",
+    size: selectedSize,
+    color: selectedColor,
+    price: "$30.00"
+  };
+  cart.push(mainProduct);
+
+  // Check if the variant options are Black and Medium
+  if (selectedColor === 'Black' && selectedSize === 'M') {
+    // Automatically add the "Soft Winter Jacket"
+    const softWinterJacket = {
+      name: "Soft Winter Jacket",
+      size: "M",
+      color: "Black",
+      price: "$50.00"
+    };
+    cart.push(softWinterJacket);
+    alert("Both the Main Product and Soft Winter Jacket have been added to your cart!");
+  } else {
+    alert("The Main Product has been added to your cart!");
+  }
+
+  // Print the cart contents to the console (for debugging)
+  console.log("Cart contents:", cart);
+}
+
+// Function to close the popup (if required)
+function closePopup() {
+  const popup = document.querySelector(".product-popup");
+  popup.style.display = "none";
+}
 
 
   </script>
