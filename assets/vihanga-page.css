@@ -702,7 +702,11 @@ color:black;
     transform-origin: center; 
   
 }
-
+.dropdown-scroll {
+  max-height: 100px; /* Set a maximum height for the scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
   .arrow-container{
     border-left: 1px solid black;
     padding-left: 10px;
