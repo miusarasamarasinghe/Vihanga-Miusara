@@ -680,6 +680,8 @@ color:black;
 
   .arrow-container{
     border-left: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
     height: 38.5px;
     display:flex;
     align-items: center;
