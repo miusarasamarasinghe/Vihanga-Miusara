@@ -171,114 +171,110 @@
 </body>
 </html>
 
-<script>
-  const products = [
+  <script>
+    const products = [
       {
-          id: 1,
-          name: 'Orange Wide Leg',
-          price: 19.99,
-          description:
-              'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
-          image: '{{ "bag.webp" | asset_url }}',
-          colors: ['White', 'Black'],
-          sizes: ['Medium', 'Large'],
+        id: 1,
+        name: 'Orange Wide Leg',
+        price: 19.99,
+        description:
+          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        image: '{{ "bag.webp" | asset_url }}',
+        colors: ['White', 'Black'],
+        sizes: ['Medium', 'Large'],
       },
       {
-          id: 2,
-          name: 'Tailored Jacket',
-          price: 29.99,
-          description:
-              'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
-          image: '{{ "Blue.webp" | asset_url }}',
-          colors: ['Blue', 'Black'],
-          sizes: ['Medium', 'Large'],
+        id: 2,
+        name: 'Tailored Jacket',
+        price: 29.99,
+        description:
+          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        image: '{{ "Blue.webp" | asset_url }}',
+        colors: ['Blue', 'Black'],
+        sizes: ['Medium', 'Large'],
       },
       {
-          id: 3,
-          name: 'Accordion Pleated Dress',
-          price: 39.99,
-          description:
-              'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
-          image: '{{ "redja.webp" | asset_url }}',
-          colors: ['Red', 'Yellow'],
-          sizes: ['Medium', 'Large'],
+        id: 3,
+        name: 'Accordion Pleated Dress',
+        price: 39.99,
+        description:
+          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        image: '{{ "redja.webp" | asset_url }}',
+        colors: ['Red', 'Yellow'],
+        sizes: ['Medium', 'Large'],
       },
       {
-          id: 4,
-          name: 'Green Trench Coat',
-          price: 49.99,
-          description:
-              'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
-          image: '{{ "coffee.webp" | asset_url }}',
-          colors: ['White', 'Black'],
-          sizes: ['Medium', 'Large'],
+        id: 4,
+        name: 'Green Trench Coat',
+        price: 49.99,
+        description:
+          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        image: '{{ "coffee.webp" | asset_url }}',
+        colors: ['White', 'Black'],
+        sizes: ['Medium', 'Large'],
       },
       {
-          id: 5,
-          name: 'Tennis Blue T-Shirt',
-          price: 59.99,
-          description:
-              'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
-          image: '{{ "redpoket.webp" | asset_url }}',
-          colors: ['Grey', 'Black'],
-          sizes: ['Medium', 'Large'],
+        id: 5,
+        name: 'Tennis Blue T-Shirt',
+        price: 59.99,
+        description:
+          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        image: '{{ "redpoket.webp" | asset_url }}',
+        colors: ['Grey', 'Black'],
+        sizes: ['Medium', 'Large'],
       },
       {
-          id: 6,
-          name: 'Long Sleeve Tennis Top',
-          price: 69.99,
-          description:
-              'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
-          image: '{{ "denim.webp" | asset_url }}',
-          colors: ['Blue', 'Black'],
-          sizes: ['Medium', 'Large'],
+        id: 6,
+        name: 'Long Sleeve Tennis Top',
+        price: 69.99,
+        description:
+          'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
+        image: '{{ "denim.webp" | asset_url }}',
+        colors: ['Blue', 'Black'],
+        sizes: ['Medium', 'Large'],
       },
-  ];
+    ];
 
-  let cart = []; // Array to hold cart items
-  let selectedColor = null; // Variable to hold the selected color
-  let selectedSize = null; // Variable to hold the selected size
-
-  function toggleMenu() {
+    function toggleMenu() {
       const overlay = document.getElementById('overlayMenu');
       const burgerIcon = document.querySelector('.burger-icon');
 
       if (overlay.style.display === 'block') {
-          overlay.style.display = 'none';
-          burgerIcon.innerHTML = '&#9776;'; // Burger icon
+        overlay.style.display = 'none';
+        burgerIcon.innerHTML = '&#9776;'; // Burger icon
       } else {
-          overlay.style.display = 'block';
-          burgerIcon.innerHTML = 'X'; // Close icon
+        overlay.style.display = 'block';
+        burgerIcon.innerHTML = 'X'; // Close icon
       }
-  }
+    }
 
-  function renderProductGrid() {
+    function renderProductGrid() {
       const gridContainer = document.querySelector('.product-grid');
       gridContainer.innerHTML = '';
 
       products.forEach((product) => {
-          const productBlock = document.createElement('div');
-          productBlock.className = 'product-block';
-          productBlock.setAttribute('data-product-id', product.id);
-          productBlock.innerHTML = `
-              <img src="${product.image}" alt="${product.name}" class="Card-img">
-              <button class="view-details" onclick="showProductPopup(${product.id})">+</button>
-          `;
-          gridContainer.appendChild(productBlock);
+        const productBlock = document.createElement('div');
+        productBlock.className = 'product-block';
+        productBlock.setAttribute('data-product-id', product.id);
+        productBlock.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" class="Card-img">
+          <button class="view-details" onclick="showProductPopup(${product.id})">+</button>
+        `;
+        gridContainer.appendChild(productBlock);
       });
-  }
+    }
 
-  function showProductPopup(productId) {
+    function showProductPopup(productId) {
       const product = products.find((p) => p.id === productId);
       if (!product) {
-          console.error('Product not found for ID:', productId);
-          return;
+        console.error('Product not found for ID:', productId);
+        return;
       }
 
       const popup = document.querySelector('.product-popup');
       if (!popup) {
-          console.error('Popup element not found');
-          return;
+        console.error('Popup element not found');
+        return;
       }
 
       const productImage = popup.querySelector('.product-image');
@@ -286,7 +282,7 @@
       const productPrice = popup.querySelector('.product-price');
       const productDescription = popup.querySelector('.product-description');
       const productColors = popup.querySelector('.product-colors');
-      const productSizes = popup.querySelector('.product-sizes');
+
 
       // Update popup content with selected product details
       productImage.src = product.image;
@@ -298,139 +294,103 @@
       renderColorSwatches(product.colors);
 
       // Populate size options
-      renderSizeOptions(product.sizes);
-
+      
       console.log('Popup content set for product:', product.name);
       popup.style.display = 'flex';
-  }
+    }
 
-  function renderColorSwatches(colors) {
+    function renderColorSwatches(colors) {
       const productColors = document.querySelector('.product-colors');
       productColors.innerHTML = ''; // Clear existing colors
 
       colors.forEach((color) => {
-          const colorOption = document.createElement('div');
-          colorOption.className = 'color-option';
-          colorOption.style.border = '1px solid black';
-          colorOption.style.borderLeft = `7px solid ${color}`;
-          colorOption.style.padding = '5px';
-          colorOption.style.margin = '5px 0';
-          colorOption.style.width = '130px';
-          colorOption.textContent = color;
+        const colorOption = document.createElement('div');
+        colorOption.className = 'color-option';
+        colorOption.style.border = '1px solid black';
+        colorOption.style.borderLeft = `7px solid ${color}`;
+        colorOption.style.padding = '5px';
+        colorOption.style.margin = '5px 0';
+        colorOption.style.width = '130px';
+        colorOption.textContent = color;
 
-          // Add click event to handle selection
-          colorOption.addEventListener('click', () => {
-              // Remove 'selected' class from all options
-              const allOptions = document.querySelectorAll('.color-option');
-              allOptions.forEach((option) => option.classList.remove('selected'));
+        // Add click event to handle selection
+        colorOption.addEventListener('click', () => {
+          // Remove 'selected' class from all options
+          const allOptions = document.querySelectorAll('.color-option');
+          allOptions.forEach((option) => option.classList.remove('selected'));
 
-              // Add 'selected' class to the clicked option
-              colorOption.classList.add('selected');
+          // Add 'selected' class to the clicked option
+          colorOption.classList.add('selected');
 
-              // Get the selected color value
-              selectedColor = colorOption.textContent;
-              console.log('Selected Color:', selectedColor); // You can handle this value as needed
-          });
+          // Get the selected color value
+          const selectedColor = colorOption.textContent;
+          console.log('Selected Color:', selectedColor); // You can handle this value as needed
+        });
 
-          productColors.appendChild(colorOption);
+        productColors.appendChild(colorOption);
       });
-  }
+    }
 
-  function renderSizeOptions(sizes) {
-      const productSizes = document.querySelector('.product-sizes');
-      productSizes.innerHTML = ''; // Clear existing sizes
-
-      sizes.forEach((size) => {
-          const sizeOption = document.createElement('div');
-          sizeOption.className = 'size-option';
-          sizeOption.style.border = '1px solid black';
-          sizeOption.style.padding = '5px';
-          sizeOption.style.margin = '5px 0';
-          sizeOption.style.width = '130px';
-          sizeOption.textContent = size;
-
-          // Add click event to handle selection
-          sizeOption.addEventListener('click', () => {
-              // Remove 'selected' class from all options
-              const allOptions = document.querySelectorAll('.size-option');
-              allOptions.forEach((option) => option.classList.remove('selected'));
-
-              // Add 'selected' class to the clicked option
-              sizeOption.classList.add('selected');
-
-              // Get the selected size value
-              selectedSize = sizeOption.textContent;
-              console.log('Selected Size:', selectedSize); // You can handle this value as needed
-          });
-
-          productSizes.appendChild(sizeOption);
-      });
-  }
-
-  function addToCart(productId) {
-      if (!selectedColor || !selectedSize) {
-          alert('Please select both a color and a size before adding to the cart.');
-          return;
-      }
-
-      const product = products.find((p) => p.id === productId);
-      if (!product) {
-          console.error('Product not found for ID:', productId);
-          return;
-      }
-
-      const cartItem = {
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          color: selectedColor,
-          size: selectedSize,
-      };
-
-      cart.push(cartItem);
-      console.log('Added to cart:', cartItem);
-      alert(`${product.name} has been added to your cart.`);
-  }
-
-  function closePopup() {
+    function closePopup() {
       const popup = document.querySelector('.product-popup');
       if (popup) {
-          popup.style.display = 'none';
+        popup.style.display = 'none';
       }
-  }
+    }
 
-  // Event listener to close popup on background click or close button
-  document.querySelector('.product-popup').addEventListener('click', (e) => {
+    // Event listener to close popup on background click or close button
+    document.querySelector('.product-popup').addEventListener('click', (e) => {
       console.log('Click event detected on popup:', e.target);
       if (e.target.classList.contains('product-popup') || e.target.classList.contains('close-popup')) {
-          closePopup();
+        closePopup();
       }
-  });
+    });
 
-  // Render the product grid on DOMContentLoaded
-  document.addEventListener('DOMContentLoaded', () => {
+    // Render the product grid on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
       console.log('Document loaded, rendering product grid.');
       renderProductGrid();
-  });
-  
-  // Function to toggle the dropdown menu
-  function toggleDropdown() {
-      const dropdownMenu = document.getElementById("dropdown-menu");
-      const dropdownArrow = document.getElementById("dropdown-arrow");
+    });
+    // Function to toggle the dropdown menu
+// Function to toggle the dropdown menu
+// Function to toggle the dropdown menu
+// Function to toggle the dropdown menu
+function toggleDropdown() {
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const dropdownArrow = document.getElementById("dropdown-arrow");
 
-      if (dropdownMenu.style.display === "block") {
-          dropdownMenu.style.display = "none";
-          dropdownArrow.style.transform = "rotate(0deg)"; // Reset arrow rotation
-      } else {
-          dropdownMenu.style.display = "block";
-          dropdownArrow.style.transform = "rotate(180deg)"; // Rotate arrow to point up
-      }
+  if (dropdownMenu.style.display === "block") {
+    dropdownMenu.style.display = "none";
+    dropdownArrow.style.transform = "rotate(0deg)"; // Reset arrow to default
+  } else {
+    dropdownMenu.style.display = "block";
+    dropdownArrow.style.transform = "rotate(180deg)"; // Rotate arrow when open
   }
+}
 
-  // Add event listeners for dropdown menu
-  document.querySelector('.dropdown-toggle').addEventListener('click', toggleDropdown);
+// Function to handle option selection
+function selectOption(option) {
+  document.getElementById("selected-option").innerText = option;
+  toggleDropdown(); // Close the dropdown after selecting an option
+}
 
-</script>
+// Close the dropdown if clicked outside
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown-header') && !event.target.closest(".custom-dropdown")) {
+    const dropdowns = document.getElementsByClassName("dropdown-menu");
+    const dropdownArrow = document.getElementById("dropdown-arrow");
+    for (let i = 0; i < dropdowns.length; i++) {
+      const openDropdown = dropdowns[i];
+      if (openDropdown.style.display === "block") {
+        openDropdown.style.display = "none";
+        dropdownArrow.style.transform = "rotate(0deg)";
+      }
+    }
+  }
+};
 
+
+
+  </script>
 
 
