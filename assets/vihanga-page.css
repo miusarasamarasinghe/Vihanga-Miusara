@@ -674,7 +674,8 @@ color:black;
     margin-left: 0.5rem; /* Margin adjustment */
     font-size: 26px;
     transition: transform 0.3s ease-in-out;
-    transform-origin: center; /* Ensure rotation happens in place */
+    transform-origin: center; 
+    border-top: 6px solid black;/* Ensure rotation happens in place */
 }
 
   .arrow-container{
