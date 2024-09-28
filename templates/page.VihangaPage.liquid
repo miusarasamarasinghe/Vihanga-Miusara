@@ -397,13 +397,14 @@ window.onclick = function(event) {
 function addToCart(event) {
   event.preventDefault(); // Prevent default anchor behavior
 
+  // Check if both color and size are selected
   if (!selectedColor || !selectedSize) {
     alert('Please select a color and size before adding to cart.');
     return;
   }
 
-  // Add the selected product to the cart
-  console.log(`Added to cart: ${selectedColor}, ${selectedSize}`);
+  // Log the selected product to the console
+  console.log(`Added to cart: Color - ${selectedColor}, Size - ${selectedSize}`);
 
   // Check for automatic addition of the "Soft Winter Jacket"
   if (selectedColor === 'Black' && selectedSize === 'Medium') {
@@ -428,6 +429,7 @@ function addToCart(event) {
   // This could involve updating a cart object, sending a request to a server, etc.
   console.log(`Product added to cart: ${selectedColor}, ${selectedSize}`);
 }
+
 
 
   </script>
