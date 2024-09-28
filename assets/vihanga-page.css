@@ -605,6 +605,7 @@ color:black;
   .dropdown-header {
     background-color: white;
     border: 1px solid #000;
+    height: 40px;
     
   }
   
