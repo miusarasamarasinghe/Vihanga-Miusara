@@ -304,8 +304,7 @@ body {
       }
       .view-details {
         position: absolute;
-        top: 30%;
-        right: 30%;
+
         background-color:#F8F8F8E5;
         color: black;
         border: none;
