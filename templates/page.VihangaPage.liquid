@@ -415,7 +415,20 @@ function addToCart(event, productId) {
 
  
   console.log(`Added to cart: ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
-
+  if (selectedSize === "Medium" && selectedColor === "Black") {
+    const softWinterJacket = products.find(p => p.name === "Soft Winter Jacket");
+    if (softWinterJacket) {
+      console.log(`Also added to cart: ${softWinterJacket.name}, Size: Medium, Color: Black, Price: $${softWinterJacket.price.toFixed(2)}`);
+      
+      // Show alert with added products
+      alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}\n- ${softWinterJacket.name}, Size: Medium, Color: Black, Price: $${softWinterJacket.price.toFixed(2)}`);
+    } else {
+      console.error('Soft Winter Jacket not found');
+    }
+  } else {
+    // Show alert for only the main product
+    alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
+  }
  
 }
 
