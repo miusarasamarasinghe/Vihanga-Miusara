@@ -315,7 +315,7 @@ body {
         font-size: 18px;
         transition: background-color 0.3s ease;
       }
-      .frist-card{
+      #frist-card{
         top: 75%;
         right: 30%;
 
