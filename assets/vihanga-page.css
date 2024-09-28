@@ -622,7 +622,7 @@ color:black;
     position: relative;
     user-select: none;
     height: 40px;
-    overflow:hidden;
+    overflow:auto;
   }
   
   /* Header styling */
@@ -639,9 +639,6 @@ color:black;
     align-items: center;
     padding-left: 1px; /* Add padding */
     cursor: pointer;
-    height: 72px;
-    overflow:auto;
-
   }
   
 
