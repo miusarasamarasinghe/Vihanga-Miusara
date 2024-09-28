@@ -313,12 +313,14 @@ body {
         cursor: pointer;
         font-size: 18px;
         transition: background-color 0.3s ease;
+       
+       #frist-card{
+          top: 75%;
+          right: 30%;
+  
+        }
       }
-      #frist-card{
-        top: 75%;
-        right: 30%;
-
-      }
+     
   .popup-header{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
