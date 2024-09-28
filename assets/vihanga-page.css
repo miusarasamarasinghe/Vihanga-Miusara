@@ -317,10 +317,34 @@ body {
       }
       .product-block[data-product-id="1"] .view-details {
        top:50%;
-       right:10%;
-        background-color: #4CAF50; /* Change background color for product ID 1 */
-        color: white; /* Change text color */
+       right:30%;
+     
     }
+    .product-block[data-product-id="2"] .view-details {
+      top:60%;
+      right:10%;
+    
+   }
+   .product-block[data-product-id="3"] .view-details {
+    top:20%;
+    right:50%;
+  
+ }
+ .product-block[data-product-id="4"] .view-details {
+  top:10%;
+  right:20%;
+
+}
+.product-block[data-product-id="5"] .view-details {
+  top:15%;
+  right:55%;
+
+}
+.product-block[data-product-id="6"] .view-details {
+  top:35%;
+  right:20%;
+
+}
      
   .popup-header{
     display: grid;
