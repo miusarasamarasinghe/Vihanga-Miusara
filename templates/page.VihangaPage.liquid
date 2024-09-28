@@ -272,7 +272,7 @@
         console.error('Product not found for ID:', productId);
         return;
       }
-
+      selectedProductId = productId;
       const popup = document.querySelector('.product-popup');
       if (!popup) {
         console.error('Popup element not found');
