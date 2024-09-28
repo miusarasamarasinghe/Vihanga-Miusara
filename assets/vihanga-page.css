@@ -316,28 +316,28 @@ body {
        
       }
       .product-block[data-product-id="1"] .view-details {
-       top:50%;
-       right:30%;
+       top:60%;
+       right:35%;
      
     }
     .product-block[data-product-id="2"] .view-details {
-      top:60%;
+      top:55%;
       right:10%;
     
    }
    .product-block[data-product-id="3"] .view-details {
     top:20%;
-    right:50%;
+    right:45%;
   
  }
  .product-block[data-product-id="4"] .view-details {
-  top:10%;
+  top:12%;
   right:20%;
 
 }
 .product-block[data-product-id="5"] .view-details {
-  top:15%;
-  right:55%;
+  top:20%;
+  right:50%;
 
 }
 .product-block[data-product-id="6"] .view-details {
