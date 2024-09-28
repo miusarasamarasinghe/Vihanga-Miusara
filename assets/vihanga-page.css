@@ -622,7 +622,7 @@ color:black;
     position: relative;
     user-select: none;
     height: 40px;
-    overflow: auto; 
+    overflow: visible; 
   }
   
   /* Header styling */
