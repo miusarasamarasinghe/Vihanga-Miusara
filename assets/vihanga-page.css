@@ -644,7 +644,7 @@ color:black;
   .dropdown-content {
     display: flex;
     align-items: center;
-    padding: 2px; /* Add padding */
+    padding-left: 5px; /* Add padding */
     cursor: pointer;
   }
   
@@ -681,7 +681,7 @@ color:black;
     left: 0;
     z-index: 9999;
  
-    overflow: hidden;
+   
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
   
