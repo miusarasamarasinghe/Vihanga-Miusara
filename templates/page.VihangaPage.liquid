@@ -394,35 +394,28 @@ window.onclick = function(event) {
   }
 };
 
-function addToCart(event) {
-  event.preventDefault(); 
+function addToCart(event, productId) {
+  event.preventDefault(); // Prevent the default link behavior
 
-  const productId = document.querySelector('.product-popup .product-name').dataset.productId;
-
-  const product = products.find(p => p.id === parseInt(productId));
-
+  const product = products.find((p) => p.id === productId);
   if (!product) {
     console.error('Product not found for ID:', productId);
     return;
   }
 
+  const selectedSize = document.getElementById("selected-option").innerText;
+  const selectedColorElement = document.querySelector('.color-option.selected');
+  const selectedColor = selectedColorElement ? selectedColorElement.textContent : null;
+
   if (!selectedSize || !selectedColor) {
-    alert('Please select both size and color before adding to cart.');
+    alert("Please select both size and color before adding to cart.");
     return;
   }
 
-  const cartItem = {
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    description: product.description,
-    image: product.image,
-    color: selectedColor,
-    size: selectedSize
-  };
+  // Here you can handle the cart addition logic
+  console.log(`Added to cart: ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
 
-  console.log('Item added to cart:', cartItem);
-
+  // Add your cart logic here (e.g., updating cart display, sending data to server, etc.)
 }
 
 
