@@ -234,6 +234,9 @@
         sizes: ['Medium', 'Large'],
       },
     ];
+    let cart = []; // Array to hold cart items
+    let selectedColor = null; // Variable to hold the selected color
+    let selectedSize = null; // Variable to hold the selected size
 
     function toggleMenu() {
       const overlay = document.getElementById('overlayMenu');
@@ -264,39 +267,69 @@
       });
     }
 
+        function addToCart(productId) {
+        if (!selectedColor || !selectedSize) {
+            alert('Please select both a color and a size before adding to the cart.');
+            return;
+        }
+
+        const product = products.find((p) => p.id === productId);
+        if (!product) {
+            console.error('Product not found for ID:', productId);
+            return;
+        }
+
+        const cartItem = {
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            color: selectedColor,
+            size: selectedSize,
+        };
+
+        cart.push(cartItem);
+        console.log('Added to cart:', cartItem);
+        alert(`${product.name} has been added to your cart.`);
+    }
+
     function showProductPopup(productId) {
-      const product = products.find((p) => p.id === productId);
-      if (!product) {
-        console.error('Product not found for ID:', productId);
-        return;
-      }
+        const product = products.find((p) => p.id === productId);
+        if (!product) {
+            console.error('Product not found for ID:', productId);
+            return;
+        }
 
-      const popup = document.querySelector('.product-popup');
-      if (!popup) {
-        console.error('Popup element not found');
-        return;
-      }
+        const popup = document.querySelector('.product-popup');
+        if (!popup) {
+            console.error('Popup element not found');
+            return;
+        }
 
-      const productImage = popup.querySelector('.product-image');
-      const productName = popup.querySelector('.product-name');
-      const productPrice = popup.querySelector('.product-price');
-      const productDescription = popup.querySelector('.product-description');
-      const productColors = popup.querySelector('.product-colors');
+        const productImage = popup.querySelector('.product-image');
+        const productName = popup.querySelector('.product-name');
+        const productPrice = popup.querySelector('.product-price');
+        const productDescription = popup.querySelector('.product-description');
+        const productColors = popup.querySelector('.product-colors');
+        const productSizes = popup.querySelector('.product-sizes');
 
+        // Update popup content with selected product details
+        productImage.src = product.image;
+        productName.textContent = product.name;
+        productPrice.textContent = `$${product.price.toFixed(2)}`;
+        productDescription.textContent = product.description;
 
-      // Update popup content with selected product details
-      productImage.src = product.image;
-      productName.textContent = product.name;
-      productPrice.textContent = `$${product.price.toFixed(2)}`;
-      productDescription.textContent = product.description;
+        // Populate color options
+        renderColorSwatches(product.colors);
 
-      // Populate color options
-      renderColorSwatches(product.colors);
+        // Populate size options
+        renderSizeOptions(product.sizes);
 
-      // Populate size options
-      
-      console.log('Popup content set for product:', product.name);
-      popup.style.display = 'flex';
+        // Add the "Add to Cart" button click event
+        const addToCartButton = popup.querySelector('.add-to-cart-button');
+        addToCartButton.onclick = () => addToCart(productId);
+
+        console.log('Popup content set for product:', product.name);
+        popup.style.display = 'flex';
     }
 
     function renderColorSwatches(colors) {
