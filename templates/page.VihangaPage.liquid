@@ -158,7 +158,7 @@
             
 
             <div>
-              <a href="#" class="popup-bttn" onclick="addToCart(event)">
+              <a href="#" class="popup-bttn" onclick="addToCart(event)" >
                 <span class="bttn-txt">ADD TO CART </span>
                 <span class="arrow">→</span>
               </a>
@@ -234,9 +234,6 @@
         sizes: ['Medium', 'Large'],
       },
     ];
-    let cart = []; // Array to hold cart items
-    let selectedColor = null; // Variable to hold the selected color
-    let selectedSize = null; // Variable to hold the selected size
 
     function toggleMenu() {
       const overlay = document.getElementById('overlayMenu');
@@ -267,69 +264,39 @@
       });
     }
 
-        function addToCart(productId) {
-        if (!selectedColor || !selectedSize) {
-            alert('Please select both a color and a size before adding to the cart.');
-            return;
-        }
-
-        const product = products.find((p) => p.id === productId);
-        if (!product) {
-            console.error('Product not found for ID:', productId);
-            return;
-        }
-
-        const cartItem = {
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            color: selectedColor,
-            size: selectedSize,
-        };
-
-        cart.push(cartItem);
-        console.log('Added to cart:', cartItem);
-        alert(`${product.name} has been added to your cart.`);
-    }
-
     function showProductPopup(productId) {
-        const product = products.find((p) => p.id === productId);
-        if (!product) {
-            console.error('Product not found for ID:', productId);
-            return;
-        }
+      const product = products.find((p) => p.id === productId);
+      if (!product) {
+        console.error('Product not found for ID:', productId);
+        return;
+      }
 
-        const popup = document.querySelector('.product-popup');
-        if (!popup) {
-            console.error('Popup element not found');
-            return;
-        }
+      const popup = document.querySelector('.product-popup');
+      if (!popup) {
+        console.error('Popup element not found');
+        return;
+      }
 
-        const productImage = popup.querySelector('.product-image');
-        const productName = popup.querySelector('.product-name');
-        const productPrice = popup.querySelector('.product-price');
-        const productDescription = popup.querySelector('.product-description');
-        const productColors = popup.querySelector('.product-colors');
-        const productSizes = popup.querySelector('.product-sizes');
+      const productImage = popup.querySelector('.product-image');
+      const productName = popup.querySelector('.product-name');
+      const productPrice = popup.querySelector('.product-price');
+      const productDescription = popup.querySelector('.product-description');
+      const productColors = popup.querySelector('.product-colors');
 
-        // Update popup content with selected product details
-        productImage.src = product.image;
-        productName.textContent = product.name;
-        productPrice.textContent = `$${product.price.toFixed(2)}`;
-        productDescription.textContent = product.description;
 
-        // Populate color options
-        renderColorSwatches(product.colors);
+      // Update popup content with selected product details
+      productImage.src = product.image;
+      productName.textContent = product.name;
+      productPrice.textContent = `$${product.price.toFixed(2)}`;
+      productDescription.textContent = product.description;
 
-        // Populate size options
-        renderSizeOptions(product.sizes);
+      // Populate color options
+      renderColorSwatches(product.colors);
 
-        // Add the "Add to Cart" button click event
-        const addToCartButton = popup.querySelector('.add-to-cart-button');
-        addToCartButton.onclick = () => addToCart(productId);
-
-        console.log('Popup content set for product:', product.name);
-        popup.style.display = 'flex';
+      // Populate size options
+      
+      console.log('Popup content set for product:', product.name);
+      popup.style.display = 'flex';
     }
 
     function renderColorSwatches(colors) {
@@ -421,7 +388,57 @@ window.onclick = function(event) {
     }
   }
 };
+function addToCart(event) {
+  event.preventDefault(); // Prevent default anchor behavior
 
+  const selectedSizeElement = document.getElementById("selected-option");
+  const selectedSize = selectedSizeElement.innerText; // Get the selected size from dropdown
+  const selectedColor = document.querySelector('.color-option.selected')?.textContent; // Get the selected color
+
+  // Check if color and size are selected
+  if (!selectedColor) {
+    alert('Please select a color before adding to cart.');
+    return;
+  }
+
+  if (selectedSize === 'Choose your size') {
+    alert('Please select a size before adding to cart.');
+    return;
+  }
+
+  // Log the selected product details
+  console.log('Adding to cart:', {
+    color: selectedColor,
+    size: selectedSize,
+  });
+
+  // Define the details of the Soft Winter Jacket
+  const softWinterJacket = {
+    id: 7, // Hardcoded ID for the jacket
+    name: 'Soft Winter Jacket',
+    price: 59.99,
+    description: 'A warm and stylish winter jacket perfect for chilly days.',
+    image: '{{ "soft-winter-jacket.webp" | asset_url }}',
+    color: 'Black', // Hardcoded color
+    size: 'Medium', // Hardcoded size
+  };
+
+  // Find the selected product
+  const selectedProductId = /* Logic to get the currently selected product ID */;
+  const selectedProduct = products.find(product => product.id === selectedProductId);
+
+  // Check for the specific condition to add the Soft Winter Jacket
+  if (selectedColor === 'Black' && selectedSize === 'Medium') {
+    console.log('Automatically adding Soft Winter Jacket to the cart.');
+    // Add both products to the cart (implementation may vary)
+    alert(`Added to cart:\nProduct: ${selectedProduct.name}\nColor: ${selectedColor}\nSize: ${selectedSize}\n\nAlso added: ${softWinterJacket.name}`);
+  } else {
+    alert(`Added to cart:\nProduct: ${selectedProduct.name}\nColor: ${selectedColor}\nSize: ${selectedSize}`);
+  }
+
+  // Implement the logic to add both products to the cart
+  // This could be updating a cart object, sending a request to a server, etc.
+}
 
 
   </script>
