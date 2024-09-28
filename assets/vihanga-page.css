@@ -671,11 +671,12 @@ color:black;
   
   /* Arrow positioning */
   #dropdown-arrow {
-    margin-left: 1rem;
-padding-right: 8px;
-    font-size: 30px; 
-    /* Adjust margin if needed */
-  }
+    margin-left: 0.5rem; /* Margin adjustment */
+    font-size: 26px;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center; /* Ensure rotation happens in place */
+}
+
   .arrow-container{
     border-left: 2px solid;
     height: 38.5px;
