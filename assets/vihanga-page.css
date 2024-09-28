@@ -445,7 +445,11 @@ transition: color 0.4s ease;
           margin-top: 20px;
           padding: 5px;
         }
+.grid-title{
+  text-align: center;
+  font-size: 24px;
 
+}
         .small-device-subtitle {
           font-family: Jost;
           font-size: 18px;
