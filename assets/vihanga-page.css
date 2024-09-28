@@ -419,7 +419,7 @@ position: relative;
 overflow: hidden;
 width: 260px;
 margin-top: 15px;
-bottom: 1;
+top:100%;
 z-index: 1;
 transition: color 0.4s ease;
 }
