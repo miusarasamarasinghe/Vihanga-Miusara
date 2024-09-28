@@ -180,7 +180,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "bag.webp" | asset_url }}',
         colors: ['White', 'Black'],
-        sizes: ['Medium', 'Large'],
+       
       },
       {
         id: 2,
@@ -190,7 +190,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "Blue.webp" | asset_url }}',
         colors: ['Blue', 'Black'],
-        sizes: ['Medium', 'Large'],
+      
       },
       {
         id: 3,
@@ -200,7 +200,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redja.webp" | asset_url }}',
         colors: ['Red', 'Yellow'],
-        sizes: ['Medium', 'Large'],
+       
       },
       {
         id: 4,
@@ -210,7 +210,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "coffee.webp" | asset_url }}',
         colors: ['White', 'Black'],
-        sizes: ['Medium', 'Large'],
+       
       },
       {
         id: 5,
@@ -220,7 +220,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "redpoket.webp" | asset_url }}',
         colors: ['Grey', 'Black'],
-        sizes: ['Medium', 'Large'],
+       
       },
       {
         id: 6,
@@ -230,7 +230,7 @@
           'This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.',
         image: '{{ "denim.webp" | asset_url }}',
         colors: ['Blue', 'Black'],
-        sizes: ['Medium', 'Large'],
+       
       },
     ];
     let selectedColor = '';
@@ -243,10 +243,10 @@
 
       if (overlay.style.display === 'block') {
         overlay.style.display = 'none';
-        burgerIcon.innerHTML = '&#9776;'; // Burger icon
+        burgerIcon.innerHTML = '&#9776;'; 
       } else {
         overlay.style.display = 'block';
-        burgerIcon.innerHTML = 'X'; // Close icon
+        burgerIcon.innerHTML = 'X'; 
       }
     }
 
@@ -292,10 +292,9 @@
       productPrice.textContent = `$${product.price.toFixed(2)}`;
       productDescription.textContent = product.description;
 
-      // Populate color options
+     
       renderColorSwatches(product.colors);
 
-      // Populate size options
       
       console.log('Popup content set for product:', product.name);
       popup.style.display = 'flex';
@@ -303,7 +302,7 @@
 
     function renderColorSwatches(colors) {
       const productColors = document.querySelector('.product-colors');
-      productColors.innerHTML = ''; // Clear existing colors
+      productColors.innerHTML = ''; 
 
       colors.forEach((color) => {
         const colorOption = document.createElement('div');
@@ -317,16 +316,16 @@
 
         // Add click event to handle selection
         colorOption.addEventListener('click', () => {
-          // Remove 'selected' class from all options
+        
           const allOptions = document.querySelectorAll('.color-option');
           allOptions.forEach((option) => option.classList.remove('selected'));
 
-          // Add 'selected' class to the clicked option
+        
           colorOption.classList.add('selected');
 
-          // Get the selected color value
+      
           const selectedColor = colorOption.textContent;
-          console.log('Selected Color:', selectedColor); // You can handle this value as needed
+          console.log('Selected Color:', selectedColor); 
         });
 
         productColors.appendChild(colorOption);
@@ -353,9 +352,7 @@
       console.log('Document loaded, rendering product grid.');
       renderProductGrid();
     });
-    // Function to toggle the dropdown menu
-// Function to toggle the dropdown menu
-// Function to toggle the dropdown menu
+
 // Function to toggle the dropdown menu
 function toggleDropdown() {
   const dropdownMenu = document.getElementById("dropdown-menu");
@@ -363,21 +360,21 @@ function toggleDropdown() {
 
   if (dropdownMenu.style.display === "block") {
     dropdownMenu.style.display = "none";
-    dropdownArrow.style.transform = "rotate(0deg)"; // Reset arrow to default
+    dropdownArrow.style.transform = "rotate(0deg)"; 
   } else {
     dropdownMenu.style.display = "block";
-    dropdownArrow.style.transform = "rotate(180deg)"; // Rotate arrow when open
+    dropdownArrow.style.transform = "rotate(180deg)"; 
   }
 }
 
 // Function to handle option selection
 function selectOption(option) {
   document.getElementById("selected-option").innerText = option;
-  toggleDropdown(); // Close the dropdown after selecting an option
+  toggleDropdown(); 
 }
  function selectColor(color) {
-      selectedColor = color; // Save selected color
-      // Add additional logic here if needed
+      selectedColor = color; 
+    
     }
 // Close the dropdown if clicked outside
 window.onclick = function(event) {
@@ -393,9 +390,9 @@ window.onclick = function(event) {
     }
   }
 };
-
+//add to cart
 function addToCart(event, productId) {
-  event.preventDefault(); // Prevent the default link behavior
+  event.preventDefault(); 
 
   const product = products.find((p) => p.id === productId);
   if (!product) {
@@ -412,10 +409,10 @@ function addToCart(event, productId) {
     return;
   }
 
-  // Here you can handle the cart addition logic
+ 
   console.log(`Added to cart: ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
 
-  // Add your cart logic here (e.g., updating cart display, sending data to server, etc.)
+ 
 }
 
 
