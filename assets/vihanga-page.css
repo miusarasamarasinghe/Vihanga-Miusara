@@ -255,6 +255,7 @@ body {
         top: 0;
         left: 0;
         width: 100%;
+        overflow: hidden;
         height: 100%;
         background: rgba(0, 0, 0, 0.8);
         justify-content: center;
@@ -270,7 +271,7 @@ body {
         position: relative;
         width: 311px;
         height: 460px;
-        overflow-y: auto;
+        overflow: hidden;
       }
 
       .close-popup {
