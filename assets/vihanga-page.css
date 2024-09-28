@@ -392,21 +392,21 @@ body {
   display: none;
 }
 .product-colors {
-  display: flex; /* Use flexbox for layout */
+  display: flex; 
   align-items: center;
-  width:100%; /* Center items vertically */
+  width:100%; 
 }
 
 .product-colors strong {
-  margin-right: 0; /* Remove any right margin from the strong element */
+  margin-right: 0; 
 }
 
 .color-swatch {
-  border-left: 5px solid; /* Keep the left border */
-  width: 130px; /* Fixed width for color swatch */
-  height: 20px; /* Fixed height for color swatch */
-  margin-left: 0; /* Remove left margin to eliminate gap */
-  margin-right: 0; /* Remove right margin to eliminate gap */
+  border-left: 5px solid; 
+  width: 130px; 
+  height: 20px; 
+  margin-left: 0; 
+  margin-right: 0; 
 }
 .popup-bttn{
 display: inline-block;
@@ -637,7 +637,7 @@ color:black;
   .dropdown-content {
     display: flex;
     align-items: center;
-    padding-left: 1px; /* Add padding */
+    padding-left: 1px; 
     cursor: pointer;
     height: 100%; 
   }
@@ -688,24 +688,37 @@ color:black;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  /* Hover effect for dropdown items */
+
   .dropdown-item:hover {
     background-color: black;
     color: white;
   }
   
-  /* Arrow positioning */
+ 
   #dropdown-arrow {
-    margin-left: 0.5rem; /* Margin adjustment */
+    margin-left: 0.5rem; 
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
     transform-origin: center; 
   
 }
 .dropdown-scroll {
-  max-height: 100px; /* Set a maximum height for the scrollable area */
-  overflow-y: auto; /* Enable vertical scrolling */
-  overflow-x: hidden; /* Hide horizontal overflow */
+  max-height: 100px; 
+  overflow-y: auto; 
+  overflow-x: hidden; 
+}
+.dropdown-scroll::-webkit-scrollbar {
+  width: 0; 
+}
+
+
+.dropdown-scroll {
+  scrollbar-width: none;
+}
+
+
+.dropdown-scroll {
+  -ms-overflow-style: none; 
 }
   .arrow-container{
     border-left: 1px solid black;
