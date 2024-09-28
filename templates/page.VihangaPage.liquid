@@ -234,6 +234,8 @@
         sizes: ['Medium', 'Large'],
       },
     ];
+    let selectedColor = '';
+    let selectedSize = '';
 
     function toggleMenu() {
       const overlay = document.getElementById('overlayMenu');
@@ -373,7 +375,10 @@ function selectOption(option) {
   document.getElementById("selected-option").innerText = option;
   toggleDropdown(); // Close the dropdown after selecting an option
 }
-
+ function selectColor(color) {
+      selectedColor = color; // Save selected color
+      // Add additional logic here if needed
+    }
 // Close the dropdown if clicked outside
 window.onclick = function(event) {
   if (!event.target.matches('.dropdown-header') && !event.target.closest(".custom-dropdown")) {
@@ -388,56 +393,40 @@ window.onclick = function(event) {
     }
   }
 };
+
 function addToCart(event) {
   event.preventDefault(); // Prevent default anchor behavior
 
-  const selectedSizeElement = document.getElementById("selected-option");
-  const selectedSize = selectedSizeElement.innerText; // Get the selected size from dropdown
-  const selectedColor = document.querySelector('.color-option.selected')?.textContent; // Get the selected color
-
-  // Check if color and size are selected
-  if (!selectedColor) {
-    alert('Please select a color before adding to cart.');
+  if (!selectedColor || !selectedSize) {
+    alert('Please select a color and size before adding to cart.');
     return;
   }
 
-  if (selectedSize === 'Choose your size') {
-    alert('Please select a size before adding to cart.');
-    return;
-  }
+  // Add the selected product to the cart
+  console.log(`Added to cart: ${selectedColor}, ${selectedSize}`);
 
-  // Log the selected product details
-  console.log('Adding to cart:', {
-    color: selectedColor,
-    size: selectedSize,
-  });
-
-  // Define the details of the Soft Winter Jacket
-  const softWinterJacket = {
-    id: 7, // Hardcoded ID for the jacket
-    name: 'Soft Winter Jacket',
-    price: 59.99,
-    description: 'A warm and stylish winter jacket perfect for chilly days.',
-    image: '{{ "soft-winter-jacket.webp" | asset_url }}',
-    color: 'Black', // Hardcoded color
-    size: 'Medium', // Hardcoded size
-  };
-
-  // Find the selected product
-  const selectedProductId = /* Logic to get the currently selected product ID */;
-  const selectedProduct = products.find(product => product.id === selectedProductId);
-
-  // Check for the specific condition to add the Soft Winter Jacket
+  // Check for automatic addition of the "Soft Winter Jacket"
   if (selectedColor === 'Black' && selectedSize === 'Medium') {
     console.log('Automatically adding Soft Winter Jacket to the cart.');
-    // Add both products to the cart (implementation may vary)
-    alert(`Added to cart:\nProduct: ${selectedProduct.name}\nColor: ${selectedColor}\nSize: ${selectedSize}\n\nAlso added: ${softWinterJacket.name}`);
-  } else {
-    alert(`Added to cart:\nProduct: ${selectedProduct.name}\nColor: ${selectedColor}\nSize: ${selectedSize}`);
+
+    // Define the Soft Winter Jacket details
+    const softWinterJacket = {
+      id: 'soft_winter_jacket', // Unique ID for the Soft Winter Jacket
+      name: 'Soft Winter Jacket',
+      price: 79.99, // Example price
+      description: 'A warm and comfortable winter jacket.',
+      image: '{{ "soft_winter_jacket.webp" | asset_url }}', // Image URL
+      color: 'Black',
+      size: 'Medium',
+    };
+
+    // Here you can add code to add the Soft Winter Jacket to the cart
+    console.log(`Added to cart: ${softWinterJacket.name}, Color: ${softWinterJacket.color}, Size: ${softWinterJacket.size}`);
   }
 
-  // Implement the logic to add both products to the cart
-  // This could be updating a cart object, sending a request to a server, etc.
+  // Implement the logic for adding the selected product to the cart
+  // This could involve updating a cart object, sending a request to a server, etc.
+  console.log(`Product added to cart: ${selectedColor}, ${selectedSize}`);
 }
 
 
