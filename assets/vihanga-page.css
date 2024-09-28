@@ -622,6 +622,7 @@ color:black;
     position: relative;
     user-select: none;
     height: 40px;
+    overflow: visible; 
   }
   
   /* Header styling */
@@ -638,6 +639,7 @@ color:black;
     align-items: center;
     padding-left: 1px; /* Add padding */
     cursor: pointer;
+    height: 100%; 
   }
   
 
@@ -672,8 +674,8 @@ color:black;
     top: 100%;
     left: 0;
     z-index: 9999;
- 
-    overflow: hidden;
+    max-height: 200px;
+    overflow: auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
   
