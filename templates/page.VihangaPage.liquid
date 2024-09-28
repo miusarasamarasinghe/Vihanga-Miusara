@@ -96,15 +96,15 @@
           <img src="{{ 'bag.webp' | asset_url }}" alt="Gift" class="Card-img" width="" height="">
           <button class="view-details">+</button>
         </div>
-        <div class="product-block" data-product-id="1">
+        <div class="product-block" data-product-id="2">
           <img src="{{ 'Blue.webp' | asset_url }}" alt="Gift" class="Card-img" width="" height="">
           <button class="view-details">+</button>
         </div>
-        <div class="product-block" data-product-id="1">
+        <div class="product-block" data-product-id="3">
           <img src="{{ 'redja.webp' | asset_url }}" alt="Gift" class="Card-img" width="" height="">
           <button class="view-details">+</button>
         </div>
-        <div class="product-block" data-product-id="1">
+        <div class="product-block" data-product-id="4">
           <img src="{{ 'coffee.webp' | asset_url }}" alt="Gift" class="Card-img" width="" height="">
           <button class="view-details">+</button>
         </div>
@@ -153,13 +153,9 @@
                 <div class="dropdown-item" onclick="selectOption('S')">S</div>
                 <div class="dropdown-item" onclick="selectOption('M')">M</div>
               </div>
-            </div>
-            
-            
-
-            <div>
+            </div><div>
               
-              <a href="#" class="popup-bttn" onclick="addToCart(event, `${data-product-id}`)">
+              <a href="#" class="popup-bttn" onclick="addToCart(event, selectedProductId)">
 
 
                 <span class="bttn-txt">ADD TO CART </span>
