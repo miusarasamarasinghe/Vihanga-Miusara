@@ -344,7 +344,8 @@ right:20%;
    
 .popup-header{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: 120px 150px;
 
 
 }
