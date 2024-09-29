@@ -550,47 +550,21 @@ color:black;
       }
 
       }
-      /* .color-option {
-        border: 1px solid black;
-        padding: 5px;
-        margin: 5px 0;
-        width: 130px;
-        cursor: pointer; 
-        transition: background-color 0.3s ease, color 1s ease; 
-      }
-
-      .color-option.selected {
-        background-color: black; 
-        color: white; 
-      } */
       .color-option {
         border: 1px solid black;
         padding: 5px;
         margin: 5px 0;
         width: 130px;
-        cursor: pointer; 
-        transition: background-color 0.3s ease, color 0.3s ease; 
+        cursor: pointer;
+        background-color: white; /* Default background color */
+        color: black; /* Default text color */
+        transition: background-color 1.5s ease; /* Smooth transition for background color */
     }
     
-    /* Change color based on position */
-    .color-option:nth-child(odd) {
-        background-color: white; /* Default color for left side */
+    .color-option:hover {
+        background-color: black; /* Change to black on hover */
+        color: white; /* Change text color to white on hover */
     }
-    
-    .color-option:nth-child(odd):hover {
-        background-color: black; /* Hover effect for left side */
-        color: white; 
-    }
-    
-    .color-option:nth-child(even) {
-        background-color: white; /* Default color for right side */
-    }
-    
-    .color-option:nth-child(even):hover {
-        background-color: black; /* Hover effect for right side */
-        color: white; 
-    }
-    
       .dropdown-container {
         position: relative; 
       }
