@@ -270,8 +270,9 @@ body {
       border-radius: 8px;
       position: relative;
       width: 311px;
-      height: 460px;
+      height: 447px;
       overflow: hidden;
+      font-size: 16px;
     }
 
     .close-popup {
@@ -576,7 +577,7 @@ color:black;
       margin: 5px 0;
       width: 129px;
       cursor: pointer; 
-      color: white;
+    
       transition: background-color 0.3s ease, color 1s ease; 
     }
 
