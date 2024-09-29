@@ -3,10 +3,10 @@ body {
 }
 
 
-    .Main-container {
-      max-width: 1600px;
-      margin: 0 auto;
-    }
+  .Main-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
             .simple-banner-section {
               position: relative;
               max-height: 850px;
@@ -69,7 +69,7 @@ body {
               background-color: black;
               color: white;
               text-decoration: none;
-              border-radius: 0px;
+              border-radius: 5px;
               position: relative;
               overflow: hidden;
               margin-top: 15px;
@@ -238,6 +238,12 @@ body {
          display: block;
 
         }
+
+
+
+
+
+
         .grid-title{
           font-family: Lustria;
         font-size: 36px;
@@ -255,7 +261,6 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        overflow: hidden;
         height: 100%;
         background: rgba(0, 0, 0, 0.8);
         justify-content: center;
@@ -270,13 +275,13 @@ body {
         border-radius: 8px;
         position: relative;
         width: 311px;
-        height: 460px;
-        overflow: hidden;
+        height: 455px;
+        overflow-y: auto;
       }
 
       .close-popup {
         position: absolute;
-        top: 0px;
+        top: 1px;
         right: 12px;
         cursor: pointer;
         font-size: 25px;
@@ -299,48 +304,22 @@ body {
       }
       .view-details {
         position: absolute;
-
+        top: 30%;
+        right: 30%;
         background-color:#F8F8F8E5;
         color: black;
         border: none;
-        padding: 2px 6px;
+        padding: 5px 10px;
         border-radius: 50%;
         cursor: pointer;
-        font-size: 12px;
+        font-size: 18px;
         transition: background-color 0.3s ease;
-       
       }
-      .product-block[data-product-id="1"] .view-details {
-       top:60%;
-       right:35%;
-     
-    }
-    .product-block[data-product-id="2"] .view-details {
-      top:50%;
-      right:10%;
-    
-   }
-   .product-block[data-product-id="3"] .view-details {
-    top:20%;
-    right:30%;
-  
- }
- .product-block[data-product-id="4"] .view-details {
-  top:12%;
-  right:20%;
+      .frist-card{
+        top: 65%;
+        right: 30%;
 
-}
-.product-block[data-product-id="5"] .view-details {
-  top:20%;
-  right:55%;
-
-}
-.product-block[data-product-id="6"] .view-details {
-  top:35%;
-  right:20%;
-
-}
-     
+      }
   .popup-header{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -392,21 +371,21 @@ body {
   display: none;
 }
 .product-colors {
-  display: flex; 
+  display: flex; /* Use flexbox for layout */
   align-items: center;
-  width:100%; 
+  width:100%; /* Center items vertically */
 }
 
 .product-colors strong {
-  margin-right: 0; 
+  margin-right: 0; /* Remove any right margin from the strong element */
 }
 
 .color-swatch {
-  border-left: 5px solid; 
-  width: 130px; 
-  height: 20px; 
-  margin-left: 0; 
-  margin-right: 0; 
+  border-left: 5px solid; /* Keep the left border */
+  width: 130px; /* Fixed width for color swatch */
+  height: 20px; /* Fixed height for color swatch */
+  margin-left: 0; /* Remove left margin to eliminate gap */
+  margin-right: 0; /* Remove right margin to eliminate gap */
 }
 .popup-bttn{
 display: inline-block;
@@ -418,9 +397,8 @@ text-align: center;
 border-radius: 5px;
 position: relative;
 overflow: hidden;
-width: 260px;
+width:100%;
 margin-top: 15px;
-top:100%;
 z-index: 1;
 transition: color 0.4s ease;
 }
@@ -616,13 +594,20 @@ color:black;
       /* Style for the dropdown container */
 
 /* Container styling */
+/* Container styling */
+/* Container styling */
+/* Container styling */
+/* Container styling */
+/* Container styling */
+/* Container styling */
+/* Container styling */
+/* Container styling */
 .custom-dropdown {
     width: 260px; /* Adjust width as needed */
     font-family: Arial, sans-serif;
     position: relative;
     user-select: none;
     height: 40px;
-    overflow: visible; 
   }
   
   /* Header styling */
@@ -637,31 +622,30 @@ color:black;
   .dropdown-content {
     display: flex;
     align-items: center;
-    padding-left: 1px; 
+    padding: 2px; /* Add padding */
     cursor: pointer;
-    height: 100%; 
   }
   
-
+  /* Selected option styling */
   #selected-option {
     flex: 1;
-    padding-left: 10px; 
+    padding-left: 10px; /* Align text to the left */
   }
   
-
+  /* Divider styling */
   .divider {
-    width: 1px; 
-    background-color: #000; 
-    height: 100%; 
-    margin: 0 10px; 
-    position: absolute; 
-    top: 0; 
-    bottom: 0; 
+    width: 1px; /* Width of the divider line */
+    background-color: #000; /* Divider color */
+    height: 100%; /* Height of the divider */
+    margin: 0 10px; /* Spacing around the divider */
+    position: absolute; /* Positioning absolute to align correctly */
+    top: 0; /* Align to the top */
+    bottom: 0; /* Align to the bottom */
   }
   
   /* Arrow styling */
   .arrow {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out; /* Smooth rotation effect */
   }
   
   /* Dropdown menu styles */
@@ -674,8 +658,8 @@ color:black;
     top: 100%;
     left: 0;
     z-index: 9999;
-    max-height: 210px;
-    overflow:auto;
+ 
+    overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
   
@@ -688,38 +672,21 @@ color:black;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-
+  /* Hover effect for dropdown items */
   .dropdown-item:hover {
     background-color: black;
     color: white;
   }
   
- 
+  /* Arrow positioning */
   #dropdown-arrow {
-    margin-left: 0.5rem; 
+    margin-left: 0.5rem; /* Margin adjustment */
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
     transform-origin: center; 
   
 }
-.dropdown-scroll {
-  max-height: 100px; 
-  overflow-y: auto; 
-  overflow-x: hidden; 
-}
-.dropdown-scroll::-webkit-scrollbar {
-  width: 0; 
-}
 
-
-.dropdown-scroll {
-  scrollbar-width: none;
-}
-
-
-.dropdown-scroll {
-  -ms-overflow-style: none; 
-}
   .arrow-container{
     border-left: 1px solid black;
     padding-left: 10px;

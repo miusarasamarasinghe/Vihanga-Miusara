@@ -308,35 +308,50 @@
     function renderColorSwatches(colors) {
       const productColors = document.querySelector('.product-colors');
       productColors.innerHTML = ''; 
-
+    
       colors.forEach((color) => {
         const colorOption = document.createElement('div');
         colorOption.className = 'color-option';
-        colorOption.style.border = '1px solid black';
-        colorOption.style.borderLeft = `7px solid ${color}`;
-        colorOption.style.padding = '5px';
+        colorOption.style.display = 'flex';
+        colorOption.style.alignItems = 'center';
         colorOption.style.margin = '5px 0';
-        colorOption.style.width = '130px';
-        colorOption.textContent = color;
-
-        // Add click event to handle selection
+        colorOption.style.width = '150px';
+        colorOption.style.padding = '5px';
+        colorOption.style.cursor = 'pointer';
+    
+        // Create the small color box
+        const colorBox = document.createElement('div');
+        colorBox.className = 'color-box';
+        colorBox.style.backgroundColor = color.toLowerCase(); // Set the color box background
+        colorBox.style.width = '20px';
+        colorBox.style.height = '20px';
+        colorBox.style.borderRadius = '50%';
+        colorBox.style.marginRight = '10px'; 
+    
+       
+        const colorText = document.createElement('span');
+        colorText.style.color = color.toLowerCase() === 'white' ? 'black' : 'initial'; 
+        colorText.textContent = color;
+    
+       
+        colorOption.appendChild(colorBox);
+        colorOption.appendChild(colorText);
+    
+      
         colorOption.addEventListener('click', () => {
-        
           const allOptions = document.querySelectorAll('.color-option');
           allOptions.forEach((option) => option.classList.remove('selected'));
-
-        
+    
           colorOption.classList.add('selected');
+    
 
-      
-          const selectedColor = colorOption.textContent;
+          const selectedColor = colorText.textContent;
           console.log('Selected Color:', selectedColor); 
         });
-
+    
         productColors.appendChild(colorOption);
       });
     }
-
     function closePopup() {
       const popup = document.querySelector('.product-popup');
       if (popup) {
