@@ -217,6 +217,8 @@ body {
           background-color:#F5F5F5;
         }.sm-end-text{
         display:none;
+        padding-left: 10px;
+        padding-right: 10px;
         }
         .lg-end-text{
           display:block;

@@ -149,13 +149,9 @@
                 </div>
               </div>
               <div id="dropdown-menu" class="dropdown-menu">
-                <div class="dropdown-scroll">
-                  <div class="dropdown-item" onclick="selectOption('XS')">XS</div>
-                  <div class="dropdown-item" onclick="selectOption('S')">S</div>
-                  <div class="dropdown-item" onclick="selectOption('M')">M</div>
-                  <div class="dropdown-item" onclick="selectOption('L')">L</div>
-                  <div class="dropdown-item" onclick="selectOption('XL')">XL</div>
-              </div>
+                <div class="dropdown-item" onclick="selectOption('XS')">XS</div>
+                <div class="dropdown-item" onclick="selectOption('S')">S</div>
+                <div class="dropdown-item" onclick="selectOption('M')">M</div>
               </div>
             </div><div>
               
@@ -236,7 +232,6 @@
         colors: ['Blue', 'Black'],
        
       },
-        
     ];
     let selectedColor = '';
     let selectedSize = '';
@@ -306,64 +301,37 @@
     }
 
     function renderColorSwatches(colors) {
-      let productColors = document.querySelector('.product-colors');
-    
-      // If the container doesn't exist, create it and add it to the body
-      if (!productColors) {
-        productColors = document.createElement('div');
-        productColors.className = 'product-colors';
-        document.body.appendChild(productColors);
-      }
-    
-      // Clear previous content
-      productColors.innerHTML = '';
-    
-      // Iterate through each color to create color options
+      const productColors = document.querySelector('.product-colors');
+      productColors.innerHTML = ''; 
+
       colors.forEach((color) => {
-        // Create a container for each color option
         const colorOption = document.createElement('div');
         colorOption.className = 'color-option';
-        colorOption.style.display = 'flex';
-        colorOption.style.alignItems = 'center';
-        colorOption.style.margin = '5px 0';
-        colorOption.style.width = '150px';
+        colorOption.style.border = '1px solid black';
+        colorOption.style.borderLeft = `7px solid ${color}`;
         colorOption.style.padding = '5px';
-        colorOption.style.cursor = 'pointer';
-    
-        // Create the small color box
-        const colorBox = document.createElement('div');
-        colorBox.className = 'color-box';
-        colorBox.style.backgroundColor = color.toLowerCase(); // Set the color box background
-        colorBox.style.width = '20px';
-        colorBox.style.height = '20px';
-        colorBox.style.borderRadius = '50%';
-        colorBox.style.marginRight = '10px'; // Add some space between the box and text
-    
-        // Create a span element to show the color name text
-        const colorText = document.createElement('span');
-        colorText.style.color = color.toLowerCase() === 'white' ? 'black' : 'initial'; // Set text color for better visibility
-        colorText.textContent = color;
-    
-        // Append the color box and color text to the color option container
-        colorOption.appendChild(colorBox);
-        colorOption.appendChild(colorText);
-    
+        colorOption.style.margin = '5px 0';
+        colorOption.style.width = '130px';
+        colorOption.textContent = color;
+
         // Add click event to handle selection
         colorOption.addEventListener('click', () => {
+        
           const allOptions = document.querySelectorAll('.color-option');
           allOptions.forEach((option) => option.classList.remove('selected'));
-    
+
+        
           colorOption.classList.add('selected');
-    
-          // Store the selected color
-          const selectedColor = colorText.textContent;
-          console.log('Selected Color:', selectedColor);
+
+      
+          const selectedColor = colorOption.textContent;
+          console.log('Selected Color:', selectedColor); 
         });
-    
-        // Add the color option to the main container
+
         productColors.appendChild(colorOption);
       });
     }
+
     function closePopup() {
       const popup = document.querySelector('.product-popup');
       if (popup) {
@@ -443,17 +411,7 @@ function addToCart(event, productId) {
 
  
   console.log(`Added to cart: ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
-  if (selectedSize === "M" && selectedColor === "Black") {
-   
-      console.log(`Also added to cart : Soft Winter Jacket , Size: Medium, Color: Black, Price: $69.99`);
-      
-    
-      alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}\n- Soft Winter Jacket, Size: Medium, Color: Black,Price: $69.99`);
-  
-  } else {
-   
-    alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
-  }
+
  
 }
 
