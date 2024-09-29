@@ -483,6 +483,7 @@ transition: color 0.4s ease;
         }
         .sm-end-text{
           display:block;
+          padding: 10px;
           }
           .lg-end-text{
             display:none;
