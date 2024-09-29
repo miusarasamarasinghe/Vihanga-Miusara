@@ -576,6 +576,7 @@ color:black;
       margin: 5px 0;
       width: 129px;
       cursor: pointer; 
+      color: white;
       transition: background-color 0.3s ease, color 1s ease; 
     }
 
