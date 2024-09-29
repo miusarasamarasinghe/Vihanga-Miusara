@@ -346,6 +346,7 @@ right:20%;
   display: grid;
   display: grid;
   grid-template-columns: 120px 150px;
+  gap:3px;
 
 
 }
