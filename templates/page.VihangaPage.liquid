@@ -153,8 +153,8 @@
                 <div class="dropdown-item" onclick="selectOption('XS')">XS</div>
                 <div class="dropdown-item" onclick="selectOption('S')">S</div>
                 <div class="dropdown-item" onclick="selectOption('M')">M</div>
-                <div class="dropdown-item" onclick="selectOption('L')">L</div>
-                <div class="dropdown-item" onclick="selectOption('XL')">XL</div>
+                <div class="dropdown-item" onclick="selectOption('M')">L</div>
+                <div class="dropdown-item" onclick="selectOption('M')">XL</div>
             </div>
             </div>
           </div><div>
@@ -236,7 +236,6 @@
       colors: ['Blue', 'Black'],
      
     },
-      
   ];
   let selectedColor = '';
   let selectedSize = '';
@@ -308,50 +307,35 @@
   function renderColorSwatches(colors) {
     const productColors = document.querySelector('.product-colors');
     productColors.innerHTML = ''; 
-  
+
     colors.forEach((color) => {
       const colorOption = document.createElement('div');
       colorOption.className = 'color-option';
-      colorOption.style.display = 'flex';
-      colorOption.style.alignItems = 'center';
-      colorOption.style.margin = '5px 0';
-      colorOption.style.width = '150px';
+      colorOption.style.border = '1px solid black';
+      colorOption.style.borderLeft = `7px solid ${color}`;
       colorOption.style.padding = '5px';
-      colorOption.style.cursor = 'pointer';
-  
-      // Create the small color box
-      const colorBox = document.createElement('div');
-      colorBox.className = 'color-box';
-      colorBox.style.backgroundColor = color.toLowerCase(); // Set the color box background
-      colorBox.style.width = '20px';
-      colorBox.style.height = '20px';
-      colorBox.style.borderRadius = '50%';
-      colorBox.style.marginRight = '10px'; 
-  
-     
-      const colorText = document.createElement('span');
-      colorText.style.color = color.toLowerCase() === 'white' ? 'black' : 'initial'; 
-      colorText.textContent = color;
-  
-     
-      colorOption.appendChild(colorBox);
-      colorOption.appendChild(colorText);
-  
-    
+      colorOption.style.margin = '5px 0';
+      colorOption.style.width = '130px';
+      colorOption.textContent = color;
+
+      // Add click event to handle selection
       colorOption.addEventListener('click', () => {
+      
         const allOptions = document.querySelectorAll('.color-option');
         allOptions.forEach((option) => option.classList.remove('selected'));
-  
-        colorOption.classList.add('selected');
-  
 
-        const selectedColor = colorText.textContent;
+      
+        colorOption.classList.add('selected');
+
+    
+        const selectedColor = colorOption.textContent;
         console.log('Selected Color:', selectedColor); 
       });
-  
+
       productColors.appendChild(colorOption);
     });
   }
+
   function closePopup() {
     const popup = document.querySelector('.product-popup');
     if (popup) {
@@ -431,15 +415,18 @@ if (!selectedSize || !selectedColor) {
 
 
 console.log(`Added to cart: ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
-if (selectedSize === "M" && selectedColor === "Black") {
- 
-    console.log(`Also added to cart : Soft Winter Jacket , Size: Medium, Color: Black, Price: $69.99`);
+if (selectedSize === "Medium" && selectedColor === "Black") {
+  const softWinterJacket = products.find(p => p.name === "Soft Winter Jacket");
+  if (softWinterJacket) {
+    console.log(`Also added to cart: ${softWinterJacket.name}, Size: Medium, Color: Black, Price: $${softWinterJacket.price.toFixed(2)}`);
     
-  
-    alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}\n- Soft Winter Jacket, Size: Medium, Color: Black,Price: $69.99`);
-
+    // Show alert with added products
+    alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}\n- ${softWinterJacket.name}, Size: Medium, Color: Black, Price: $${softWinterJacket.price.toFixed(2)}`);
+  } else {
+    console.error('Soft Winter Jacket not found');
+  }
 } else {
- 
+  // Show alert for only the main product
   alert(`Added to cart:\n- ${product.name}, Size: ${selectedSize}, Color: ${selectedColor}, Price: $${product.price.toFixed(2)}`);
 }
 
