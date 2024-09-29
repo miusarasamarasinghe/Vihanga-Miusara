@@ -550,7 +550,7 @@ color:black;
       }
 
       }
-      .color-option {
+      /* .color-option {
         border: 1px solid black;
         padding: 5px;
         margin: 5px 0;
@@ -562,7 +562,35 @@ color:black;
       .color-option.selected {
         background-color: black; 
         color: white; 
-      }
+      } */
+      .color-option {
+        border: 1px solid black;
+        padding: 5px;
+        margin: 5px 0;
+        width: 130px;
+        cursor: pointer; 
+        transition: background-color 0.3s ease, color 0.3s ease; 
+    }
+    
+    /* Change color based on position */
+    .color-option:nth-child(odd) {
+        background-color: white; /* Default color for left side */
+    }
+    
+    .color-option:nth-child(odd):hover {
+        background-color: black; /* Hover effect for left side */
+        color: white; 
+    }
+    
+    .color-option:nth-child(even) {
+        background-color: white; /* Default color for right side */
+    }
+    
+    .color-option:nth-child(even):hover {
+        background-color: black; /* Hover effect for right side */
+        color: white; 
+    }
+    
       .dropdown-container {
         position: relative; 
       }
