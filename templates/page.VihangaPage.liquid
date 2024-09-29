@@ -306,21 +306,10 @@
   }
 
   function renderColorSwatches(colors) {
-    let productColors = document.querySelector('.product-colors');
+    const productColors = document.querySelector('.product-colors');
+    productColors.innerHTML = ''; 
   
-    // If the container doesn't exist, create it and add it to the body
-    if (!productColors) {
-      productColors = document.createElement('div');
-      productColors.className = 'product-colors';
-      document.body.appendChild(productColors);
-    }
-  
-    // Clear previous content
-    productColors.innerHTML = '';
-  
-    // Iterate through each color to create color options
     colors.forEach((color) => {
-      // Create a container for each color option
       const colorOption = document.createElement('div');
       colorOption.className = 'color-option';
       colorOption.style.display = 'flex';
@@ -337,30 +326,29 @@
       colorBox.style.width = '20px';
       colorBox.style.height = '20px';
       colorBox.style.borderRadius = '50%';
-      colorBox.style.marginRight = '10px'; // Add some space between the box and text
+      colorBox.style.marginRight = '10px'; 
   
-      // Create a span element to show the color name text
+     
       const colorText = document.createElement('span');
-      colorText.style.color = color.toLowerCase() === 'white' ? 'black' : 'initial'; // Set text color for better visibility
+      colorText.style.color = color.toLowerCase() === 'white' ? 'black' : 'initial'; 
       colorText.textContent = color;
   
-      // Append the color box and color text to the color option container
+     
       colorOption.appendChild(colorBox);
       colorOption.appendChild(colorText);
   
-      // Add click event to handle selection
+    
       colorOption.addEventListener('click', () => {
         const allOptions = document.querySelectorAll('.color-option');
         allOptions.forEach((option) => option.classList.remove('selected'));
   
         colorOption.classList.add('selected');
   
-        // Store the selected color
+
         const selectedColor = colorText.textContent;
-        console.log('Selected Color:', selectedColor);
+        console.log('Selected Color:', selectedColor); 
       });
   
-      // Add the color option to the main container
       productColors.appendChild(colorOption);
     });
   }
