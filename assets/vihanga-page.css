@@ -371,21 +371,21 @@ body {
   display: none;
 }
 .product-colors {
-  display: flex; /* Use flexbox for layout */
+  display: flex; 
   align-items: center;
-  width:100%; /* Center items vertically */
+  width:100%; 
 }
 
 .product-colors strong {
-  margin-right: 0; /* Remove any right margin from the strong element */
+  margin-right: 0; 
 }
 
 .color-swatch {
-  border-left: 5px solid; /* Keep the left border */
-  width: 130px; /* Fixed width for color swatch */
-  height: 20px; /* Fixed height for color swatch */
-  margin-left: 0; /* Remove left margin to eliminate gap */
-  margin-right: 0; /* Remove right margin to eliminate gap */
+  border-left: 5px solid; 
+  width: 130px; 
+  height: 20px; 
+  margin-left: 0; 
+  margin-right: 0;
 }
 .popup-bttn{
 display: inline-block;
@@ -549,7 +549,7 @@ color:black;
       }
 
       }
-      .color-option {
+      /* .color-option {
         border: 1px solid black;
         padding: 5px;
         margin: 5px 0;
@@ -561,12 +561,39 @@ color:black;
       .color-option.selected {
         background-color: black; 
         color: white; 
-      }
+      } */
+      .color-option {
+        border: 1px solid black;
+        padding: 5px;
+        margin: 5px 0;
+        width: 130px;
+        cursor: pointer; 
+        transition: background-color 0.3s ease, color 0.3s ease; 
+    }
+    
+    /* Change color based on position */
+    .color-option:nth-child(odd) {
+        background-color: white; /* Default color for left side */
+    }
+    
+    .color-option:nth-child(odd):hover {
+        background-color: black; /* Hover effect for left side */
+        color: white; 
+    }
+    
+    .color-option:nth-child(even) {
+        background-color: white; /* Default color for right side */
+    }
+    
+    .color-option:nth-child(even):hover {
+        background-color: black; /* Hover effect for right side */
+        color: white; 
+    }
       .dropdown-container {
         position: relative; 
       }
 
-      /* Default styles for the select element */
+  
       .size-dropdown {
         background-color: white;
         color: black;
@@ -579,7 +606,7 @@ color:black;
         -moz-appearance: none;
       }
 
-      /* Styles for the select element on hover */
+   
       .size-dropdown:hover {
         background-color: black;
         color: white;
@@ -592,19 +619,12 @@ color:black;
         transform: translateY(-50%);
         pointer-events: none;
       }
-      /* Style for the dropdown container */
+  
 
 /* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
-/* Container styling */
+
 .custom-dropdown {
-    width: 260px; /* Adjust width as needed */
+    width: 260px; 
     font-family: Arial, sans-serif;
     position: relative;
     user-select: none;
@@ -623,33 +643,23 @@ color:black;
   .dropdown-content {
     display: flex;
     align-items: center;
-    padding: 2px; /* Add padding */
+    padding: 2px;
     cursor: pointer;
   }
   
-  /* Selected option styling */
+ 
   #selected-option {
     flex: 1;
-    padding-left: 10px; /* Align text to the left */
+    padding-left: 10px; 
   }
   
-  /* Divider styling */
-  .divider {
-    width: 1px; /* Width of the divider line */
-    background-color: #000; /* Divider color */
-    height: 100%; /* Height of the divider */
-    margin: 0 10px; /* Spacing around the divider */
-    position: absolute; /* Positioning absolute to align correctly */
-    top: 0; /* Align to the top */
-    bottom: 0; /* Align to the bottom */
-  }
   
   /* Arrow styling */
   .arrow {
-    transition: transform 0.3s ease-in-out; /* Smooth rotation effect */
+    transition: transform 0.3s ease-in-out; 
   }
   
-  /* Dropdown menu styles */
+
   .dropdown-menu {
     display: none;
     background-color: white;
@@ -664,7 +674,7 @@ color:black;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Dropdown item styles */
+
   .dropdown-item {
     padding: 6px 7px;
     cursor: pointer;
@@ -681,7 +691,7 @@ color:black;
   
   /* Arrow positioning */
   #dropdown-arrow {
-    margin-left: 0.5rem; /* Margin adjustment */
+    margin-left: 0.5rem; 
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
     transform-origin: center; 
