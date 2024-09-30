@@ -383,7 +383,6 @@ padding-top:10px;
  line-height: 19.2px;
  text-align: left;
  padding-top: 11px;
-
 }
 
 .popup-image-cont {
@@ -626,7 +625,7 @@ color:black;
 
 /* Container styling */
 .custom-dropdown {
-  width: 260px; /* Adjust width as needed */
+  width: 260px; 
   font-family: Arial, sans-serif;
   position: relative;
   user-select: none;
