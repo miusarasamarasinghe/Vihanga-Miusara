@@ -671,11 +671,8 @@ font-size: 24px;
 
       .Card-img {
         max-height: 186.42px;
-
-        width: 169px;
-      
-
-
+        width: 100%; 
+        
       }
       .popup-content {
         max-width: 95%;
