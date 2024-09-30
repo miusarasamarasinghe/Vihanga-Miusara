@@ -621,17 +621,7 @@ color: #333333;
       .banner-image {
         display: none;
       }
-      .header-button-nav-mobile .bttn-txt-header-nav-mobile,
-      .header-button-nav-mobile .arrow-header-nav {
-        position: relative;
-        z-index: 1;
-        display: block !important;
-      }
-
-      .header-button-nav-mobile:hover .bttn-txt-header-nav-mobile,
-      .header-button-nav-mobile:hover .arrow-header-nav-mobile {
-        color: white !important;
-      }
+     
       .small-device-sec {
         display: block;
       }
