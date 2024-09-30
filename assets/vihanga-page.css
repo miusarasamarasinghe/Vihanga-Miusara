@@ -625,7 +625,7 @@ color: #333333;
       .header-button-nav-mobile .arrow-header-nav {
         position: relative;
         z-index: 1;
-        display: block;
+        display: block !important;
       }
 
       .header-button-nav-mobile:hover .bttn-txt-header-nav-mobile,
